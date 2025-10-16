@@ -4,9 +4,6 @@ node_modules/
 # Environment variables
 .env
 
-# Intermediate token files (fetched from Figma)
-tokens/
-
 # OS files
 .DS_Store
 
