@@ -1,6 +1,4 @@
-const StyleDictionary = require('style-dictionary');
-
-module.exports = {
+export default {
   // Source files support DTCG format natively in v4
   source: ['tokens/**/*.json'],
 
