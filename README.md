@@ -142,11 +142,11 @@ module.exports = {
 | TypeScript | `build/js/tokens.d.ts` | Type definitions |
 | JSON | `build/json/tokens.json` | Programmatic access |
 
-## Using in Your React App
+## Using in my-seed-live (MSL) or other repo
 
-### Git Submodule (Recommended)
+### Git Submodule
 
-**Setup (one time):**
+**Setup (one time in repo):**
 ```bash
 cd your-react-app
 git submodule add git@github.com:seed-health/tokens.git tokens
@@ -169,24 +169,12 @@ git add tokens
 git commit -m "Update design tokens"
 ```
 
-**Team setup (after cloning):**
+**Setup from my-seed-live (MSL) or other repo:**
 ```bash
 git clone --recursive https://github.com/seed-health/my-seed-live
 # or if already cloned:
 git submodule update --init --recursive
 ```
-
-### Alternative: Direct GitHub Install
-
-```json
-{
-  "dependencies": {
-    "@seed-health/tokens": "github:seed-health/tokens#main"
-  }
-}
-```
-
-Then: `npm install` and import like a normal package.
 
 ## Automation
 
