@@ -230,25 +230,6 @@ Uses W3C DTCG standard:
 - ❌ No platform-specific names
 - ❌ Max 4 levels deep
 
-## Troubleshooting
-
-**"Cannot fetch from Figma API"**
-- Check `FIGMA_TOKEN` is valid
-- Requires Figma Professional plan or higher
-- Ensure file uses Variables (not Styles)
-
-**"Validation failed"**
-```bash
-npm run validate
-```
-
-**"Build fails"**
-```bash
-rm -rf node_modules package-lock.json
-npm install
-npm run sync
-```
-
 ## Requirements
 
 - Figma Professional plan or higher
