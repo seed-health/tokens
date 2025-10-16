@@ -2,15 +2,11 @@ name: Sync Figma Tokens
 
 on:
   # Run every hour
-  schedule:
-    - cron: '0 * * * *'
+  # schedule:
+  #   - cron: '0 * * * *'
 
   # Allow manual trigger
   workflow_dispatch:
-
-  # Optional: Trigger on push to main (useful for testing)
-  # push:
-  #   branches: [main]
 
 jobs:
   sync-tokens:
@@ -21,7 +17,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0  # Fetch full history for diff
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
