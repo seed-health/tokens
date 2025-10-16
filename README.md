@@ -63,7 +63,7 @@ npm run sync           # Fetch + build
 
 ```jsx
 // App.jsx
-import '@your-org/design-tokens/build/css/variables.css';
+import '@seed-health/tokens/build/css/variables.css';
 
 function Button() {
   return (
@@ -80,7 +80,7 @@ function Button() {
 **Option 2: JavaScript Import**
 
 ```jsx
-import tokens from '@your-org/design-tokens';
+import tokens from '@seed-health/tokens';
 
 function Button() {
   return (
@@ -108,7 +108,7 @@ function Button() {
 
 ```jsx
 import styled from 'styled-components';
-import tokens from '@your-org/design-tokens';
+import tokens from '@seed-health/tokens';
 
 const Button = styled.button`
   background-color: ${tokens.color.primary['500'].value};
@@ -120,7 +120,7 @@ const Button = styled.button`
 
 ```js
 // tailwind.config.js
-const tokens = require('@your-org/design-tokens/build/json/tokens-flat.json');
+const tokens = require('@seed-health/tokens/build/json/tokens-flat.json');
 
 module.exports = {
   theme: {
@@ -149,29 +149,29 @@ module.exports = {
 **Setup (one time):**
 ```bash
 cd your-react-app
-git submodule add git@github.com:seed-health/tokens.git design-tokens
+git submodule add git@github.com:seed-health/tokens.git tokens
 git commit -m "Add design tokens submodule"
 ```
 
 **Import in React:**
 ```jsx
-import '../design-tokens/build/css/variables.css';
+import '../tokens/build/css/variables.css';
 // or
-import tokens from '../design-tokens/build/js/tokens.js';
+import tokens from '../tokens/build/js/tokens.js';
 ```
 
 **Update tokens when needed:**
 ```bash
-cd design-tokens
+cd tokens
 git pull origin main
 cd ..
-git add design-tokens
+git add tokens
 git commit -m "Update design tokens"
 ```
 
 **Team setup (after cloning):**
 ```bash
-git clone --recursive https://github.com/your-org/your-app
+git clone --recursive https://github.com/seed-health/my-seed-live
 # or if already cloned:
 git submodule update --init --recursive
 ```
@@ -181,7 +181,7 @@ git submodule update --init --recursive
 ```json
 {
   "dependencies": {
-    "@seed-health/design-tokens": "github:seed-health/tokens#main"
+    "@seed-health/tokens": "github:seed-health/tokens#main"
   }
 }
 ```

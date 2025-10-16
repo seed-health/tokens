@@ -1,5 +1,5 @@
 {
-  "name": "@your-org/design-tokens",
+  "name": "@seed-health/tokens",
   "version": "1.0.0",
   "description": "Design tokens synced from Figma Variables",
   "main": "build/js/tokens.module.js",
@@ -29,7 +29,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-org/design-tokens.git"
+    "url": "https://github.com/seed-health/tokens.git"
   },
   "dependencies": {
     "style-dictionary": "^4.0.1"
