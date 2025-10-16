@@ -1,4 +1,4 @@
-# Design Tokens
+# Seed Design Tokens
 
 Automated design token sync from Figma Variables to React. Uses Style Dictionary v4 and W3C DTCG format.
 
@@ -27,12 +27,7 @@ FIGMA_TOKEN=your_token
 FIGMA_FILE_KEY=your_file_key
 ```
 
-### 2. GitHub Secrets (for automation)
-
-Add `FIGMA_TOKEN` and `FIGMA_FILE_KEY` to your repository secrets:
-`Settings` → `Secrets and variables` → `Actions`
-
-### 3. Figma Setup
+### 2. Figma Setup
 
 In Figma, use **Variables** (not Styles) with this naming pattern:
 
@@ -42,8 +37,6 @@ color/bg/primary
 spacing/medium
 spacing/button/padding
 ```
-
-Use Collections and Modes for themes (light/dark).
 
 ## Usage
 
@@ -245,7 +238,3 @@ npm run sync
 - [W3C DTCG Spec](https://www.designtokens.org/)
 - [Style Dictionary](https://styledictionary.com/)
 - [Figma Variables](https://help.figma.com/hc/en-us/articles/15339657135383)
-
-## License
-
-MIT
