@@ -2,43 +2,193 @@
  * Do not edit directly, this file was auto-generated.
  */
 
-export const TextPrimaryText = "#ffffff";
-export const TextPrimary = "#1c3a13";
-export const TextSecondary = "#1c3a13b2";
-export const TextDisabled = "#1c3a1380";
-export const TextInverse = "#fcfcf7";
-export const TextError = "#eb5757";
-export const TextWarning = "#ebb057";
-export const TypefaceSize350 = "14px";
-export const AppearanceMeasurement100 = "4px";
-export const AppearanceMeasurement200 = "8px";
-export const AppearanceMeasurement300 = "12px";
-export const AppearanceMeasurement400 = "16px";
-export const AppearanceMeasurement600 = "24px";
-export const AppearanceMeasurement800 = "32px";
-export const AppearanceMeasurement1000 = "40px";
-export const AppearanceMeasurement1200 = "48px";
-export const AppearanceMeasurement1400 = "56px";
-export const AppearanceMeasurement1600 = "64px";
-export const AppearanceMeasurement1800 = "72px";
-export const AppearanceMeasurement2000 = "80px";
-export const AppearanceMeasurement2500 = "100px";
-export const AppearanceMeasurement00 = "0px";
-export const AppearanceMeasurement025 = "1px";
-export const AppearanceMeasurement050 = "2px";
-export const AppearanceOpacity10 = "10px";
-export const AppearanceOpacity20 = "20px";
-export const AppearanceOpacity30 = "30px";
-export const AppearanceOpacity40 = "40px";
-export const AppearanceOpacity50 = "50px";
-export const AppearanceOpacity60 = "60px";
-export const AppearanceOpacity70 = "70px";
-export const AppearanceOpacity80 = "80px";
-export const AppearanceOpacity90 = "90px";
-export const AppearanceOpacity100 = "100px";
-export const AppearanceOpacity00 = "0px";
-export const ColorBaseWhite = "#ffffff";
-export const ColorBaseBlack = "#000000";
+export const FrostedGlassStrong = "blur(75px)";
+export const FixedBodyMedium = {
+  fontFamily: "Seed Sans",
+  fontSize: "16px",
+  fontWeight: 350,
+  letterSpacing: "-0.16px",
+  lineHeight: "140%",
+};
+export const FixedBodyXsmall = {
+  fontFamily: "Seed Sans",
+  fontSize: "12px",
+  fontWeight: 350,
+  letterSpacing: "-0.06px",
+  lineHeight: "140%",
+}; // For all platforms • captions
+export const FixedLabelLarge = {
+  fontFamily: "Seed Sans",
+  fontSize: "20px",
+  fontWeight: 500,
+  letterSpacing: "-0.2px",
+  lineHeight: "140%",
+};
+export const FixedBodyLarge = {
+  fontFamily: "Seed Sans",
+  fontSize: "20px",
+  fontWeight: 350,
+  letterSpacing: "-0.2px",
+  lineHeight: "140%",
+};
+export const FixedLabelMedium = {
+  fontFamily: "Seed Sans",
+  fontSize: "16px",
+  fontWeight: 500,
+  letterSpacing: "-0.16px",
+  lineHeight: "140%",
+};
+export const FixedTitleSmall = {
+  fontFamily: "Seed Sans",
+  fontSize: "24px",
+  fontWeight: 350,
+  letterSpacing: "-0.36px",
+  lineHeight: "120.00000762939453%",
+};
+export const FixedBodySmall = {
+  fontFamily: "Seed Sans",
+  fontSize: "14px",
+  fontWeight: 350,
+  letterSpacing: "-0.14px",
+  lineHeight: "140%",
+};
+export const FixedTitleLarge = {
+  fontFamily: "Seed Sans",
+  fontSize: "32px",
+  fontWeight: 350,
+  letterSpacing: "-0.64px",
+  lineHeight: "110%",
+};
+export const FixedEyebrow = {
+  fontFamily: "Seed Sans",
+  fontSize: "12px",
+  fontWeight: 500,
+  letterSpacing: "0.24px",
+  lineHeight: "110%",
+}; // For all platforms • eyebrows
+export const FixedMonoLarge = {
+  fontFamily: "Seed Sans Mono",
+  fontSize: "16px",
+  fontWeight: 400,
+  letterSpacing: "0px",
+  lineHeight: "110%",
+};
+export const FixedMonoSmall = {
+  fontFamily: "Seed Sans Mono",
+  fontSize: "12px",
+  fontWeight: 400,
+  letterSpacing: "0px",
+  lineHeight: "110%",
+};
+export const FixedLabelSmall = {
+  fontFamily: "Seed Sans",
+  fontSize: "14px",
+  fontWeight: 500,
+  letterSpacing: "-0.14px",
+  lineHeight: "140%",
+};
+export const FixedLabelXsmall = {
+  fontFamily: "Seed Sans",
+  fontSize: "12px",
+  fontWeight: 500,
+  letterSpacing: "-0.06px",
+  lineHeight: "140%",
+};
+export const ScreenGridsStaticGrid = [
+  {
+    pattern: "rows",
+    sectionSize: "8px",
+    gutterSize: "8px",
+    count: -1,
+    alignment: "min",
+  },
+  {
+    pattern: "columns",
+    sectionSize: "96px",
+    gutterSize: "16px",
+    count: 12,
+    alignment: "center",
+  },
+]; // for screens 1440px +
+export const ScreenGridsFluidGrid = [
+  {
+    pattern: "rows",
+    sectionSize: "8px",
+    gutterSize: "8px",
+    count: -1,
+    alignment: "min",
+  },
+  {
+    pattern: "columns",
+    sectionSize: "5px",
+    gutterSize: "16px",
+    count: 4,
+    alignment: "stretch",
+  },
+]; // for screens upto 767px
+export const FrostedGlassLight = "blur(38px)";
+export const DesktopDisplayLarge = {
+  fontFamily: "Seed Sans",
+  fontSize: "64px",
+  fontWeight: 350,
+  letterSpacing: "-1.28px",
+  lineHeight: "100%",
+};
+export const DesktopDisplaySmall = {
+  fontFamily: "Seed Sans",
+  fontSize: "48px",
+  fontWeight: 350,
+  letterSpacing: "-0.96px",
+  lineHeight: "100%",
+};
+export const MobileDisplayLarge = {
+  fontFamily: "Seed Sans",
+  fontSize: "48px",
+  fontWeight: 350,
+  letterSpacing: "-0.96px",
+  lineHeight: "110%",
+};
+export const MobileDisplaySmall = {
+  fontFamily: "Seed Sans",
+  fontSize: "40px",
+  fontWeight: 350,
+  letterSpacing: "-0.8px",
+  lineHeight: "110%",
+};
+export const PageGridColumn = "8px";
+export const PageGridMargin = "16px";
+export const PageGridGutter = "16px";
+export const ColumnDefault = "4px";
+export const ColumnMedium = "8px";
+export const ColumnCompact = "12px";
+export const MarginNone = "0px";
+export const MarginSmall = "8px";
+export const MarginMedium = "16px";
+export const MarginLarge = "24px";
+export const MarginGiant = "80px";
+export const GutterNone = "0px";
+export const GutterSmall = "8px";
+export const GutterMedium = "16px";
+export const GutterLarge = "24px";
+export const CornerRadiusSm = "8px";
+export const CornerRadiusMd = "16px";
+export const CornerRadiusLg = "32px";
+export const SpacingBase = "8px";
+export const SpacingX5 = "40px";
+export const SpacingSpacing06 = "[object Object]px";
+export const SpacingX2 = "16px";
+export const SpacingX4 = "32px";
+export const SpacingX6 = "48px";
+export const SpacingX7 = "56px";
+export const SpacingX8 = "64px";
+export const SpacingX10 = "80px";
+export const SpacingX3 = "24px";
+export const ColorSeedGreenT20 = "#1c3a1333";
+export const ColorFrostedglassT35 = "#575e5559";
+export const ColorSeedgreen = "#1c3a13";
+export const ColorSeedgreenT10 = "#1c3a131a";
+export const ColorFlourescentgreen = "#d3fa99";
+export const ColorSnowwhite = "#fcfcf7";
 export const ColorPrimarySeedGreen = "#1c3a13";
 export const ColorPrimarySeedGreenT70 = "#1c3a13b2";
 export const ColorPrimarySeedGreenT50 = "#1c3a1380";
@@ -93,30 +243,50 @@ export const ColorDarkOpacity90 = "#000000e5";
 export const ColorDarkOpacity100 = "#000000";
 export const ColorDarkOpacity00 = "#00000000";
 export const ColorDarkOpacity08 = "#00000014";
-export const ColorSeedgreen = "#1c3a13";
-export const ColorSeedgreenT10 = "#1c3a131a";
-export const ColorFlourescentgreen = "#d3fa99";
-export const ColorSnowwhite = "#fcfcf7";
-export const ColorSiskingreen = "#d7e090";
-export const ColorVerdigrisgreen = "#71aa89";
-export const ColorGrassgreen = "#86996d";
-export const ColorEmeraldgreen = "#97b578";
-export const ColorAsparagusgreen = "#d0d9b9";
-export const ColorDuckgreen = "#466b22";
-export const ColorPistachiogreen = "#829249";
-export const ColorOlivegreen = "#61735e";
-export const ColorOilgreen = "#ad9f61";
-export const ColorUmberbrown = "#533b3b";
-export const ColorUmberbrownlight = "#bb797a";
-export const ColorArterialred = "#731418";
-export const ColorArterialredlight = "#eedac2";
-export const ColorIndigioblue = "#4d628d";
-export const ColorIndigobluelight = "#cdd6d1";
-export const ColorReddishorange = "#be6140";
-export const ColorReddishorangelight = "#f7ddaa";
-export const ColorScarletred = "#ef4800";
-export const ColorSeedGreenT20 = "#1c3a1333";
-export const ColorFrostedglassT35 = "#575e5559";
+export const FontFamily = "Seed Sans";
+export const FontSizeH2 = "48px";
+export const FontFamilyMono = "Seed Sans Mono";
+export const StateOpacityHover = "80px";
+export const StateOpacityFocused = "80px";
+export const StateOpacityPressed = "70px";
+export const StateOpacityDisabled = "40px";
+export const RadiusSmall = "8px";
+export const RadiusMedium = "16px";
+export const RadiusLarge = "32px";
+export const RadiusXSmall = "4px";
+export const RadiusSmall = "8px";
+export const RadiusMedium = "16px";
+export const RadiusLarge = "32px";
+export const RadiusFull = "100px";
+export const TypefaceSize350 = "14px";
+export const TextColor = "#1c3a13";
+export const AppearanceMeasurement100 = "4px";
+export const AppearanceMeasurement200 = "8px";
+export const AppearanceMeasurement300 = "12px";
+export const AppearanceMeasurement400 = "16px";
+export const AppearanceMeasurement600 = "24px";
+export const AppearanceMeasurement800 = "32px";
+export const AppearanceMeasurement1000 = "40px";
+export const AppearanceMeasurement1200 = "48px";
+export const AppearanceMeasurement1400 = "56px";
+export const AppearanceMeasurement1600 = "64px";
+export const AppearanceMeasurement1800 = "72px";
+export const AppearanceMeasurement2000 = "80px";
+export const AppearanceMeasurement2500 = "100px";
+export const AppearanceMeasurement00 = "0px";
+export const AppearanceMeasurement025 = "1px";
+export const AppearanceMeasurement050 = "2px";
+export const AppearanceOpacity10 = "10px";
+export const AppearanceOpacity20 = "20px";
+export const AppearanceOpacity30 = "30px";
+export const AppearanceOpacity40 = "40px";
+export const AppearanceOpacity50 = "50px";
+export const AppearanceOpacity60 = "60px";
+export const AppearanceOpacity70 = "70px";
+export const AppearanceOpacity80 = "80px";
+export const AppearanceOpacity90 = "90px";
+export const AppearanceOpacity100 = "100px";
+export const AppearanceOpacity00 = "0px";
 export const TypographyFontBrand = "Seed Sans";
 export const TypographyFontBrandMono = "Seed Sans Mono";
 export const TypographyWeight300 = "light";
@@ -132,45 +302,6 @@ export const TypographySize800 = "32px";
 export const TypographySize1000 = "40px";
 export const TypographySize1200 = "48px";
 export const TypographySize1600 = "64px";
-export const FontFamily = "Seed Sans";
-export const FontFamilyMono = "Seed Sans Mono";
-export const FontSizeH2 = "48px";
-export const RadiusSmall = "8px";
-export const RadiusMedium = "16px";
-export const RadiusLarge = "32px";
-export const RadiusXSmall = "4px";
-export const RadiusSmall = "8px";
-export const RadiusMedium = "16px";
-export const RadiusLarge = "32px";
-export const RadiusFull = "100px";
-export const SpacingBase = "8px";
-export const SpacingX2 = "16px";
-export const SpacingX4 = "32px";
-export const SpacingX5 = "40px";
-export const SpacingX6 = "48px";
-export const SpacingX7 = "56px";
-export const SpacingX8 = "64px";
-export const SpacingX10 = "80px";
-export const SpacingSpacing06 = "[object Object]px";
-export const SpacingX3 = "24px";
-export const CornerRadiusSm = "8px";
-export const CornerRadiusMd = "16px";
-export const CornerRadiusLg = "32px";
-export const PageGridColumn = "8px";
-export const PageGridMargin = "16px";
-export const PageGridGutter = "16px";
-export const ColumnDefault = "4px";
-export const ColumnMedium = "8px";
-export const ColumnCompact = "12px";
-export const MarginNone = "0px";
-export const MarginSmall = "8px";
-export const MarginMedium = "16px";
-export const MarginLarge = "24px";
-export const MarginGiant = "80px";
-export const GutterNone = "0px";
-export const GutterSmall = "8px";
-export const GutterMedium = "16px";
-export const GutterLarge = "24px";
 export const Gap10 = "8px";
 export const Gap20 = "16px";
 export const Gap30 = "24px";
@@ -197,6 +328,12 @@ export const ContainerLightGray = "#f9f9f9";
 export const ContainerGray = "#efefef";
 export const ContainerMediumGray = "#e6e6e6";
 export const ContainerSoftGreen = "#3d5b34";
+export const TextPrimary = "#1c3a13";
+export const TextSecondary = "#1c3a13b2";
+export const TextDisabled = "#1c3a1380";
+export const TextInverse = "#fcfcf7";
+export const TextError = "#eb5757";
+export const TextWarning = "#ebb057";
 export const OutlinePrimary = "#1c3a13";
 export const OutlineNeutral = "#d2d8d0";
 export const OutlineNeutralLight = "#1c3a131a";
@@ -255,8 +392,3 @@ export const ExtendedPaletteReddishOrange = "#be6140"; // inaccessible, only use
 export const ExtendedPaletteReddishOrangeLight = "#f7ddaa";
 export const ExtendedPaletteScarletRed = "#ef4800";
 export const StrokeDefault = "1px";
-export const StateOpacityHover = "80px";
-export const StateOpacityFocused = "80px";
-export const StateOpacityPressed = "70px";
-export const StateOpacityDisabled = "40px";
-export const TextColor = "#1c3a13";
