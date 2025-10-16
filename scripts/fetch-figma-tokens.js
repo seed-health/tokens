@@ -16,19 +16,12 @@ const variableIdMap = new Map();
 const modeNamesMap = new Map();
 
 /**
- * Fetch variables from Figma REST API
+ * Fetch variables from a single Figma file
  */
-async function fetchFigmaVariables() {
-  if (!FIGMA_TOKEN || !FIGMA_FILE_KEY) {
-    console.error('❌ Error: FIGMA_TOKEN and FIGMA_FILE_KEY must be set in .env file');
-    process.exit(1);
-  }
-
+async function fetchFigmaFile(fileKey) {
   try {
-    console.log('🔄 Fetching variables from Figma...');
-
     const response = await axios.get(
-      `https://api.figma.com/v1/files/${FIGMA_FILE_KEY}/variables/local`,
+      `https://api.figma.com/v1/files/${fileKey}/variables/local`,
       {
         headers: {
           'X-Figma-Token': FIGMA_TOKEN
@@ -36,12 +29,64 @@ async function fetchFigmaVariables() {
       }
     );
 
-    console.log('✅ Successfully fetched Figma variables');
+    console.log(`   ✅ Fetched: ${fileKey}`);
     return response.data;
   } catch (error) {
-    console.error('❌ Error fetching from Figma API:', error.response?.data || error.message);
+    console.error(`   ❌ Error fetching ${fileKey}:`, error.response?.data || error.message);
+    throw error;
+  }
+}
+
+/**
+ * Fetch variables from one or more Figma files
+ */
+async function fetchFigmaVariables() {
+  if (!FIGMA_TOKEN || !FIGMA_FILE_KEY) {
+    console.error('❌ Error: FIGMA_TOKEN and FIGMA_FILE_KEY must be set in .env file');
     process.exit(1);
   }
+
+  // Parse comma-delimited file keys
+  const fileKeys = FIGMA_FILE_KEY.split(',').map(k => k.trim()).filter(Boolean);
+
+  if (fileKeys.length === 0) {
+    console.error('❌ Error: FIGMA_FILE_KEY is empty');
+    process.exit(1);
+  }
+
+  console.log(`🔄 Fetching variables from ${fileKeys.length} Figma file(s)...\n`);
+
+  // Fetch from all files
+  const allData = await Promise.all(
+    fileKeys.map(fileKey => fetchFigmaFile(fileKey))
+  );
+
+  // Merge all file data
+  if (fileKeys.length === 1) {
+    return allData[0];
+  }
+
+  console.log('\n🔀 Merging data from multiple files...');
+
+  const merged = {
+    meta: {
+      variableCollections: {},
+      variables: {}
+    }
+  };
+
+  allData.forEach(data => {
+    if (data.meta?.variableCollections) {
+      Object.assign(merged.meta.variableCollections, data.meta.variableCollections);
+    }
+    if (data.meta?.variables) {
+      Object.assign(merged.meta.variables, data.meta.variables);
+    }
+  });
+
+  console.log('   ✅ Merged successfully');
+
+  return merged;
 }
 
 /**
@@ -111,14 +156,14 @@ function setNestedValue(obj, pathParts, value) {
 /**
  * Transform Figma variables to W3C DTCG format
  */
-function transformToDTCG(figmaData) {
+function transformToDTCG(figmaData, fileKeys = []) {
   const tokens = {};
   const { meta } = figmaData;
 
   // First pass: Build variable ID map and mode names
   if (meta?.variableCollections) {
     Object.entries(meta.variableCollections).forEach(([collectionId, collection]) => {
-      console.log(`📦 Processing collection: ${collection.name}`);
+      console.log(`\n📦 Processing collection: ${collection.name}`);
 
       // Store mode names for this collection
       collection.modes.forEach(mode => {
@@ -199,7 +244,7 @@ function transformToDTCG(figmaData) {
     $metadata: {
       generated: new Date().toISOString(),
       source: 'Figma Variables API',
-      figmaFileKey: FIGMA_FILE_KEY,
+      figmaFileKeys: fileKeys.length > 1 ? fileKeys : fileKeys[0],
       format: 'W3C DTCG',
       version: '1.0.0'
     }
@@ -274,8 +319,11 @@ function generateStats(tokens) {
 async function main() {
   console.log('🚀 Starting Figma token sync...\n');
 
+  // Parse file keys
+  const fileKeys = FIGMA_FILE_KEY.split(',').map(k => k.trim()).filter(Boolean);
+
   const figmaData = await fetchFigmaVariables();
-  const tokens = transformToDTCG(figmaData);
+  const tokens = transformToDTCG(figmaData, fileKeys);
   saveTokens(tokens);
 
   console.log('\n✨ Token sync completed successfully!');

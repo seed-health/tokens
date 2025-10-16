@@ -19,13 +19,20 @@ npm run sync
 
 ### 1. Figma Credentials
 
-Get your Figma Personal Access Token from [Figma Settings](https://www.figma.com/settings) and your File Key from your Figma file URL.
+Get your Figma Personal Access Token from [Figma Settings](https://www.figma.com/settings) and your File Key(s) from your Figma file URL(s).
 
 Add to `.env`:
 ```env
 FIGMA_TOKEN=your_token
-FIGMA_FILE_KEY=your_file_key
+
+# Single file
+FIGMA_FILE_KEY=abc123def456
+
+# Multiple files (comma-separated)
+FIGMA_FILE_KEY=abc123,def456,ghi789
 ```
+
+**Multiple Files**: Variables from all files are merged into a single token set. If there are naming conflicts, the last file wins.
 
 ### 2. Figma Setup
 
@@ -171,7 +178,6 @@ GitHub Action runs hourly and creates PRs with:
 - Detailed token diff
 - Validation results
 - Breaking change detection
-- Changelog updates
 
 Trigger manually via GitHub Actions UI.
 
@@ -230,7 +236,7 @@ npm run sync
 ## Requirements
 
 - Figma Professional plan or higher
-- Node.js 18.x or higher
+- Node.js 20.11 or higher
 - React application
 
 ## Resources
