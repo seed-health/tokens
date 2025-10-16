@@ -1,6 +1,6 @@
 # Seed Design Tokens
 
-Automated design token sync from Figma Variables to React. Uses Style Dictionary v4 and W3C DTCG format.
+Automated design token sync from Figma Variables and Styles to React. Uses Style Dictionary v4 and W3C DTCG format.
 
 ## Quick Start
 
@@ -36,8 +36,7 @@ FIGMA_FILE_KEY=abc123,def456,ghi789
 
 ### 2. Figma Setup
 
-In Figma, use **Variables** (not Styles) with this naming pattern:
-
+**Variables** (primitives - colors, spacing, sizes):
 ```
 color/primary/500
 color/bg/primary
@@ -45,39 +44,65 @@ spacing/medium
 spacing/button/padding
 ```
 
+**Styles** (semantic - typography, effects, grids):
+```
+fixed/body medium
+desktop display/large
+frosted glass strong
+screen grids/static grid
+```
+
+**Token Hierarchy:** Variables (primitives) → Styles (semantic) → Components (usage)
+
 ## Usage
 
 ### Commands
 
 ```bash
-npm run fetch-tokens   # Fetch from Figma
+npm run fetch-tokens   # Fetch variables from Figma
+npm run fetch-styles   # Fetch styles from Figma
+npm run fetch-all      # Fetch both variables and styles
 npm run build-tokens   # Build all formats
 npm run validate       # Validate tokens
 npm run diff           # Show changes
-npm run sync           # Fetch + build
+npm run sync           # Fetch all + build
 ```
 
 ### In React
 
-**Option 1: CSS Variables** (recommended)
+**Option 1: CSS Variables + Classes** (recommended)
 
 ```jsx
 // App.jsx
 import '@seed-health/tokens/build/css/variables.css';
+import '@seed-health/tokens/build/css/styles.css';
 
 function Button() {
   return (
-    <button style={{
-      backgroundColor: 'var(--color-primary-500)',
-      padding: 'var(--spacing-medium)'
-    }}>
+    <button
+      className="text-fixed-body-medium"
+      style={{
+        backgroundColor: 'var(--color-primary-500)',
+        padding: 'var(--spacing-medium)'
+      }}>
       Click me
     </button>
   );
 }
 ```
 
-**Option 2: JavaScript Import**
+**Option 2: CSS Classes Only (Typography & Effects)**
+
+```jsx
+// For typography styles
+<p className="text-fixed-body-medium">Body text</p>
+<h1 className="text-desktop-display-large">Large heading</h1>
+
+// For effects
+<div className="effect-frosted-glass-strong">Glass morphism</div>
+```
+
+**Option 3: JavaScript Import**
 
 ```jsx
 import tokens from '@seed-health/tokens';
@@ -94,7 +119,7 @@ function Button() {
 }
 ```
 
-**Option 3: CSS Modules**
+**Option 4: CSS Modules**
 
 ```css
 /* Button.module.css */
@@ -104,7 +129,7 @@ function Button() {
 }
 ```
 
-**Option 4: styled-components**
+**Option 5: styled-components**
 
 ```jsx
 import styled from 'styled-components';
@@ -116,28 +141,12 @@ const Button = styled.button`
 `;
 ```
 
-**Option 5: Tailwind CSS**
-
-```js
-// tailwind.config.js
-const tokens = require('@seed-health/tokens/build/json/tokens-flat.json');
-
-module.exports = {
-  theme: {
-    extend: {
-      colors: {
-        primary: tokens['color-primary-500']
-      }
-    }
-  }
-};
-```
-
 ## Output Formats
 
 | Format | Path | Usage |
 |--------|------|-------|
-| CSS Variables | `build/css/variables.css` | Global import |
+| CSS Variables | `build/css/variables.css` | Primitive tokens (colors, spacing) |
+| CSS Classes | `build/css/styles.css` | Semantic styles (typography, effects) |
 | JavaScript ES6 | `build/js/tokens.js` | Direct imports |
 | TypeScript | `build/js/tokens.d.ts` | Type definitions |
 | JSON | `build/json/tokens.json` | Programmatic access |
@@ -155,8 +164,11 @@ git commit -m "Add design tokens submodule"
 
 **Import in React:**
 ```jsx
+// Import both CSS files
 import '../tokens/build/css/variables.css';
-// or
+import '../tokens/build/css/styles.css';
+
+// Or JavaScript
 import tokens from '../tokens/build/js/tokens.js';
 ```
 

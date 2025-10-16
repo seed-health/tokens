@@ -3,7 +3,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const TOKENS_FILE = path.join(__dirname, '..', 'tokens', 'figma-variables.json');
+const VARIABLES_FILE = path.join(__dirname, '..', 'tokens', 'figma-variables.json');
+const STYLES_FILE = path.join(__dirname, '..', 'tokens', 'figma-styles.json');
 
 const errors = [];
 const warnings = [];
@@ -11,18 +12,16 @@ const warnings = [];
 /**
  * Validate that tokens file exists and is valid JSON
  */
-function validateFile() {
-  if (!fs.existsSync(TOKENS_FILE)) {
-    errors.push('Tokens file not found');
-    return null;
+function validateFile(filePath) {
+  if (!fs.existsSync(filePath)) {
+    return { error: 'File not found', data: null };
   }
 
   try {
-    const content = fs.readFileSync(TOKENS_FILE, 'utf8');
-    return JSON.parse(content);
+    const content = fs.readFileSync(filePath, 'utf8');
+    return { error: null, data: JSON.parse(content) };
   } catch (error) {
-    errors.push(`Invalid JSON: ${error.message}`);
-    return null;
+    return { error: `Invalid JSON: ${error.message}`, data: null };
   }
 }
 
@@ -48,6 +47,34 @@ function validateDTCG(tokens) {
           if (value.$type === 'color' && typeof value.$value === 'string' && !value.$value.startsWith('{')) {
             if (!/^#[0-9A-Fa-f]{6}$|^#[0-9A-Fa-f]{8}$|^rgba?\(/.test(value.$value)) {
               errors.push(`Invalid color format: ${currentPath.join('.')} = ${value.$value}`);
+            }
+          }
+
+          // Validate typography format
+          if (value.$type === 'typography') {
+            if (typeof value.$value !== 'object') {
+              errors.push(`Typography must have object value: ${currentPath.join('.')}`);
+            } else {
+              const required = ['fontFamily', 'fontSize'];
+              required.forEach(prop => {
+                if (!value.$value[prop]) {
+                  errors.push(`Typography missing ${prop}: ${currentPath.join('.')}`);
+                }
+              });
+            }
+          }
+
+          // Validate shadow/blur format
+          if (value.$type === 'blur' || value.$type === 'shadow') {
+            if (typeof value.$value !== 'string') {
+              errors.push(`${value.$type} must have string value: ${currentPath.join('.')}`);
+            }
+          }
+
+          // Validate grid format
+          if (value.$type === 'grid') {
+            if (typeof value.$value !== 'object' && !Array.isArray(value.$value)) {
+              errors.push(`Grid must have object or array value: ${currentPath.join('.')}`);
             }
           }
         } else {
@@ -107,17 +134,32 @@ function validateReferences(tokens) {
 function main() {
   console.log('🔍 Validating tokens...\n');
 
-  const tokens = validateFile();
-  if (!tokens) {
-    console.log('❌ Validation failed\n');
-    errors.forEach(err => console.log(`   • ${err}`));
-    process.exit(1);
+  // Validate variables file
+  console.log('📦 Validating variables...');
+  const variablesResult = validateFile(VARIABLES_FILE);
+  if (variablesResult.error) {
+    errors.push(`Variables: ${variablesResult.error}`);
+  } else {
+    console.log('   ✅ Variables file valid');
+    validateDTCG(variablesResult.data);
+    validateReferences(variablesResult.data);
   }
 
-  validateDTCG(tokens);
-  validateReferences(tokens);
+  // Validate styles file
+  console.log('\n📦 Validating styles...');
+  const stylesResult = validateFile(STYLES_FILE);
+  if (stylesResult.error) {
+    // Styles file is optional for now
+    warnings.push(`Styles: ${stylesResult.error}`);
+    console.log('   ⚠️  Styles file not found (optional)');
+  } else {
+    console.log('   ✅ Styles file valid');
+    validateDTCG(stylesResult.data);
+    validateReferences(stylesResult.data);
+  }
 
   // Print results
+  console.log();
   if (errors.length > 0) {
     console.log(`❌ Errors (${errors.length}):`);
     errors.forEach(err => console.log(`   • ${err}`));

@@ -4,13 +4,14 @@ const fs = require('fs');
 const path = require('path');
 const { parseTokens, flattenTokens, getPreviousTokens, compareTokens } = require('./utils');
 
-const TOKENS_FILE = 'tokens/figma-variables.json';
+const VARIABLES_FILE = 'tokens/figma-variables.json';
+const STYLES_FILE = 'tokens/figma-styles.json';
 
 /**
  * Format diff for display
  */
-function formatDiff(diff) {
-  let output = '# Design Token Changes\n\n';
+function formatDiff(diff, title = 'Design Token Changes') {
+  let output = `# ${title}\n\n`;
 
   if (diff.added.length === 0 && diff.removed.length === 0 && diff.modified.length === 0) {
     output += '**No changes detected**\n';
@@ -90,45 +91,72 @@ function detectBreakingChanges(diff) {
 }
 
 /**
+ * Process diff for a single file
+ */
+async function processDiff(filePath, label) {
+  const currentTokens = parseTokens(filePath);
+  if (!currentTokens) {
+    return { diff: null, breaking: [], output: `## ${label}\n\n**File not found**\n\n` };
+  }
+
+  const previousTokens = await getPreviousTokens(filePath);
+  if (!previousTokens) {
+    return {
+      diff: null,
+      breaking: [],
+      output: `## ${label}\n\n**No previous version** (new file or no git history)\n\n`
+    };
+  }
+
+  const diff = compareTokens(previousTokens, currentTokens);
+  const breaking = detectBreakingChanges(diff);
+  const output = formatDiff(diff, label);
+
+  return { diff, breaking, output };
+}
+
+/**
  * Main execution
  */
 async function main() {
   console.log('🔍 Analyzing token changes...\n');
 
-  const currentTokens = parseTokens(TOKENS_FILE);
-  if (!currentTokens) {
-    console.error('❌ Error: Could not read current tokens file');
-    process.exit(1);
-  }
+  // Process variables
+  console.log('📦 Checking variables...');
+  const variablesResult = await processDiff(VARIABLES_FILE, 'Variables Changes');
 
-  const previousTokens = await getPreviousTokens(TOKENS_FILE);
-  if (!previousTokens) {
-    console.log('ℹ️  No previous version found (new file or no git history)');
-    console.log('📊 Current token count:', Object.keys(flattenTokens(currentTokens)).length);
-    process.exit(0);
-  }
+  // Process styles
+  console.log('📦 Checking styles...');
+  const stylesResult = await processDiff(STYLES_FILE, 'Styles Changes');
 
-  const diff = compareTokens(previousTokens, currentTokens);
-  const breaking = detectBreakingChanges(diff);
+  // Combine outputs
+  let combinedOutput = '# Design Token Changes\n\n';
+  combinedOutput += variablesResult.output + '\n';
+  combinedOutput += stylesResult.output + '\n';
 
-  // Output formatted diff
-  const diffOutput = formatDiff(diff);
-  console.log(diffOutput);
+  // Combine breaking changes
+  const allBreaking = [...variablesResult.breaking, ...stylesResult.breaking];
+
+  // Display output
+  console.log('\n' + combinedOutput);
 
   // Check for breaking changes
-  if (breaking.length > 0) {
+  if (allBreaking.length > 0) {
     console.log('⚠️  BREAKING CHANGES DETECTED:\n');
-    breaking.forEach(change => console.log(`   ❗ ${change}`));
+    allBreaking.forEach(change => console.log(`   ❗ ${change}`));
     console.log();
   }
 
   // Save diff to file for GitHub Actions
   const diffFile = path.join(__dirname, '..', 'token-diff.md');
-  fs.writeFileSync(diffFile, diffOutput);
+  fs.writeFileSync(diffFile, combinedOutput);
   console.log(`📄 Diff saved to: token-diff.md`);
 
   // Exit with code 1 if there are changes (for CI)
-  const hasChanges = diff.added.length + diff.removed.length + diff.modified.length > 0;
+  const hasChanges =
+    (variablesResult.diff && (variablesResult.diff.added.length + variablesResult.diff.removed.length + variablesResult.diff.modified.length) > 0) ||
+    (stylesResult.diff && (stylesResult.diff.added.length + stylesResult.diff.removed.length + stylesResult.diff.modified.length) > 0);
+
   process.exit(hasChanges ? 1 : 0);
 }
 

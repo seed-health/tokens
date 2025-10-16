@@ -1,3 +1,46 @@
+import StyleDictionary from 'style-dictionary';
+
+/**
+ * Custom format for typography and effect CSS classes
+ */
+StyleDictionary.registerFormat({
+  name: 'css/style-classes',
+  format: ({ dictionary }) => {
+    let css = '/**\n * Figma Styles - CSS Classes\n * Generated from Figma Styles API\n */\n\n';
+
+    dictionary.allTokens.forEach(token => {
+      // Replace spaces with hyphens in path for valid CSS class names
+      const sanitizedPath = token.path.map(part => part.replace(/\s+/g, '-'));
+
+      if (token.$type === 'typography') {
+        const className = `.text-${sanitizedPath.join('-')}`;
+        const value = token.original.$value; // Use original value before transforms
+
+        css += `${className} {\n`;
+        if (value.fontFamily) css += `  font-family: "${value.fontFamily}";\n`;
+        if (value.fontSize) css += `  font-size: ${value.fontSize};\n`;
+        if (value.fontWeight) css += `  font-weight: ${value.fontWeight};\n`;
+        if (value.letterSpacing) css += `  letter-spacing: ${value.letterSpacing};\n`;
+        if (value.lineHeight) css += `  line-height: ${value.lineHeight};\n`;
+        css += '}\n\n';
+      } else if (token.$type === 'blur') {
+        const className = `.effect-${sanitizedPath.join('-')}`;
+        css += `${className} {\n`;
+        css += `  backdrop-filter: ${token.original.$value};\n`;
+        css += `  -webkit-backdrop-filter: ${token.original.$value};\n`;
+        css += '}\n\n';
+      } else if (token.$type === 'shadow') {
+        const className = `.shadow-${sanitizedPath.join('-')}`;
+        css += `${className} {\n`;
+        css += `  box-shadow: ${token.original.$value};\n`;
+        css += '}\n\n';
+      }
+    });
+
+    return css;
+  }
+});
+
 export default {
   // Source files support DTCG format natively in v4
   source: ['tokens/**/*.json'],
@@ -11,9 +54,21 @@ export default {
         {
           destination: 'variables.css',
           format: 'css/variables',
+          // Only include primitive tokens (color, dimension, string, etc.)
+          filter: (token) => {
+            return !['typography', 'shadow', 'blur', 'effect', 'grid'].includes(token.$type);
+          },
           options: {
             outputReferences: true,
             showFileHeader: true
+          }
+        },
+        {
+          destination: 'styles.css',
+          format: 'css/style-classes',
+          // Only include style tokens (typography, effects, grids)
+          filter: (token) => {
+            return ['typography', 'shadow', 'blur', 'effect', 'grid'].includes(token.$type);
           }
         }
       ]
