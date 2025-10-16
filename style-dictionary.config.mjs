@@ -8,7 +8,14 @@ StyleDictionary.registerFormat({
   format: ({ dictionary }) => {
     let css = '/**\n * Figma Styles - CSS Classes\n * Generated from Figma Styles API\n */\n\n';
 
-    dictionary.allTokens.forEach(token => {
+    // Sort tokens alphabetically by their path
+    const sortedTokens = [...dictionary.allTokens].sort((a, b) => {
+      const pathA = a.path.join('-').toLowerCase();
+      const pathB = b.path.join('-').toLowerCase();
+      return pathA.localeCompare(pathB);
+    });
+
+    sortedTokens.forEach(token => {
       // Replace spaces with hyphens in path for valid CSS class names
       const sanitizedPath = token.path.map(part => part.replace(/\s+/g, '-'));
 
