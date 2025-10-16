@@ -142,35 +142,51 @@ module.exports = {
 | TypeScript | `build/js/tokens.d.ts` | Type definitions |
 | JSON | `build/json/tokens.json` | Programmatic access |
 
-## Installation in Your React App
+## Using in Your React App
 
-### NPM Package (Recommended)
+### Git Submodule (Recommended)
 
-```bash
-# In this repo
-npm version patch
-npm publish
-
-# In your React app
-npm install @your-org/design-tokens
-```
-
-### Git Submodule
-
+**Setup (one time):**
 ```bash
 cd your-react-app
-git submodule add https://github.com/your-org/design-tokens.git tokens
+git submodule add git@github.com:seed-health/tokens.git design-tokens
+git commit -m "Add design tokens submodule"
 ```
 
-### Direct GitHub
+**Import in React:**
+```jsx
+import '../design-tokens/build/css/variables.css';
+// or
+import tokens from '../design-tokens/build/js/tokens.js';
+```
+
+**Update tokens when needed:**
+```bash
+cd design-tokens
+git pull origin main
+cd ..
+git add design-tokens
+git commit -m "Update design tokens"
+```
+
+**Team setup (after cloning):**
+```bash
+git clone --recursive https://github.com/your-org/your-app
+# or if already cloned:
+git submodule update --init --recursive
+```
+
+### Alternative: Direct GitHub Install
 
 ```json
 {
   "dependencies": {
-    "@your-org/design-tokens": "github:your-org/design-tokens#main"
+    "@seed-health/design-tokens": "github:seed-health/tokens#main"
   }
 }
 ```
+
+Then: `npm install` and import like a normal package.
 
 ## Automation
 
