@@ -1,0 +1,41 @@
+{
+  "name": "@your-org/design-tokens",
+  "version": "1.0.0",
+  "description": "Design tokens synced from Figma Variables",
+  "main": "build/js/tokens.module.js",
+  "module": "build/js/tokens.js",
+  "types": "build/js/tokens.d.ts",
+  "files": [
+    "build/"
+  ],
+  "scripts": {
+    "fetch-tokens": "node scripts/fetch-figma-tokens.js",
+    "build-tokens": "style-dictionary build",
+    "sync": "npm run fetch-tokens && npm run build-tokens",
+    "validate": "node scripts/validate-tokens.js",
+    "diff": "node scripts/diff-tokens.js"
+  },
+  "keywords": [
+    "design-tokens",
+    "design-system",
+    "figma",
+    "style-dictionary",
+    "tokens"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": "20.11"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/design-tokens.git"
+  },
+  "dependencies": {
+    "style-dictionary": "^4.0.1"
+  },
+  "devDependencies": {
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.1"
+  }
+}

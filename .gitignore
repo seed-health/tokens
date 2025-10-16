@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+
+# Intermediate token files (fetched from Figma)
+tokens/
+
+# OS files
+.DS_Store
+
+# Note: build/ is intentionally NOT ignored so generated tokens
+# can be committed and consumed by other repositories
