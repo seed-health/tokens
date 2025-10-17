@@ -31,7 +31,7 @@ jobs:
       - name: Fetch tokens from Figma
         env:
           FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
-          FIGMA_FILE_KEY: ${{ secrets.FIGMA_FILE_KEY }}
+          FIGMA_FILE_KEY: ${{ vars.FIGMA_FILE_KEY }}
         run: npm run fetch-tokens
 
       - name: Validate tokens
