@@ -11,7 +11,7 @@ const STYLES_FILE = 'tokens/figma-styles.json';
  * Format diff for display
  */
 function formatDiff(diff, title = 'Design Token Changes') {
-  let output = `# ${title}\n\n`;
+  let output = `### ${title}\n\n`;
 
   if (diff.added.length === 0 && diff.removed.length === 0 && diff.modified.length === 0) {
     output += '**No changes detected**\n';
@@ -20,7 +20,7 @@ function formatDiff(diff, title = 'Design Token Changes') {
 
   // Added tokens
   if (diff.added.length > 0) {
-    output += `## ➕ Added (${diff.added.length})\n\n`;
+    output += `#### ➕ Added (${diff.added.length})\n\n`;
     diff.added.forEach(token => {
       output += `- \`${token.path}\`\n`;
       output += `  - Type: \`${token.type}\`\n`;
@@ -34,7 +34,7 @@ function formatDiff(diff, title = 'Design Token Changes') {
 
   // Removed tokens
   if (diff.removed.length > 0) {
-    output += `## ➖ Removed (${diff.removed.length})\n\n`;
+    output += `#### ➖ Removed (${diff.removed.length})\n\n`;
     diff.removed.forEach(token => {
       output += `- \`${token.path}\`\n`;
       output += `  - Was: \`${token.value}\`\n\n`;
@@ -43,7 +43,7 @@ function formatDiff(diff, title = 'Design Token Changes') {
 
   // Modified tokens
   if (diff.modified.length > 0) {
-    output += `## 📝 Modified (${diff.modified.length})\n\n`;
+    output += `#### 📝 Modified (${diff.modified.length})\n\n`;
     diff.modified.forEach(token => {
       output += `- \`${token.path}\`\n`;
 
@@ -60,7 +60,7 @@ function formatDiff(diff, title = 'Design Token Changes') {
   }
 
   // Summary
-  output += '## 📊 Summary\n\n';
+  output += '#### 📊 Summary\n\n';
   output += `- **Added**: ${diff.added.length}\n`;
   output += `- **Removed**: ${diff.removed.length}\n`;
   output += `- **Modified**: ${diff.modified.length}\n`;
@@ -130,8 +130,7 @@ async function main() {
   const stylesResult = await processDiff(STYLES_FILE, 'Styles Changes');
 
   // Combine outputs
-  let combinedOutput = '# Design Token Changes\n\n';
-  combinedOutput += variablesResult.output + '\n';
+  let combinedOutput = variablesResult.output + '\n';
   combinedOutput += stylesResult.output + '\n';
 
   // Combine breaking changes
