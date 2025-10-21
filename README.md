@@ -132,12 +132,19 @@ function Button() {
 **Option 5: SCSS/Sass**
 
 ```scss
-@import '@seed-health/tokens/build/scss/variables';
+@use '@seed-health/tokens/build/scss/variables' as *;
+@use '@seed-health/tokens/build/scss/mixins' as *;
 
 .button {
+  @include text-fixed-label-medium;
   background-color: $color-primary-seed-green;
-  padding: $spacing-base;
+  padding: $spacing-base $spacing-x2;
   border-radius: $corner-radius-sm;
+}
+
+.glass-card {
+  @include effect-frosted-glass-strong;
+  background-color: $color-primary-snow-white-t70;
 }
 ```
 
@@ -159,7 +166,8 @@ const Button = styled.button`
 |--------|------|-------|
 | CSS Variables | `build/css/variables.css` | Primitive tokens (colors, spacing) |
 | CSS Classes | `build/css/styles.css` | Semantic styles (typography, effects) |
-| SCSS Variables | `build/scss/_variables.scss` | Sass/SCSS projects |
+| SCSS Variables | `build/scss/_variables.scss` | Primitive tokens for Sass/SCSS |
+| SCSS Mixins | `build/scss/_mixins.scss` | Typography & effects for Sass/SCSS |
 | JavaScript ES6 | `build/js/tokens.js` | Direct imports |
 | TypeScript | `build/js/tokens.d.ts` | Type definitions |
 | JSON | `build/json/tokens.json` | Programmatic access |

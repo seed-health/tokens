@@ -48,6 +48,52 @@ StyleDictionary.registerFormat({
   }
 });
 
+/**
+ * Custom format for typography and effect SCSS mixins
+ */
+StyleDictionary.registerFormat({
+  name: 'scss/style-mixins',
+  format: ({ dictionary }) => {
+    let scss = '//\n// Do not edit directly, this file was auto-generated.\n//\n\n';
+
+    const sortedTokens = [...dictionary.allTokens].sort((a, b) => {
+      const pathA = a.path.join('-').toLowerCase();
+      const pathB = b.path.join('-').toLowerCase();
+      return pathA.localeCompare(pathB);
+    });
+
+    sortedTokens.forEach(token => {
+      const sanitizedPath = token.path.map(part => part.replace(/\s+/g, '-'));
+
+      if (token.$type === 'typography') {
+        const mixinName = `text-${sanitizedPath.join('-')}`;
+        const value = token.original.$value;
+
+        scss += `@mixin ${mixinName} {\n`;
+        if (value.fontFamily) scss += `  font-family: "${value.fontFamily}";\n`;
+        if (value.fontSize) scss += `  font-size: ${value.fontSize};\n`;
+        if (value.fontWeight) scss += `  font-weight: ${value.fontWeight};\n`;
+        if (value.letterSpacing) scss += `  letter-spacing: ${value.letterSpacing};\n`;
+        if (value.lineHeight) scss += `  line-height: ${value.lineHeight};\n`;
+        scss += '}\n\n';
+      } else if (token.$type === 'blur') {
+        const mixinName = `effect-${sanitizedPath.join('-')}`;
+        scss += `@mixin ${mixinName} {\n`;
+        scss += `  backdrop-filter: ${token.original.$value};\n`;
+        scss += `  -webkit-backdrop-filter: ${token.original.$value};\n`;
+        scss += '}\n\n';
+      } else if (token.$type === 'shadow') {
+        const mixinName = `shadow-${sanitizedPath.join('-')}`;
+        scss += `@mixin ${mixinName} {\n`;
+        scss += `  box-shadow: ${token.original.$value};\n`;
+        scss += '}\n\n';
+      }
+    });
+
+    return scss;
+  }
+});
+
 export default {
   // Source files support DTCG format natively in v4
   source: ['tokens/**/*.json'],
@@ -148,6 +194,13 @@ export default {
           options: {
             outputReferences: true,
             showFileHeader: true
+          }
+        },
+        {
+          destination: '_mixins.scss',
+          format: 'scss/style-mixins',
+          filter: (token) => {
+            return ['typography', 'shadow', 'blur', 'effect', 'grid'].includes(token.$type);
           }
         }
       ]
