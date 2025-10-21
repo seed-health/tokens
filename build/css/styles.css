@@ -19,6 +19,10 @@
   line-height: 100%;
 }
 
+.shadow-fake-drop-shadow {
+  box-shadow: 0px 28px 4px rgba(0, 0, 0, 0.44999998807907104);
+}
+
 .text-fixed-body-large {
   font-family: "Seed Sans";
   font-size: 20px;

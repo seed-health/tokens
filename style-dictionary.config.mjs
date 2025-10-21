@@ -132,6 +132,25 @@ export default {
           format: 'json/flat'
         }
       ]
+    },
+
+    // SCSS Variables (for Sass/SCSS projects)
+    scss: {
+      transformGroup: 'scss',
+      buildPath: 'build/scss/',
+      files: [
+        {
+          destination: '_variables.scss',
+          format: 'scss/variables',
+          filter: (token) => {
+            return !['typography', 'shadow', 'blur', 'effect', 'grid'].includes(token.$type);
+          },
+          options: {
+            outputReferences: true,
+            showFileHeader: true
+          }
+        }
+      ]
     }
   },
 

@@ -1,6 +1,6 @@
 {
   "$metadata": {
-    "generated": "2025-10-16T19:24:59.787Z",
+    "generated": "2025-10-21T17:57:47.807Z",
     "source": "Figma Styles API",
     "figmaFileKeys": "HRJIjk1pZtxRKlPabHqBaI",
     "format": "W3C DTCG",
@@ -677,5 +677,9 @@
         }
       }
     }
+  },
+  "fake drop shadow": {
+    "$value": "0px 28px 4px rgba(0, 0, 0, 0.44999998807907104)",
+    "$type": "shadow"
   }
 }

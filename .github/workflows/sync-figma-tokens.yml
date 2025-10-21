@@ -103,6 +103,7 @@ jobs:
             ## 📦 Generated Outputs
 
             - ✅ CSS Custom Properties (`build/css/`) - For global styles, CSS Modules
+            - ✅ SCSS Variables (`build/scss/_variables.scss`) - For Sass/SCSS projects
             - ✅ JavaScript ES6 (`build/js/tokens.js`) - For direct imports
             - ✅ JavaScript CommonJS (`build/js/tokens.module.js`) - For older tooling
             - ✅ TypeScript Definitions (`build/js/tokens.d.ts`) - For type safety

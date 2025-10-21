@@ -129,7 +129,19 @@ function Button() {
 }
 ```
 
-**Option 5: styled-components**
+**Option 5: SCSS/Sass**
+
+```scss
+@import '@seed-health/tokens/build/scss/variables';
+
+.button {
+  background-color: $color-primary-seed-green;
+  padding: $spacing-base;
+  border-radius: $corner-radius-sm;
+}
+```
+
+**Option 6: styled-components**
 
 ```jsx
 import styled from 'styled-components';
@@ -147,6 +159,7 @@ const Button = styled.button`
 |--------|------|-------|
 | CSS Variables | `build/css/variables.css` | Primitive tokens (colors, spacing) |
 | CSS Classes | `build/css/styles.css` | Semantic styles (typography, effects) |
+| SCSS Variables | `build/scss/_variables.scss` | Sass/SCSS projects |
 | JavaScript ES6 | `build/js/tokens.js` | Direct imports |
 | TypeScript | `build/js/tokens.d.ts` | Type definitions |
 | JSON | `build/json/tokens.json` | Programmatic access |
