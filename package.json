@@ -1,6 +1,6 @@
 {
   "name": "@seed-health/tokens",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Design tokens synced from Figma Variables",
   "main": "build/js/tokens.module.js",
   "module": "build/js/tokens.js",
