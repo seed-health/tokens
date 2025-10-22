@@ -1,6 +1,6 @@
 {
   "$metadata": {
-    "generated": "2025-10-21T17:57:47.807Z",
+    "generated": "2025-10-22T13:58:57.360Z",
     "source": "Figma Styles API",
     "figmaFileKeys": "HRJIjk1pZtxRKlPabHqBaI",
     "format": "W3C DTCG",
@@ -449,6 +449,35 @@
               {
                 "type": "VARIABLE_ALIAS",
                 "id": "VariableID:20:6713"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "body xx-small": {
+      "$value": {
+        "fontFamily": "Seed Sans",
+        "fontSize": "10px",
+        "fontWeight": 350,
+        "letterSpacing": "-0.05px",
+        "lineHeight": "140%"
+      },
+      "$type": "typography",
+      "$description": "used only for legal, not AA compliant",
+      "$extensions": {
+        "com.figma": {
+          "boundVariables": {
+            "fontFamily": [
+              {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:20:6709"
+              }
+            ],
+            "fontStyle": [
+              {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:20:6712"
               }
             ]
           }

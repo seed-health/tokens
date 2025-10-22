@@ -55,6 +55,14 @@
   line-height: 140%;
 }
 
+.text-fixed-body-xx-small {
+  font-family: "Seed Sans";
+  font-size: 10px;
+  font-weight: 350;
+  letter-spacing: -0.05px;
+  line-height: 140%;
+}
+
 .text-fixed-eyebrow {
   font-family: "Seed Sans";
   font-size: 12px;
