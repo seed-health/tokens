@@ -328,7 +328,7 @@ async function main() {
   console.log('🚀 Starting Figma token sync...\n');
 
   // Parse file keys
-  const fileKeys = FIGMA_FILE_KEY.split(',').map(k => k.trim()).filter(Boolean);
+  const fileKeys = (FIGMA_FILE_KEY || '').split(',').map(k => k.trim()).filter(Boolean);
 
   const figmaData = await fetchFigmaVariables();
   const tokens = transformToDTCG(figmaData, fileKeys);
