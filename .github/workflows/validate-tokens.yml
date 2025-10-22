@@ -73,9 +73,9 @@ jobs:
 
           # DTCG Validation
           if [ "${{ steps.validate-dtcg.outcome }}" == "success" ]; then
-            echo "✅ **DTCG Validation (Terrazzo)**: Passed" >> $GITHUB_STEP_SUMMARY
+            echo "✅ **DTCG Validation**: Passed" >> $GITHUB_STEP_SUMMARY
           else
-            echo "❌ **DTCG Validation (Terrazzo)**: Failed" >> $GITHUB_STEP_SUMMARY
+            echo "❌ **DTCG Validation**: Failed" >> $GITHUB_STEP_SUMMARY
             if [ -f terrazzo-output.txt ] && [ -s terrazzo-output.txt ]; then
               echo "" >> $GITHUB_STEP_SUMMARY
               echo "<details>" >> $GITHUB_STEP_SUMMARY

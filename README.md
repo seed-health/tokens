@@ -65,7 +65,7 @@ npm run fetch-tokens   # Fetch variables from Figma
 npm run fetch-styles   # Fetch styles from Figma
 npm run fetch-all      # Fetch both variables and styles
 npm run build-tokens   # Build all formats
-npm run validate       # Validate tokens
+npm test               # Validate tokens + build
 npm run diff           # Show changes
 ```
 
@@ -209,6 +209,24 @@ git clone --recursive https://github.com/seed-health/my-seed-live
 # or if already cloned:
 git submodule update --init --recursive
 ```
+
+## Validation
+
+Before committing changes, validate tokens locally:
+
+```bash
+npm test              # Run all validations
+npm run validate      # DTCG spec validation (Terrazzo)
+npm run build-tokens  # Test Style Dictionary build
+```
+
+**What's validated:**
+- ✅ DTCG format and structure
+- ✅ Token types (colors, dimensions, typography, etc.)
+- ✅ Reference integrity and circular references
+- ✅ Style Dictionary build compatibility
+
+**CI/CD:** Every PR automatically runs validation and displays results. See `.github/workflows/validate-tokens.yml`.
 
 ## Automation
 
