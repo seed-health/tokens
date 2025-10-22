@@ -20,7 +20,7 @@
 }
 
 .shadow-fake-drop-shadow {
-  box-shadow: 0px 28px 4px rgba(0, 0, 0, 0.44999998807907104);
+  box-shadow: 0px 28px 4px 0px rgba(0, 0, 0, 0.44999998807907104);
 }
 
 .text-fixed-body-large {
@@ -52,6 +52,14 @@
   font-size: 12px;
   font-weight: 350;
   letter-spacing: -0.06px;
+  line-height: 140%;
+}
+
+.text-fixed-body-xx-small {
+  font-family: "Seed Sans";
+  font-size: 10px;
+  font-weight: 350;
+  letter-spacing: -0.05px;
   line-height: 140%;
 }
 

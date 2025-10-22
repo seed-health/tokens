@@ -1,4 +1,4 @@
-name: Sync Figma Tokens
+name: Sync Figma tokens
 
 on:
   # Run every hour

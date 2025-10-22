@@ -2,14 +2,13 @@
 
 require('dotenv').config();
 const axios = require('axios');
-const fs = require('fs');
 const path = require('path');
+const { setNestedValue, generateTokenStats, saveTokensToFile } = require('./utils');
 
 // Configuration
 const FIGMA_TOKEN = process.env.FIGMA_TOKEN;
 const FIGMA_FILE_KEY = process.env.FIGMA_FILE_KEY;
-const OUTPUT_DIR = path.join(__dirname, '..', 'tokens');
-const OUTPUT_FILE = path.join(OUTPUT_DIR, 'figma-styles.json');
+const OUTPUT_FILE = path.join(__dirname, '..', 'tokens', 'figma-styles.json');
 
 /**
  * Fetch styles metadata from a single Figma file
@@ -130,7 +129,13 @@ function transformEffectStyle(node, styleName, description) {
     .map(e => {
       const color = e.color;
       const rgba = `rgba(${Math.round(color.r * 255)}, ${Math.round(color.g * 255)}, ${Math.round(color.b * 255)}, ${color.a})`;
-      return `${e.offset.x}px ${e.offset.y}px ${e.radius}px ${rgba}`;
+      return {
+        offsetX: `${e.offset.x}px`,
+        offsetY: `${e.offset.y}px`,
+        blur: `${e.radius}px`,
+        spread: '0px',
+        color: rgba
+      };
     });
 
   if (shadows.length > 0) {
@@ -190,20 +195,6 @@ function transformGridStyle(node, styleName, description) {
   return token;
 }
 
-/**
- * Build nested object from path parts
- */
-function setNestedValue(obj, pathParts, value) {
-  let current = obj;
-  for (let i = 0; i < pathParts.length - 1; i++) {
-    const part = pathParts[i];
-    if (!current[part]) {
-      current[part] = {};
-    }
-    current = current[part];
-  }
-  current[pathParts[pathParts.length - 1]] = value;
-}
 
 /**
  * Transform Figma styles to W3C DTCG format
@@ -254,66 +245,15 @@ function transformStylesToDTCG(styles, nodes, fileKeys = []) {
   return { ...metadata, ...tokens };
 }
 
-/**
- * Save tokens to file
- */
-function saveTokens(tokens) {
-  // Ensure output directory exists
-  if (!fs.existsSync(OUTPUT_DIR)) {
-    fs.mkdirSync(OUTPUT_DIR, { recursive: true });
-  }
-
-  // Write tokens file
-  fs.writeFileSync(OUTPUT_FILE, JSON.stringify(tokens, null, 2));
-  console.log(`✅ Styles saved to ${OUTPUT_FILE}`);
-
-  // Generate statistics
-  const stats = generateStats(tokens);
-  console.log('\n📊 Style Statistics:');
-  console.log(`   Total styles: ${stats.total}`);
-  console.log(`   Typography: ${stats.typography}`);
-  console.log(`   Effects: ${stats.effects}`);
-  console.log(`   Grids: ${stats.grids}`);
-}
-
-/**
- * Generate style statistics
- */
-function generateStats(tokens) {
-  const stats = {
-    total: 0,
-    typography: 0,
-    effects: 0,
-    grids: 0
-  };
-
-  function countTokens(obj) {
-    for (const key in obj) {
-      if (key.startsWith('$')) continue; // Skip metadata
-
-      const value = obj[key];
-      if (typeof value === 'object' && value !== null) {
-        if (value.$type) {
-          stats.total++;
-          if (value.$type === 'typography') stats.typography++;
-          if (value.$type === 'shadow' || value.$type === 'blur' || value.$type === 'effect') stats.effects++;
-          if (value.$type === 'grid') stats.grids++;
-        } else {
-          countTokens(value);
-        }
-      }
-    }
-  }
-
-  countTokens(tokens);
-  return stats;
-}
 
 /**
  * Main execution
  */
 async function main() {
   console.log('🚀 Starting Figma styles sync...\n');
+
+  const args = process.argv.slice(2);
+  const preserveTimestamp = args.includes('--preserve-timestamp');
 
   if (!FIGMA_TOKEN || !FIGMA_FILE_KEY) {
     console.error('❌ Error: FIGMA_TOKEN and FIGMA_FILE_KEY must be set in .env file');
@@ -357,7 +297,24 @@ async function main() {
 
   // Transform to DTCG format
   const tokens = transformStylesToDTCG(stylesList, nodesByFile, fileKeys);
-  saveTokens(tokens);
+
+  // Save with custom stats formatter
+  saveTokensToFile(OUTPUT_FILE, tokens, preserveTimestamp, {
+    successMessage: 'Styles saved',
+    formatStats: () => {
+      const stats = generateTokenStats(tokens, {
+        typography: 'typography',
+        effects: (token) => ['shadow', 'blur', 'effect'].includes(token.$type),
+        grids: 'grid'
+      });
+
+      console.log('\n📊 Style Statistics:');
+      console.log(`   Total styles: ${stats.total}`);
+      console.log(`   Typography: ${stats.typography}`);
+      console.log(`   Effects: ${stats.effects}`);
+      console.log(`   Grids: ${stats.grids}`);
+    }
+  });
 
   console.log('\n✨ Styles sync completed successfully!');
 }

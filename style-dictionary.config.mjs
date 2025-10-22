@@ -38,8 +38,13 @@ StyleDictionary.registerFormat({
         css += '}\n\n';
       } else if (token.$type === 'shadow') {
         const className = `.shadow-${sanitizedPath.join('-')}`;
+        const value = token.original.$value;
+        // Convert shadow object to CSS box-shadow string
+        const boxShadow = value != null && typeof value === 'object' && ('offsetX' in value)
+          ? `${value.offsetX} ${value.offsetY} ${value.blur}${value.spread ? ' ' + value.spread : ''} ${value.color}`
+          : value;
         css += `${className} {\n`;
-        css += `  box-shadow: ${token.original.$value};\n`;
+        css += `  box-shadow: ${boxShadow};\n`;
         css += '}\n\n';
       }
     });
@@ -84,8 +89,13 @@ StyleDictionary.registerFormat({
         scss += '}\n\n';
       } else if (token.$type === 'shadow') {
         const mixinName = `shadow-${sanitizedPath.join('-')}`;
+        const value = token.original.$value;
+        // Convert shadow object to CSS box-shadow string
+        const boxShadow = value != null && typeof value === 'object' && ('offsetX' in value)
+          ? `${value.offsetX} ${value.offsetY} ${value.blur}${value.spread ? ' ' + value.spread : ''} ${value.color}`
+          : value;
         scss += `@mixin ${mixinName} {\n`;
-        scss += `  box-shadow: ${token.original.$value};\n`;
+        scss += `  box-shadow: ${boxShadow};\n`;
         scss += '}\n\n';
       }
     });

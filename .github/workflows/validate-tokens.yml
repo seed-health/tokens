@@ -1,0 +1,114 @@
+name: Validate tokens
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'tokens/**'
+      - 'scripts/**'
+      - 'style-dictionary.config.mjs'
+      - 'terrazzo.config.mjs'
+      - 'package.json'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.11'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run DTCG validation via Terrazzo
+        id: validate-dtcg
+        run: |
+          # Run Terrazzo directly to avoid npm output noise
+          npx tz check 2>&1 | tee terrazzo-raw.txt || true
+
+          # Clean up output - remove ANSI codes and npm noise
+          sed 's/\x1b\[[0-9;]*m//g' terrazzo-raw.txt | grep -v "^>" | grep -v "^$" > terrazzo-output.txt || true
+
+          # Check if validation failed
+          if npx tz check > /dev/null 2>&1; then
+            exit 0
+          else
+            echo "dtcg_failed=true" >> $GITHUB_OUTPUT
+            exit 1
+          fi
+        continue-on-error: true
+
+      - name: Test Style Dictionary build
+        id: test-build
+        run: |
+          npm run build-tokens
+        continue-on-error: true
+
+      - name: Check for changes in build output
+        id: check-changes
+        run: |
+          if git diff --quiet build/; then
+            echo "changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "changes=true" >> $GITHUB_OUTPUT
+            echo "⚠️ Build output changed - ensure build/ is committed"
+          fi
+
+      - name: Create validation summary
+        if: always()
+        run: |
+          echo "## 🔍 Token Validation Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          # DTCG Validation
+          if [ "${{ steps.validate-dtcg.outcome }}" == "success" ]; then
+            echo "✅ **DTCG Validation**: Passed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ **DTCG Validation**: Failed" >> $GITHUB_STEP_SUMMARY
+            if [ -f terrazzo-output.txt ] && [ -s terrazzo-output.txt ]; then
+              echo "" >> $GITHUB_STEP_SUMMARY
+              echo "<details>" >> $GITHUB_STEP_SUMMARY
+              echo "<summary>Show Terrazzo errors</summary>" >> $GITHUB_STEP_SUMMARY
+              echo "" >> $GITHUB_STEP_SUMMARY
+              echo '```' >> $GITHUB_STEP_SUMMARY
+              head -n 50 terrazzo-output.txt >> $GITHUB_STEP_SUMMARY
+              echo '```' >> $GITHUB_STEP_SUMMARY
+              echo "</details>" >> $GITHUB_STEP_SUMMARY
+            fi
+          fi
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          # Build Test
+          if [ "${{ steps.test-build.outcome }}" == "success" ]; then
+            echo "✅ **Style Dictionary Build**: Passed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ **Style Dictionary Build**: Failed" >> $GITHUB_STEP_SUMMARY
+          fi
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          # Build Output Check
+          if [ "${{ steps.check-changes.outputs.changes }}" == "true" ]; then
+            echo "⚠️ **Build Output Changed**: Remember to commit the updated \`build/\` directory" >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Fail if any validation failed
+        if: steps.validate-dtcg.outcome == 'failure' || steps.test-build.outcome == 'failure'
+        run: |
+          echo "❌ Validation failed"
+          exit 1
+
+      - name: Success summary
+        if: steps.validate-dtcg.outcome == 'success' && steps.test-build.outcome == 'success'
+        run: |
+          echo "✅ All validations passed!"
