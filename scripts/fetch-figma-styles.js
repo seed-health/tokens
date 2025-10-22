@@ -130,7 +130,13 @@ function transformEffectStyle(node, styleName, description) {
     .map(e => {
       const color = e.color;
       const rgba = `rgba(${Math.round(color.r * 255)}, ${Math.round(color.g * 255)}, ${Math.round(color.b * 255)}, ${color.a})`;
-      return `${e.offset.x}px ${e.offset.y}px ${e.radius}px ${rgba}`;
+      return {
+        offsetX: `${e.offset.x}px`,
+        offsetY: `${e.offset.y}px`,
+        blur: `${e.radius}px`,
+        spread: '0px',
+        color: rgba
+      };
     });
 
   if (shadows.length > 0) {

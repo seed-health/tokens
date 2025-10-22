@@ -1,6 +1,6 @@
 {
   "$metadata": {
-    "generated": "2025-10-22T20:06:45.878Z",
+    "generated": "2025-10-22T20:33:08.775Z",
     "source": "Figma Styles API",
     "figmaFileKeys": "HRJIjk1pZtxRKlPabHqBaI",
     "format": "W3C DTCG",
@@ -708,7 +708,13 @@
     }
   },
   "fake drop shadow": {
-    "$value": "0px 28px 4px rgba(0, 0, 0, 0.44999998807907104)",
+    "$value": {
+      "offsetX": "0px",
+      "offsetY": "28px",
+      "blur": "4px",
+      "spread": "0px",
+      "color": "rgba(0, 0, 0, 0.44999998807907104)"
+    },
     "$type": "shadow"
   }
 }
