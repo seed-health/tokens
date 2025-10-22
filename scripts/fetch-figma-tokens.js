@@ -335,10 +335,6 @@ async function main() {
   saveTokens(tokens);
 
   console.log('\n✨ Token sync completed successfully!');
-  console.log('\n💡 Tips:');
-  console.log('   - Tokens are in W3C DTCG format ($value, $type, $description)');
-  console.log('   - Token references use {path.to.token} syntax');
-  console.log('   - Run "npm run build-tokens" to generate React formats');
 }
 
 // Run the script

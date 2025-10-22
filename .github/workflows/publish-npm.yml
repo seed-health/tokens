@@ -1,0 +1,111 @@
+name: Publish to NPM
+
+on:
+  # Manual trigger only
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.11'
+          cache: 'npm'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Get current version
+        id: get_version
+        run: |
+          CURRENT_VERSION=$(node -p "require('./package.json').version")
+          echo "current=$CURRENT_VERSION" >> $GITHUB_OUTPUT
+
+          # Parse version parts
+          IFS='.' read -r major minor patch <<< "$CURRENT_VERSION"
+          NEW_PATCH=$((patch + 1))
+          NEW_VERSION="${major}.${minor}.${NEW_PATCH}"
+          echo "new=$NEW_VERSION" >> $GITHUB_OUTPUT
+
+          echo "📦 Current version: $CURRENT_VERSION"
+          echo "🚀 Publishing version: $NEW_VERSION"
+
+      - name: Update version in package.json
+        run: npm version ${{ steps.get_version.outputs.new }} --no-git-tag-version
+
+      - name: Build tokens
+        run: npm run build-tokens
+
+      - name: Publish to NPM
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Commit version bump
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add package.json package-lock.json
+          git commit -m "chore: bump version to ${{ steps.get_version.outputs.new }}"
+          git push
+
+      - name: Create Git tag
+        run: |
+          git tag "v${{ steps.get_version.outputs.new }}"
+          git push origin "v${{ steps.get_version.outputs.new }}"
+
+      - name: Create GitHub Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ steps.get_version.outputs.new }}
+          release_name: Release v${{ steps.get_version.outputs.new }}
+          body: |
+            ## 📦 @seed-health/tokens@${{ steps.get_version.outputs.new }}
+
+            **Published to NPM:** https://www.npmjs.com/package/@seed-health/tokens/v/${{ steps.get_version.outputs.new }}
+
+            ### Installation
+
+            ```bash
+            npm install @seed-health/tokens@${{ steps.get_version.outputs.new }}
+            ```
+
+            ### What's Included
+
+            - ✅ CSS Custom Properties (`build/css/`)
+            - ✅ SCSS Variables + Mixins (`build/scss/`)
+            - ✅ JavaScript ES6 (`build/js/`)
+            - ✅ TypeScript Definitions (`build/js/tokens.d.ts`)
+            - ✅ JSON Nested & Flat (`build/json/`)
+
+            ### Changes
+
+            See commits since last release for details.
+
+            ---
+
+            🤖 Published via [Publish to NPM Workflow](https://github.com/${{ github.repository }}/actions/workflows/publish-npm.yml)
+          draft: false
+          prerelease: false
+
+      - name: Summary
+        run: |
+          echo "✅ Successfully published @seed-health/tokens@${{ steps.get_version.outputs.new }}"
+          echo "📦 NPM: https://www.npmjs.com/package/@seed-health/tokens"
+          echo "🏷️  Tag: v${{ steps.get_version.outputs.new }}"
+          echo "📝 Release: https://github.com/${{ github.repository }}/releases/tag/v${{ steps.get_version.outputs.new }}"

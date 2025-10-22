@@ -360,10 +360,6 @@ async function main() {
   saveTokens(tokens);
 
   console.log('\n✨ Styles sync completed successfully!');
-  console.log('\n💡 Tips:');
-  console.log('   - Styles are in W3C DTCG format ($value, $type, $description)');
-  console.log('   - Text styles become .text-* CSS classes');
-  console.log('   - Run "npm run build-tokens" to generate CSS output');
 }
 
 // Run the script

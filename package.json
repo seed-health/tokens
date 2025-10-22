@@ -15,7 +15,8 @@
     "build-tokens": "style-dictionary build --config style-dictionary.config.mjs",
     "sync": "npm run fetch-all && npm run build-tokens",
     "validate": "node scripts/validate-tokens.js",
-    "diff": "node scripts/diff-tokens.js"
+    "diff": "node scripts/diff-tokens.js",
+    "prepublishOnly": "npm run build-tokens"
   },
   "keywords": [
     "design-tokens",
