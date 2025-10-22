@@ -1,4 +1,4 @@
-name: Validate PR
+name: Validate tokens
 
 on:
   pull_request:
@@ -37,7 +37,7 @@ jobs:
           npm run validate:tokens
         continue-on-error: true
 
-      - name: Run DTCG validation (Terrazzo)
+      - name: Run DTCG validation via Terrazzo
         id: validate-dtcg
         run: |
           # Run Terrazzo directly to avoid npm output noise
