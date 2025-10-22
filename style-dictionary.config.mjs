@@ -107,6 +107,48 @@ function isValidToken(token) {
 }
 
 /**
+ * Outputs JSON with cleaned token names (spaces→hyphens, no leading dashes)
+ * TODO: Remove once Figma tokens are renamed
+ */
+StyleDictionary.registerFormat({
+  name: 'json/nested-clean',
+  format: ({ dictionary }) => {
+    const cleanKey = (key) => {
+      return key.replace(/^-+/, '').replace(/\s+/g, '-');
+    };
+
+    const buildCleanObject = (obj) => {
+      const result = {};
+
+      Object.keys(obj).forEach(key => {
+        if (key.startsWith('$')) {
+          result[key] = obj[key];
+          return;
+        }
+
+        const value = obj[key];
+        const cleanedKey = cleanKey(key);
+
+        if (value && typeof value === 'object') {
+          if (value.$value !== undefined) {
+            // This is a token - output just the value
+            result[cleanedKey] = value.$value;
+          } else {
+            // This is a group - recursively process
+            result[cleanedKey] = buildCleanObject(value);
+          }
+        }
+      });
+
+      return result;
+    };
+
+    const output = buildCleanObject(dictionary.tokens);
+    return JSON.stringify(output, null, 2);
+  }
+});
+
+/**
  * Preprocessor to remove broken tokens before Style Dictionary processes them
  */
 StyleDictionary.registerPreprocessor({
@@ -215,12 +257,12 @@ export default {
 
     // JSON formats (for programmatic access in React)
     json: {
-      transformGroup: 'js',
+      transformGroup: 'js',  // Use standard transforms for values
       buildPath: 'build/json/',
       files: [
         {
           destination: 'tokens.json',
-          format: 'json/nested',
+          format: 'json/nested-clean',  // Use custom format with clean keys
           filter: isValidToken
         },
         {
