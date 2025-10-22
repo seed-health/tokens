@@ -103,6 +103,17 @@ function isValidToken(token) {
     console.warn(`⚠️  Excluding broken token: ${token.path.join('.')} (unresolved reference)`);
     return false;
   }
+
+  // Exclude deprecated radius tokens with leading dashes
+  // These cause collisions with the semantic radius tokens
+  // TODO: Remove this filter once deprecated tokens are deleted from Figma
+  if (token.path[0] === 'radius' || token.path[0] === 'corner_radius') {
+    if (token.path[1]?.startsWith('-')) {
+      // Silently skip (these are duplicates of semantic tokens)
+      return false;
+    }
+  }
+
   return true;
 }
 
