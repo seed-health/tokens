@@ -59,13 +59,14 @@ screen grids/static grid
 ### Commands
 
 ```bash
+npm run sync           # Fetch all + build (this will do everything)
+
 npm run fetch-tokens   # Fetch variables from Figma
 npm run fetch-styles   # Fetch styles from Figma
 npm run fetch-all      # Fetch both variables and styles
 npm run build-tokens   # Build all formats
 npm run validate       # Validate tokens
 npm run diff           # Show changes
-npm run sync           # Fetch all + build
 ```
 
 ### In React

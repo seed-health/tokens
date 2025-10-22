@@ -114,6 +114,9 @@ function formatValue(value, type, variableId) {
       // Return reference in DTCG format
       return `{${aliasPath.join('.')}}`;
     }
+    // If alias not found, log warning and return placeholder
+    console.warn(`⚠️  Warning: Unresolved variable alias ${aliasId}`);
+    return `{unresolved:${aliasId}}`;
   }
 
   // Handle color values
@@ -132,6 +135,11 @@ function formatValue(value, type, variableId) {
 
   // Handle dimensions
   if (type === 'FLOAT') {
+    // Ensure value is a number before adding 'px'
+    if (typeof value === 'object') {
+      console.warn(`⚠️  Warning: Invalid FLOAT value (object received):`, value);
+      return '[invalid]';
+    }
     return `${value}px`;
   }
 

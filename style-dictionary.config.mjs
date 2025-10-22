@@ -94,7 +94,51 @@ StyleDictionary.registerFormat({
   }
 });
 
+/**
+ * Helper function to filter out broken tokens
+ */
+function isValidToken(token) {
+  // Exclude tokens with unresolved references
+  if (typeof token.$value === 'string' && token.$value.includes('unresolved:')) {
+    console.warn(`⚠️  Excluding broken token: ${token.path.join('.')} (unresolved reference)`);
+    return false;
+  }
+  return true;
+}
+
+/**
+ * Preprocessor to remove broken tokens before Style Dictionary processes them
+ */
+StyleDictionary.registerPreprocessor({
+  name: 'remove-broken-tokens',
+  preprocessor: (dictionary) => {
+    const removeUnresolved = (obj) => {
+      Object.keys(obj).forEach(key => {
+        if (key.startsWith('$')) return; // Skip metadata
+
+        const value = obj[key];
+        if (value && typeof value === 'object') {
+          // Check if this is a token with an unresolved value
+          if (value.$value && typeof value.$value === 'string' && value.$value.includes('unresolved:')) {
+            console.warn(`⚠️  Removing broken token: ${key} (unresolved reference)`);
+            delete obj[key];
+          } else {
+            // Recursively process nested objects
+            removeUnresolved(value);
+          }
+        }
+      });
+    };
+
+    removeUnresolved(dictionary);
+    return dictionary;
+  }
+});
+
 export default {
+  // Preprocessors run before Style Dictionary processes tokens
+  preprocessors: ['remove-broken-tokens'],
+
   // Source files support DTCG format natively in v4
   source: ['tokens/**/*.json'],
 
@@ -109,6 +153,7 @@ export default {
           format: 'css/variables',
           // Only include primitive tokens (color, dimension, string, etc.)
           filter: (token) => {
+            if (!isValidToken(token)) return false;
             return !['typography', 'shadow', 'blur', 'effect', 'grid'].includes(token.$type);
           },
           options: {
@@ -121,6 +166,7 @@ export default {
           format: 'css/style-classes',
           // Only include style tokens (typography, effects, grids)
           filter: (token) => {
+            if (!isValidToken(token)) return false;
             return ['typography', 'shadow', 'blur', 'effect', 'grid'].includes(token.$type);
           }
         }
@@ -135,6 +181,7 @@ export default {
         {
           destination: 'tokens.js',
           format: 'javascript/es6',
+          filter: isValidToken,
           options: {
             outputReferences: true
           }
@@ -142,6 +189,7 @@ export default {
         {
           destination: 'tokens.module.js',
           format: 'javascript/module-flat',
+          filter: isValidToken,
           options: {
             outputReferences: true
           }
@@ -157,6 +205,7 @@ export default {
         {
           destination: 'tokens.d.ts',
           format: 'typescript/es6-declarations',
+          filter: isValidToken,
           options: {
             outputStringLiterals: true
           }
@@ -171,11 +220,13 @@ export default {
       files: [
         {
           destination: 'tokens.json',
-          format: 'json/nested'
+          format: 'json/nested',
+          filter: isValidToken
         },
         {
           destination: 'tokens-flat.json',
-          format: 'json/flat'
+          format: 'json/flat',
+          filter: isValidToken
         }
       ]
     },
@@ -189,6 +240,7 @@ export default {
           destination: '_variables.scss',
           format: 'scss/variables',
           filter: (token) => {
+            if (!isValidToken(token)) return false;
             return !['typography', 'shadow', 'blur', 'effect', 'grid'].includes(token.$type);
           },
           options: {
@@ -200,6 +252,7 @@ export default {
           destination: '_mixins.scss',
           format: 'scss/style-mixins',
           filter: (token) => {
+            if (!isValidToken(token)) return false;
             return ['typography', 'shadow', 'blur', 'effect', 'grid'].includes(token.$type);
           }
         }
