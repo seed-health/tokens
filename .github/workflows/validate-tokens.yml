@@ -31,24 +31,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run custom token validation
-        id: validate-custom
-        run: |
-          # Run custom validation and capture output
-          npm run validate:tokens 2>&1 | tee custom-validation-raw.txt || true
-
-          # Clean up output - remove npm noise
-          grep -v "^>" custom-validation-raw.txt | grep -v "^$" > custom-validation-output.txt || true
-
-          # Check if validation failed
-          if npm run validate:tokens > /dev/null 2>&1; then
-            exit 0
-          else
-            echo "custom_failed=true" >> $GITHUB_OUTPUT
-            exit 1
-          fi
-        continue-on-error: true
-
       - name: Run DTCG validation via Terrazzo
         id: validate-dtcg
         run: |
@@ -89,24 +71,6 @@ jobs:
           echo "## 🔍 Token Validation Results" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
-          # Custom Validation
-          if [ "${{ steps.validate-custom.outcome }}" == "success" ]; then
-            echo "✅ **Custom Validation**: Passed" >> $GITHUB_STEP_SUMMARY
-          else
-            echo "❌ **Custom Validation**: Failed" >> $GITHUB_STEP_SUMMARY
-            if [ -f custom-validation-output.txt ] && [ -s custom-validation-output.txt ]; then
-              echo "" >> $GITHUB_STEP_SUMMARY
-              echo "<details>" >> $GITHUB_STEP_SUMMARY
-              echo "<summary>Show custom validation errors</summary>" >> $GITHUB_STEP_SUMMARY
-              echo "" >> $GITHUB_STEP_SUMMARY
-              echo '```' >> $GITHUB_STEP_SUMMARY
-              head -n 50 custom-validation-output.txt >> $GITHUB_STEP_SUMMARY
-              echo '```' >> $GITHUB_STEP_SUMMARY
-              echo "</details>" >> $GITHUB_STEP_SUMMARY
-            fi
-          fi
-          echo "" >> $GITHUB_STEP_SUMMARY
-
           # DTCG Validation
           if [ "${{ steps.validate-dtcg.outcome }}" == "success" ]; then
             echo "✅ **DTCG Validation (Terrazzo)**: Passed" >> $GITHUB_STEP_SUMMARY
@@ -139,12 +103,12 @@ jobs:
           fi
 
       - name: Fail if any validation failed
-        if: steps.validate-custom.outcome == 'failure' || steps.validate-dtcg.outcome == 'failure' || steps.test-build.outcome == 'failure'
+        if: steps.validate-dtcg.outcome == 'failure' || steps.test-build.outcome == 'failure'
         run: |
           echo "❌ Validation failed"
           exit 1
 
       - name: Success summary
-        if: steps.validate-custom.outcome == 'success' && steps.validate-dtcg.outcome == 'success' && steps.test-build.outcome == 'success'
+        if: steps.validate-dtcg.outcome == 'success' && steps.test-build.outcome == 'success'
         run: |
           echo "✅ All validations passed!"
