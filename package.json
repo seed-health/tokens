@@ -14,7 +14,11 @@
     "fetch-all": "npm run fetch-tokens && npm run fetch-styles",
     "build-tokens": "style-dictionary build --config style-dictionary.config.mjs",
     "sync": "npm run fetch-all && npm run build-tokens",
-    "validate": "node scripts/validate-tokens.js",
+    "validate": "npm run validate:tokens && npm run validate:dtcg",
+    "validate:tokens": "node scripts/validate-tokens.js",
+    "validate:dtcg": "tz check",
+    "validate:build": "npm run build-tokens",
+    "test": "npm run validate && npm run validate:build",
     "diff": "node scripts/diff-tokens.js",
     "prepublishOnly": "npm run build-tokens"
   },
@@ -28,7 +32,7 @@
   "author": "",
   "license": "MIT",
   "engines": {
-    "node": "20.11"
+    "node": ">=20.11"
   },
   "repository": {
     "type": "git",
@@ -38,6 +42,7 @@
     "style-dictionary": "^4.0.1"
   },
   "devDependencies": {
+    "@terrazzo/cli": "^0.10.3",
     "axios": "^1.6.0",
     "dotenv": "^16.3.1"
   }
