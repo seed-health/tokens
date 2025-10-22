@@ -9,8 +9,8 @@
     "build/"
   ],
   "scripts": {
-    "fetch-tokens": "node scripts/fetch-figma-tokens.js",
-    "fetch-styles": "node scripts/fetch-figma-styles.js",
+    "fetch-tokens": "node scripts/fetch-figma-tokens.js --preserve-timestamp",
+    "fetch-styles": "node scripts/fetch-figma-styles.js --preserve-timestamp",
     "fetch-all": "npm run fetch-tokens && npm run fetch-styles",
     "build-tokens": "style-dictionary build --config style-dictionary.config.mjs",
     "sync": "npm run fetch-all && npm run build-tokens",
