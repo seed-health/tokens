@@ -6,17 +6,8 @@ scripts/
 .env.example
 
 # Documentation (keep only README.md in package)
-DUPLICATE-TOKENS.md
-NAMING-ISSUES-REPORT.md
-SEED-NAMING-STANDARD.md
-FIGMA-NAMING-STANDARDS.md
-AUTO-TRANSFORM-ANALYSIS.md
-TRANSFORM-PATCH-README.md
-TRANSFORM-RESULTS.md
-SYNC-OUTPUT-EXPLAINED.md
-DOT-VS-SLASH-ANALYSIS.md
-PUBLISHING.md
-naming-fixes.csv
+*.md
+!README.md
 
 # Development
 node_modules/
