@@ -1,6 +1,6 @@
 {
   "name": "@seed-health/tokens",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Design tokens for Seed Health applications.",
   "main": "build/js/tokens.module.js",
   "module": "build/js/tokens.js",
