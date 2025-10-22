@@ -68,40 +68,36 @@ jobs:
           git push origin "v${{ steps.get_version.outputs.new }}"
 
       - name: Create GitHub Release
-        uses: actions/create-release@v1
+        run: |
+          gh release create "v${{ steps.get_version.outputs.new }}" \
+            --title "Release v${{ steps.get_version.outputs.new }}" \
+            --notes "## 📦 @seed-health/tokens@${{ steps.get_version.outputs.new }}
+
+          **Published to NPM:** https://www.npmjs.com/package/@seed-health/tokens/v/${{ steps.get_version.outputs.new }}
+
+          ### Installation
+
+          \`\`\`bash
+          npm install @seed-health/tokens@${{ steps.get_version.outputs.new }}
+          \`\`\`
+
+          ### What's Included
+
+          - ✅ CSS Custom Properties (\`build/css/\`)
+          - ✅ SCSS Variables + Mixins (\`build/scss/\`)
+          - ✅ JavaScript ES6 (\`build/js/\`)
+          - ✅ TypeScript Definitions (\`build/js/tokens.d.ts\`)
+          - ✅ JSON Nested & Flat (\`build/json/\`)
+
+          ### Changes
+
+          See commits since last release for details.
+
+          ---
+
+          🤖 Published via [Publish to NPM Workflow](https://github.com/${{ github.repository }}/actions/workflows/publish-npm.yml)"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: v${{ steps.get_version.outputs.new }}
-          release_name: Release v${{ steps.get_version.outputs.new }}
-          body: |
-            ## 📦 @seed-health/tokens@${{ steps.get_version.outputs.new }}
-
-            **Published to NPM:** https://www.npmjs.com/package/@seed-health/tokens/v/${{ steps.get_version.outputs.new }}
-
-            ### Installation
-
-            ```bash
-            npm install @seed-health/tokens@${{ steps.get_version.outputs.new }}
-            ```
-
-            ### What's Included
-
-            - ✅ CSS Custom Properties (`build/css/`)
-            - ✅ SCSS Variables + Mixins (`build/scss/`)
-            - ✅ JavaScript ES6 (`build/js/`)
-            - ✅ TypeScript Definitions (`build/js/tokens.d.ts`)
-            - ✅ JSON Nested & Flat (`build/json/`)
-
-            ### Changes
-
-            See commits since last release for details.
-
-            ---
-
-            🤖 Published via [Publish to NPM Workflow](https://github.com/${{ github.repository }}/actions/workflows/publish-npm.yml)
-          draft: false
-          prerelease: false
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Summary
         run: |
