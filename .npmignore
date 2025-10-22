@@ -1,0 +1,19 @@
+# Source files (users don't need these)
+tokens/
+scripts/
+.github/
+.env
+.env.example
+
+# Documentation (keep only README.md in package)
+*.md
+!README.md
+
+# Development
+node_modules/
+.DS_Store
+*.log
+
+# Git
+.git/
+.gitignore
