@@ -40,7 +40,7 @@ StyleDictionary.registerFormat({
         const className = `.shadow-${sanitizedPath.join('-')}`;
         const value = token.original.$value;
         // Convert shadow object to CSS box-shadow string
-        const boxShadow = typeof value === 'object' && value.offsetX
+        const boxShadow = value != null && typeof value === 'object' && ('offsetX' in value)
           ? `${value.offsetX} ${value.offsetY} ${value.blur}${value.spread ? ' ' + value.spread : ''} ${value.color}`
           : value;
         css += `${className} {\n`;
@@ -91,7 +91,7 @@ StyleDictionary.registerFormat({
         const mixinName = `shadow-${sanitizedPath.join('-')}`;
         const value = token.original.$value;
         // Convert shadow object to CSS box-shadow string
-        const boxShadow = typeof value === 'object' && value.offsetX
+        const boxShadow = value != null && typeof value === 'object' && ('offsetX' in value)
           ? `${value.offsetX} ${value.offsetY} ${value.blur}${value.spread ? ' ' + value.spread : ''} ${value.color}`
           : value;
         scss += `@mixin ${mixinName} {\n`;

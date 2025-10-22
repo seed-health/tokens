@@ -182,6 +182,9 @@ function tokensEqual(obj1, obj2) {
  * Build nested object from path parts
  */
 function setNestedValue(obj, pathParts, value) {
+  if (!Array.isArray(pathParts) || pathParts.length === 0) {
+    throw new Error('pathParts must be a non-empty array');
+  }
   let current = obj;
   for (let i = 0; i < pathParts.length - 1; i++) {
     const part = pathParts[i];
