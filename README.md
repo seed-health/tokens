@@ -1,6 +1,6 @@
 # @seed-health/tokens
 
-Design tokens for Seed Health applications. Includes colors, typography, spacing, and more in multiple formats.
+Design tokens for Seed Health applications.
 
 ## Installation
 
@@ -33,13 +33,13 @@ function Button() {
 ### JavaScript/TypeScript
 
 ```jsx
-import tokens from '@seed-health/tokens';
+import * as tokens from '@seed-health/tokens';
 
 function Button() {
   return (
     <button style={{
-      backgroundColor: tokens.color.primary['500'],
-      padding: tokens.spacing.medium
+      ...tokens.FixedLabelMedium,
+      padding: tokens.SpacingX2
     }}>
       Click me
     </button>
@@ -77,20 +77,10 @@ function Button() {
 | CSS Classes | `build/css/styles.css` | Typography and effect utility classes |
 | SCSS Variables | `build/scss/_variables.scss` | Sass variables |
 | SCSS Mixins | `build/scss/_mixins.scss` | Typography and effect mixins |
-| JavaScript | `build/js/tokens.js` | ES6 module |
+| JavaScript | `build/js/tokens.js` | ES6 module with named exports |
 | TypeScript | `build/js/tokens.d.ts` | Type definitions |
-| JSON | `build/json/tokens.json` | Nested structure |
+| JSON | `build/json/tokens.json` | Nested structure (kebab-case keys) |
 | JSON (Flat) | `build/json/tokens-flat.json` | Flat key-value pairs |
-
-## Token Categories
-
-- **Colors**: Brand colors, backgrounds, text colors
-- **Typography**: Font families, sizes, weights, line heights
-- **Spacing**: Margins, paddings, gaps
-- **Sizing**: Component dimensions
-- **Border Radius**: Corner radius values
-- **Shadows**: Box shadow styles
-- **Effects**: Blur and other visual effects
 
 ## License
 

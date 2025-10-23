@@ -167,6 +167,9 @@ All outputs are in `build/` directory:
 - `css/` - CSS custom properties and utility classes
 - `scss/` - Sass variables and mixins
 - `js/` - JavaScript modules and TypeScript definitions
+  - `tokens.js` - ES6 module with named exports
+  - `tokens.d.ts` - TypeScript type definitions
+  - `tokens.module.js` - Flat module exports
 - `json/` - JSON formats for programmatic access
 
 ## Troubleshooting
