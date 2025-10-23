@@ -1,9 +1,9 @@
 name: Sync Figma tokens
 
 on:
-  # Run every hour
-  # schedule:
-  #   - cron: '0 * * * *'
+  # Run every weekday morning
+  schedule:
+    - cron: '0 11 * * 1-5'
 
   # Allow manual trigger
   workflow_dispatch:
