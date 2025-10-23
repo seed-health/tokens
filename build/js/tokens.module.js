@@ -8,7 +8,7 @@ module.exports = {
     fontSize: "64px",
     fontWeight: 350,
     letterSpacing: "-1.28px",
-    lineHeight: "100%",
+    lineHeight: "110%",
   },
   DesktopDisplaySmall: {
     fontFamily: "Seed Sans",

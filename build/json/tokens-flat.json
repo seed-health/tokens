@@ -1,5 +1,5 @@
 {
-  "DesktopDisplayLarge": {"fontFamily":"Seed Sans","fontSize":"64px","fontWeight":350,"letterSpacing":"-1.28px","lineHeight":"100%"},
+  "DesktopDisplayLarge": {"fontFamily":"Seed Sans","fontSize":"64px","fontWeight":350,"letterSpacing":"-1.28px","lineHeight":"110%"},
   "DesktopDisplaySmall": {"fontFamily":"Seed Sans","fontSize":"48px","fontWeight":350,"letterSpacing":"-0.96px","lineHeight":"100%"},
   "FakeDropShadow": {"offsetX":"0px","offsetY":"28px","blur":"4px","spread":"0px","color":"rgba(0, 0, 0, 0.44999998807907104)"},
   "FixedBodyLarge": {"fontFamily":"Seed Sans","fontSize":"20px","fontWeight":350,"letterSpacing":"-0.2px","lineHeight":"140%"},
