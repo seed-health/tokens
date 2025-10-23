@@ -34,7 +34,7 @@ FIGMA_FILE_KEY=abc123,def456,ghi789
 
 **Multiple Files**: Variables from all files are merged into a single token set. If there are naming conflicts, the last file wins.
 
-### 2. Figma Setup
+### 2. Figma Setup Expectations
 
 **Variables** (primitives - colors, spacing, sizes):
 ```
@@ -69,27 +69,21 @@ npm run diff           # Show changes
 
 ## Validation
 
-Before committing changes, validate tokens locally:
+Before committing changes, you can validate tokens locally:
 
 ```bash
 npm test              # Run all validations
-npm run validate      # DTCG spec validation (Terrazzo)
+npm run validate      # DTCG spec validation (via Terrazzo)
 npm run build-tokens  # Test Style Dictionary build
 ```
 
-**What's validated:**
-- ✅ DTCG format and structure
-- ✅ Token types (colors, dimensions, typography, etc.)
-- ✅ Reference integrity and circular references
-- ✅ Style Dictionary build compatibility
-
-**CI/CD:** Every PR automatically runs validation and displays results. See `.github/workflows/validate-tokens.yml`.
+**CI/CD:** See `.github/workflows/validate-tokens.yml`.
 
 ## Automation
 
 ### Figma Sync Workflow
 
-GitHub Action that can be triggered manually to sync tokens from Figma:
+GitHub Action that runs daily, or can be triggered manually, to sync tokens from Figma:
 - Fetches latest variables and styles from Figma
 - Validates and builds tokens
 - Creates a PR with changes if any exist
@@ -98,46 +92,30 @@ GitHub Action that can be triggered manually to sync tokens from Figma:
 ### NPM Publishing Workflow
 
 Manual workflow to publish new versions to NPM:
-- Bumps patch version automatically
 - Builds tokens
+- Bumps patch version automatically
 - Publishes to NPM with public access
 - Creates GitHub release with tag
 - See `.github/workflows/publish-npm.yml`
 
-Trigger manually via GitHub Actions UI.
+## Naming
 
-## Token Format
-
-Uses W3C DTCG standard:
-
-```json
-{
-  "color": {
-    "primary": {
-      "500": {
-        "$value": "#3b82f6",
-        "$type": "color",
-        "$description": "Primary brand color"
-      }
-    }
-  }
-}
-```
-
-## Naming Best Practices
-
-**Three-tier hierarchy:**
+**Hierarchy**
 1. **Primitive**: `color/blue/500` (what it is)
 2. **Semantic**: `color/bg/primary` (what it's for)
 3. **Component**: `button/primary/bg` (where it's used)
 
-**Rules:**
-- ✅ Use lowercase: `color/primary` not `color/Primary`
-- ✅ Be specific: `color/text/body` not `color/text/dark`
-- ✅ Use `/` separators: `color/primary/500`
-- ❌ Avoid abbreviations at root level
-- ❌ No platform-specific names
-- ❌ Max 4 levels deep
+**Guidance**
+
+Good:
+- Use lowercase: `color/primary` not `color/Primary`
+- Use `/` separators: `color/primary/500`
+- Be specific: `color/text/body` not `color/text/dark`
+
+Bad:
+- Avoid abbreviations at root level
+- Avoid platform-specific names
+- Max four levels deep
 
 ## Architecture
 
@@ -171,35 +149,6 @@ All outputs are in `build/` directory:
   - `tokens.d.ts` - TypeScript type definitions
   - `tokens.module.js` - Flat module exports
 - `json/` - JSON formats for programmatic access
-
-## Troubleshooting
-
-### Token Collisions
-
-If you see warnings about token collisions, check for:
-- Duplicate token names across variables and styles
-- Tokens with same path but different casing
-- Legacy tokens that should be removed
-
-### Unresolved References
-
-If tokens reference other tokens that don't exist:
-- Check the Figma file for broken variable references
-- Ensure all referenced variables are published
-- May need to temporarily ignore problematic tokens (see `isValidToken()` in config)
-
-### Build Failures
-
-If Style Dictionary build fails:
-- Run `npm run validate` to check DTCG compliance
-- Check for tokens with invalid values or types
-- Look for circular references in token aliases
-
-## Requirements
-
-- Figma Professional plan or higher (for Variables API access)
-- Node.js 20.11 or higher
-- GitHub Actions for automation (optional)
 
 ## Resources
 
