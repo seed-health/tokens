@@ -7,7 +7,7 @@ export const DesktopDisplayLarge = {
   fontSize: "64px",
   fontWeight: 350,
   letterSpacing: "-1.28px",
-  lineHeight: "100%",
+  lineHeight: "110%",
 };
 export const DesktopDisplaySmall = {
   fontFamily: "Seed Sans",

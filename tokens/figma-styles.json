@@ -2,7 +2,7 @@
   "$metadata": {
     "figmaFileKeys": "HRJIjk1pZtxRKlPabHqBaI",
     "format": "W3C DTCG",
-    "generated": "2025-10-22T20:36:39.617Z",
+    "generated": "2025-10-23T21:11:50.779Z",
     "source": "Figma Styles API",
     "version": "1.0.0"
   },
@@ -38,7 +38,7 @@
         "fontSize": "64px",
         "fontWeight": 350,
         "letterSpacing": "-1.28px",
-        "lineHeight": "100%"
+        "lineHeight": "110%"
       }
     },
     "small": {
