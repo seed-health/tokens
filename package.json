@@ -34,7 +34,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/seed-health/tokens.git"
+    "url": "git+https://github.com/seed-health/tokens.git"
   },
   "dependencies": {
     "style-dictionary": "^4.0.1"
