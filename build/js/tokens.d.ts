@@ -16,13 +16,6 @@ export const DesktopDisplaySmall: {
   letterSpacing: string;
   lineHeight: string;
 };
-export const FakeDropShadow: {
-  offsetX: string;
-  offsetY: string;
-  blur: string;
-  spread: string;
-  color: string;
-};
 export const FixedBodyLarge: {
   fontFamily: string;
   fontSize: string;
@@ -156,6 +149,13 @@ export const ScreenGridsStaticGrid: {
   pattern: string;
   sectionSize: string;
 }[];
+export const SubtleShadow: {
+  offsetX: string;
+  offsetY: string;
+  blur: string;
+  spread: string;
+  color: string;
+};
 export const ActionsInverse: "#fcfcf7";
 export const ActionsPrimary: "#1c3a13";
 export const AppearanceMeasurement100: "4px";
@@ -188,9 +188,6 @@ export const AppearanceOpacity00: "0px";
 export const BackgroundLight: "#fcfcf7";
 export const BackgroundLightestWhite: "#ffffff";
 export const BackgroundMedium: "#eff1e4";
-export const ColorFlourescentgreen: "#d3fa99";
-export const ColorSeedGreenT20: "#1c3a1333";
-export const ColorSeedgreenT10: "#1c3a131a";
 export const ColorDarkOpacity10: "#0000001a";
 export const ColorDarkOpacity12: "#0000001f";
 export const ColorDarkOpacity16: "#00000029";
