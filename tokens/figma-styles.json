@@ -2,7 +2,7 @@
   "$metadata": {
     "figmaFileKeys": "HRJIjk1pZtxRKlPabHqBaI",
     "format": "W3C DTCG",
-    "generated": "2025-10-23T21:11:50.779Z",
+    "generated": "2025-10-31T11:02:52.211Z",
     "source": "Figma Styles API",
     "version": "1.0.0"
   },
@@ -74,16 +74,6 @@
         "letterSpacing": "-0.96px",
         "lineHeight": "100%"
       }
-    }
-  },
-  "fake drop shadow": {
-    "$type": "shadow",
-    "$value": {
-      "offsetX": "0px",
-      "offsetY": "28px",
-      "blur": "4px",
-      "spread": "0px",
-      "color": "rgba(0, 0, 0, 0.44999998807907104)"
     }
   },
   "fixed": {
@@ -715,6 +705,16 @@
           "sectionSize": "96px"
         }
       ]
+    }
+  },
+  "subtle shadow": {
+    "$type": "shadow",
+    "$value": {
+      "offsetX": "0px",
+      "offsetY": "4px",
+      "blur": "30px",
+      "spread": "0px",
+      "color": "rgba(0, 0, 0, 0.07999999821186066)"
     }
   }
 }
