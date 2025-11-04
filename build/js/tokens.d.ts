@@ -367,7 +367,6 @@ export const TextInverse: "#fcfcf7";
 export const TextPrimary: "#1c3a13";
 export const TextSecondary: "#1c3a13b2";
 export const TextWarning: "#ebb057";
-export const TypefaceSize350: "14px";
 export const TypographyFontBrand: "Seed Sans";
 export const TypographyFontBrandMono: "Seed Sans Mono";
 export const TypographySize300: "12px";

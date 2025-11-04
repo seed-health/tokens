@@ -377,7 +377,6 @@ module.exports = {
   TextPrimary: "#1c3a13",
   TextSecondary: "#1c3a13b2",
   TextWarning: "#ebb057",
-  TypefaceSize350: "14px",
   TypographyFontBrand: "Seed Sans",
   TypographyFontBrandMono: "Seed Sans Mono",
   TypographySize300: "12px",
