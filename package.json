@@ -5,6 +5,16 @@
   "main": "build/js/tokens.js",
   "module": "build/js/tokens.js",
   "types": "build/js/tokens.d.ts",
+  "exports": {
+    ".": {
+      "types": "./build/js/tokens.d.ts",
+      "default": "./build/js/tokens.js"
+    },
+    "./react": "./build/react/global-token-styles.tsx",
+    "./css/*": "./build/css/*",
+    "./scss/*": "./build/scss/*",
+    "./json/*": "./build/json/*"
+  },
   "files": [
     "build/"
   ],
@@ -12,7 +22,8 @@
     "fetch-tokens": "node scripts/fetch-figma-tokens.js --preserve-timestamp",
     "fetch-styles": "node scripts/fetch-figma-styles.js --preserve-timestamp",
     "fetch-all": "npm run fetch-tokens && npm run fetch-styles",
-    "build-tokens": "style-dictionary build --config style-dictionary.config.mjs",
+    "generate-styles": "node scripts/generate-global-styles.js",
+    "build-tokens": "style-dictionary build --config style-dictionary.config.mjs && npm run generate-styles",
     "sync": "npm run fetch-all && npm run build-tokens",
     "validate": "tz check",
     "validate:build": "npm run build-tokens",
@@ -35,6 +46,14 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/seed-health/tokens.git"
+  },
+  "peerDependencies": {
+    "styled-components": "^5.0.0 || ^6.0.0"
+  },
+  "peerDependenciesMeta": {
+    "styled-components": {
+      "optional": true
+    }
   },
   "dependencies": {
     "style-dictionary": "^4.0.1"

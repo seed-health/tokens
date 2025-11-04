@@ -69,12 +69,28 @@ function Button() {
 }
 ```
 
+### React (styled-components)
+
+```tsx
+import { GlobalTokenStyles } from '@seed-health/tokens/react';
+
+function App() {
+  return (
+    <>
+      <GlobalTokenStyles />
+      {/* Your app content */}
+    </>
+  );
+}
+```
+
 ## Available Formats
 
 | Format | Path | Description |
 |--------|------|-------------|
 | CSS Variables | `build/css/variables.css` | Custom properties for colors, spacing, etc. |
 | CSS Classes | `build/css/styles.css` | Typography and effect utility classes |
+| React Component | `build/react/global-token-styles.tsx` | styled-components GlobalStyle |
 | SCSS Variables | `build/scss/_variables.scss` | Sass variables |
 | SCSS Mixins | `build/scss/_mixins.scss` | Typography and effect mixins |
 | JavaScript | `build/js/tokens.js` | ES6 module with named exports |
