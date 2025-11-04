@@ -138,7 +138,6 @@ export const GlobalTokenStyles = createGlobalStyle`
   --spacing-x7: 56px;
   --spacing-x8: 64px;
   --state-layer-outer-focused-fixed: #0000f5;
-  --typeface-size-350: 14px;
   --typography-font-brand: Seed Sans;
   --typography-font-brand-mono: Seed Sans Mono;
   --typography-size-300: 12px;
