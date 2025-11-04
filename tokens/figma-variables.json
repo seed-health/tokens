@@ -2,7 +2,7 @@
   "$metadata": {
     "figmaFileKeys": "HRJIjk1pZtxRKlPabHqBaI",
     "format": "W3C DTCG",
-    "generated": "2025-10-31T11:02:49.966Z",
+    "generated": "2025-11-04T11:12:29.146Z",
     "source": "Figma Variables API",
     "version": "1.0.0"
   },
@@ -1005,14 +1005,6 @@
     "warning": {
       "$type": "color",
       "$value": "{color.guidance.warning}"
-    }
-  },
-  "typeface": {
-    "size": {
-      "350": {
-        "$type": "dimension",
-        "$value": "14px"
-      }
     }
   },
   "typography": {
