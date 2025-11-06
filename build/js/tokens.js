@@ -18,9 +18,9 @@ export const DesktopDisplaySmall = {
 };
 export const FixedBodyLarge = {
   fontFamily: "Seed Sans",
-  fontSize: "20px",
+  fontSize: "18px",
   fontWeight: 350,
-  letterSpacing: "-0.2px",
+  letterSpacing: "-0.18px",
   lineHeight: "140%",
 };
 export const FixedBodyMedium = {
@@ -35,6 +35,13 @@ export const FixedBodySmall = {
   fontSize: "14px",
   fontWeight: 350,
   letterSpacing: "-0.14px",
+  lineHeight: "140%",
+};
+export const FixedBodyXLarge = {
+  fontFamily: "Seed Sans",
+  fontSize: "20px",
+  fontWeight: 350,
+  letterSpacing: "-0.2px",
   lineHeight: "140%",
 };
 export const FixedBodyXsmall = {
@@ -60,9 +67,9 @@ export const FixedEyebrow = {
 }; // For all platforms • eyebrows
 export const FixedLabelLarge = {
   fontFamily: "Seed Sans",
-  fontSize: "20px",
+  fontSize: "18px",
   fontWeight: 500,
-  letterSpacing: "-0.2px",
+  letterSpacing: "-0.18px",
   lineHeight: "140%",
 };
 export const FixedLabelMedium = {
@@ -77,6 +84,13 @@ export const FixedLabelSmall = {
   fontSize: "14px",
   fontWeight: 500,
   letterSpacing: "-0.14px",
+  lineHeight: "140%",
+};
+export const FixedLabelXLarge = {
+  fontFamily: "Seed Sans",
+  fontSize: "20px",
+  fontWeight: 500,
+  letterSpacing: "-0.2px",
   lineHeight: "140%",
 };
 export const FixedLabelXsmall = {
@@ -187,17 +201,17 @@ export const AppearanceMeasurement2500 = "100px";
 export const AppearanceMeasurement00 = "0px";
 export const AppearanceMeasurement025 = "1px";
 export const AppearanceMeasurement050 = "2px";
-export const AppearanceOpacity10 = "10px";
-export const AppearanceOpacity20 = "20px";
-export const AppearanceOpacity30 = "30px";
-export const AppearanceOpacity40 = "40px";
-export const AppearanceOpacity50 = "50px";
-export const AppearanceOpacity60 = "60px";
-export const AppearanceOpacity70 = "70px";
-export const AppearanceOpacity80 = "80px";
-export const AppearanceOpacity90 = "90px";
-export const AppearanceOpacity100 = "100px";
-export const AppearanceOpacity00 = "0px";
+export const AppearanceOpacity10 = 0.1;
+export const AppearanceOpacity20 = 0.2;
+export const AppearanceOpacity30 = 0.3;
+export const AppearanceOpacity40 = 0.4;
+export const AppearanceOpacity50 = 0.5;
+export const AppearanceOpacity60 = 0.6;
+export const AppearanceOpacity70 = 0.7;
+export const AppearanceOpacity80 = 0.8;
+export const AppearanceOpacity90 = 0.9;
+export const AppearanceOpacity100 = 1;
+export const AppearanceOpacity00 = 0;
 export const BackgroundLight = "#fcfcf7";
 export const BackgroundLightestWhite = "#ffffff";
 export const BackgroundMedium = "#eff1e4";
@@ -365,10 +379,10 @@ export const StateLayerLightFocused = "#ffffff1f";
 export const StateLayerLightHovered = "#ffffff14";
 export const StateLayerLightPressed = "#ffffff1f";
 export const StateLayerOuterFocusedFixed = "#0000f5";
-export const StateOpacityDisabled = "40px";
-export const StateOpacityFocused = "80px";
-export const StateOpacityHover = "80px";
-export const StateOpacityPressed = "70px";
+export const StateOpacityDisabled = 0.4;
+export const StateOpacityFocused = 0.8;
+export const StateOpacityHover = 0.8;
+export const StateOpacityPressed = 0.7;
 export const StrokeDefault = "1px";
 export const TextDisabled = "#1c3a1380";
 export const TextError = "#eb5757";

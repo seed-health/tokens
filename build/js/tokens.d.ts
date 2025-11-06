@@ -37,6 +37,13 @@ export const FixedBodySmall: {
   letterSpacing: string;
   lineHeight: string;
 };
+export const FixedBodyXLarge: {
+  fontFamily: string;
+  fontSize: string;
+  fontWeight: number;
+  letterSpacing: string;
+  lineHeight: string;
+};
 /** For all platforms • captions */
 export const FixedBodyXsmall: {
   fontFamily: string;
@@ -76,6 +83,13 @@ export const FixedLabelMedium: {
   lineHeight: string;
 };
 export const FixedLabelSmall: {
+  fontFamily: string;
+  fontSize: string;
+  fontWeight: number;
+  letterSpacing: string;
+  lineHeight: string;
+};
+export const FixedLabelXLarge: {
   fontFamily: string;
   fontSize: string;
   fontWeight: number;
@@ -174,17 +188,17 @@ export const AppearanceMeasurement2500: "100px";
 export const AppearanceMeasurement00: "0px";
 export const AppearanceMeasurement025: "1px";
 export const AppearanceMeasurement050: "2px";
-export const AppearanceOpacity10: "10px";
-export const AppearanceOpacity20: "20px";
-export const AppearanceOpacity30: "30px";
-export const AppearanceOpacity40: "40px";
-export const AppearanceOpacity50: "50px";
-export const AppearanceOpacity60: "60px";
-export const AppearanceOpacity70: "70px";
-export const AppearanceOpacity80: "80px";
-export const AppearanceOpacity90: "90px";
-export const AppearanceOpacity100: "100px";
-export const AppearanceOpacity00: "0px";
+export const AppearanceOpacity10: number;
+export const AppearanceOpacity20: number;
+export const AppearanceOpacity30: number;
+export const AppearanceOpacity40: number;
+export const AppearanceOpacity50: number;
+export const AppearanceOpacity60: number;
+export const AppearanceOpacity70: number;
+export const AppearanceOpacity80: number;
+export const AppearanceOpacity90: number;
+export const AppearanceOpacity100: number;
+export const AppearanceOpacity00: number;
 export const BackgroundLight: "#fcfcf7";
 export const BackgroundLightestWhite: "#ffffff";
 export const BackgroundMedium: "#eff1e4";
@@ -356,10 +370,10 @@ export const StateLayerLightFocused: "#ffffff1f";
 export const StateLayerLightHovered: "#ffffff14";
 export const StateLayerLightPressed: "#ffffff1f";
 export const StateLayerOuterFocusedFixed: "#0000f5";
-export const StateOpacityDisabled: "40px";
-export const StateOpacityFocused: "80px";
-export const StateOpacityHover: "80px";
-export const StateOpacityPressed: "70px";
+export const StateOpacityDisabled: number;
+export const StateOpacityFocused: number;
+export const StateOpacityHover: number;
+export const StateOpacityPressed: number;
 export const StrokeDefault: "1px";
 export const TextDisabled: "#1c3a1380";
 export const TextError: "#eb5757";
