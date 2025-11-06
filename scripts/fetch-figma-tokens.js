@@ -104,7 +104,7 @@ function mapFigmaTypeToDTCG(figmaType) {
 /**
  * Format value based on type (W3C DTCG compliant)
  */
-function formatValue(value, type, variableId) {
+function formatValue(value, type, variableId, tokenPath = []) {
   // Handle variable aliases (references to other variables)
   if (value && typeof value === 'object' && value.type === 'VARIABLE_ALIAS') {
     const aliasId = value.id;
@@ -132,13 +132,22 @@ function formatValue(value, type, variableId) {
     }
   }
 
-  // Handle dimensions
+  // Handle dimensions and opacity
   if (type === 'FLOAT') {
-    // Ensure value is a number before adding 'px'
+    // Ensure value is a number before processing
     if (typeof value === 'object') {
       console.warn(`⚠️  Warning: Invalid FLOAT value (object received):`, value);
       return '[invalid]';
     }
+
+    // Check if this is an opacity token by path
+    const pathString = tokenPath.join('/').toLowerCase();
+    if (pathString.includes('opacity')) {
+      // Opacity values should be unitless decimals (0-1 scale)
+      // Convert from 0-100 scale to 0-1 scale
+      return value / 100;
+    }
+
     return `${value}px`;
   }
 
@@ -180,7 +189,13 @@ function transformToDTCG(figmaData, fileKeys = []) {
 
       // Split name into path (e.g., "color/primary/500" -> ["color", "primary", "500"])
       const pathParts = name.split('/');
-      const dtcgType = mapFigmaTypeToDTCG(resolvedType);
+
+      // Check if this is a FLOAT opacity token and use 'number' type instead of 'dimension'
+      // Only apply this override for FLOAT types, not COLOR types
+      const pathString = pathParts.join('/').toLowerCase();
+      const dtcgType = (resolvedType === 'FLOAT' && pathString.includes('opacity'))
+        ? 'number'
+        : mapFigmaTypeToDTCG(resolvedType);
 
       // Get mode information
       const modeIds = Object.keys(valuesByMode);
@@ -194,7 +209,8 @@ function transformToDTCG(figmaData, fileKeys = []) {
           modeValues[modeName] = formatValue(
             valuesByMode[modeId],
             resolvedType,
-            variableId
+            variableId,
+            pathParts
           );
         });
 
@@ -215,7 +231,8 @@ function transformToDTCG(figmaData, fileKeys = []) {
         const value = formatValue(
           valuesByMode[modeIds[0]],
           resolvedType,
-          variableId
+          variableId,
+          pathParts
         );
 
         const token = {

@@ -2,7 +2,7 @@
   "$metadata": {
     "figmaFileKeys": "HRJIjk1pZtxRKlPabHqBaI",
     "format": "W3C DTCG",
-    "generated": "2025-10-31T11:02:52.211Z",
+    "generated": "2025-11-06T02:18:34.080Z",
     "source": "Figma Styles API",
     "version": "1.0.0"
   },
@@ -89,7 +89,7 @@
             ],
             "fontSize": [
               {
-                "id": "VariableID:55:95",
+                "id": "VariableID:222:483",
                 "type": "VARIABLE_ALIAS"
               }
             ],
@@ -105,9 +105,9 @@
       "$type": "typography",
       "$value": {
         "fontFamily": "Seed Sans",
-        "fontSize": "20px",
+        "fontSize": "18px",
         "fontWeight": 350,
-        "letterSpacing": "-0.2px",
+        "letterSpacing": "-0.18px",
         "lineHeight": "140%"
       }
     },
@@ -176,6 +176,40 @@
         "fontSize": "14px",
         "fontWeight": 350,
         "letterSpacing": "-0.14px",
+        "lineHeight": "140%"
+      }
+    },
+    "body x-large": {
+      "$extensions": {
+        "com.figma": {
+          "boundVariables": {
+            "fontFamily": [
+              {
+                "id": "VariableID:20:6709",
+                "type": "VARIABLE_ALIAS"
+              }
+            ],
+            "fontSize": [
+              {
+                "id": "VariableID:55:95",
+                "type": "VARIABLE_ALIAS"
+              }
+            ],
+            "fontStyle": [
+              {
+                "id": "VariableID:20:6712",
+                "type": "VARIABLE_ALIAS"
+              }
+            ]
+          }
+        }
+      },
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Seed Sans",
+        "fontSize": "20px",
+        "fontWeight": 350,
+        "letterSpacing": "-0.2px",
         "lineHeight": "140%"
       }
     },
@@ -290,7 +324,7 @@
             ],
             "fontSize": [
               {
-                "id": "VariableID:55:95",
+                "id": "VariableID:222:483",
                 "type": "VARIABLE_ALIAS"
               }
             ],
@@ -306,9 +340,9 @@
       "$type": "typography",
       "$value": {
         "fontFamily": "Seed Sans",
-        "fontSize": "20px",
+        "fontSize": "18px",
         "fontWeight": 500,
-        "letterSpacing": "-0.2px",
+        "letterSpacing": "-0.18px",
         "lineHeight": "140%"
       }
     },
@@ -377,6 +411,40 @@
         "fontSize": "14px",
         "fontWeight": 500,
         "letterSpacing": "-0.14px",
+        "lineHeight": "140%"
+      }
+    },
+    "label x-large": {
+      "$extensions": {
+        "com.figma": {
+          "boundVariables": {
+            "fontFamily": [
+              {
+                "id": "VariableID:20:6709",
+                "type": "VARIABLE_ALIAS"
+              }
+            ],
+            "fontSize": [
+              {
+                "id": "VariableID:55:95",
+                "type": "VARIABLE_ALIAS"
+              }
+            ],
+            "fontStyle": [
+              {
+                "id": "VariableID:20:6713",
+                "type": "VARIABLE_ALIAS"
+              }
+            ]
+          }
+        }
+      },
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Seed Sans",
+        "fontSize": "20px",
+        "fontWeight": 500,
+        "letterSpacing": "-0.2px",
         "lineHeight": "140%"
       }
     },
