@@ -28,17 +28,17 @@ export const GlobalTokenStyles = createGlobalStyle`
   --appearance-measurement-00: 0px;
   --appearance-measurement-025: 1px;
   --appearance-measurement-050: 2px;
-  --appearance-opacity-10: 10px;
-  --appearance-opacity-20: 20px;
-  --appearance-opacity-30: 30px;
-  --appearance-opacity-40: 40px;
-  --appearance-opacity-50: 50px;
-  --appearance-opacity-60: 60px;
-  --appearance-opacity-70: 70px;
-  --appearance-opacity-80: 80px;
-  --appearance-opacity-90: 90px;
-  --appearance-opacity-100: 100px;
-  --appearance-opacity-00: 0px;
+  --appearance-opacity-10: 0.1;
+  --appearance-opacity-20: 0.2;
+  --appearance-opacity-30: 0.3;
+  --appearance-opacity-40: 0.4;
+  --appearance-opacity-50: 0.5;
+  --appearance-opacity-60: 0.6;
+  --appearance-opacity-70: 0.7;
+  --appearance-opacity-80: 0.8;
+  --appearance-opacity-90: 0.9;
+  --appearance-opacity-100: 1;
+  --appearance-opacity-00: 0;
   --color-dark-opacity-10: rgba(0, 0, 0, 0.1);
   --color-dark-opacity-12: rgba(0, 0, 0, 0.12);
   --color-dark-opacity-16: rgba(0, 0, 0, 0.16);
@@ -259,9 +259,9 @@ export const GlobalTokenStyles = createGlobalStyle`
 
 .text-fixed-body-large {
   font-family: "Seed Sans";
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 350;
-  letter-spacing: -0.2px;
+  letter-spacing: -0.18px;
   line-height: 140%;
 }
 
@@ -278,6 +278,14 @@ export const GlobalTokenStyles = createGlobalStyle`
   font-size: 14px;
   font-weight: 350;
   letter-spacing: -0.14px;
+  line-height: 140%;
+}
+
+.text-fixed-body-x-large {
+  font-family: "Seed Sans";
+  font-size: 20px;
+  font-weight: 350;
+  letter-spacing: -0.2px;
   line-height: 140%;
 }
 
@@ -307,9 +315,9 @@ export const GlobalTokenStyles = createGlobalStyle`
 
 .text-fixed-label-large {
   font-family: "Seed Sans";
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
-  letter-spacing: -0.2px;
+  letter-spacing: -0.18px;
   line-height: 140%;
 }
 
@@ -326,6 +334,14 @@ export const GlobalTokenStyles = createGlobalStyle`
   font-size: 14px;
   font-weight: 500;
   letter-spacing: -0.14px;
+  line-height: 140%;
+}
+
+.text-fixed-label-x-large {
+  font-family: "Seed Sans";
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.2px;
   line-height: 140%;
 }
 

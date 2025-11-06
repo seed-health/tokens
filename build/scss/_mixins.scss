@@ -20,9 +20,9 @@
 
 @mixin text-fixed-body-large {
   font-family: "Seed Sans";
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 350;
-  letter-spacing: -0.2px;
+  letter-spacing: -0.18px;
   line-height: 140%;
 }
 
@@ -39,6 +39,14 @@
   font-size: 14px;
   font-weight: 350;
   letter-spacing: -0.14px;
+  line-height: 140%;
+}
+
+@mixin text-fixed-body-x-large {
+  font-family: "Seed Sans";
+  font-size: 20px;
+  font-weight: 350;
+  letter-spacing: -0.2px;
   line-height: 140%;
 }
 
@@ -68,9 +76,9 @@
 
 @mixin text-fixed-label-large {
   font-family: "Seed Sans";
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
-  letter-spacing: -0.2px;
+  letter-spacing: -0.18px;
   line-height: 140%;
 }
 
@@ -87,6 +95,14 @@
   font-size: 14px;
   font-weight: 500;
   letter-spacing: -0.14px;
+  line-height: 140%;
+}
+
+@mixin text-fixed-label-x-large {
+  font-family: "Seed Sans";
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.2px;
   line-height: 140%;
 }
 
