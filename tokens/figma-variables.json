@@ -1,12 +1,16 @@
 {
   "$metadata": {
-    "figmaFileKeys": "HRJIjk1pZtxRKlPabHqBaI",
+    "figmaFileKeys": "TWb3Fxsi76DlpJIFBD5CEG",
     "format": "W3C DTCG",
-    "generated": "2025-11-06T02:32:47.207Z",
+    "generated": "2025-11-07T14:59:59.051Z",
     "source": "Figma Variables API",
     "version": "1.0.0"
   },
   "actions": {
+    "bright": {
+      "$type": "color",
+      "$value": "{color.primary.white}"
+    },
     "inverse": {
       "$type": "color",
       "$value": "{color.primary.snow white}"
@@ -128,20 +132,6 @@
         "$type": "number",
         "$value": 0
       }
-    }
-  },
-  "background": {
-    "light": {
-      "$type": "color",
-      "$value": "{color.primary.snow white}"
-    },
-    "lightest - white": {
-      "$type": "color",
-      "$value": "{color.primary.white}"
-    },
-    "medium": {
-      "$type": "color",
-      "$value": "{color.neutral.foam white}"
     }
   },
   "color": {
@@ -443,19 +433,9 @@
       "$value": "{color.neutral.yellowish white}"
     }
   },
-  "corner_radius": {
-    "-lg": {
-      "$type": "dimension",
-      "$value": "32px"
-    },
-    "-md": {
-      "$type": "dimension",
-      "$value": "16px"
-    },
-    "-sm": {
-      "$type": "dimension",
-      "$value": "8px"
-    }
+  "disabled": {
+    "$type": "dimension",
+    "$value": "{appearance.opacity.40}"
   },
   "extended palette": {
     "arterial red": {
@@ -479,7 +459,6 @@
       "$value": "#97b578"
     },
     "grass green": {
-      "$description": "inaccessible, only use large white text",
       "$type": "color",
       "$value": "#86996d"
     },
@@ -500,12 +479,10 @@
       "$value": "#61735e"
     },
     "pistachio green": {
-      "$description": "inaccessible, only use large white text",
       "$type": "color",
       "$value": "#829249"
     },
     "reddish orange": {
-      "$description": "inaccessible, only use large white text",
       "$type": "color",
       "$value": "#be6140"
     },
@@ -530,20 +507,13 @@
       "$value": "#bb797a"
     },
     "verdigris green": {
-      "$description": "inaccessible, only use large white text",
       "$type": "color",
       "$value": "#71aa89"
     }
   },
-  "font": {
-    "-family": {
-      "$type": "string",
-      "$value": "Seed Sans"
-    },
-    "-family--mono": {
-      "$type": "string",
-      "$value": "Seed Sans Mono"
-    }
+  "focused": {
+    "$type": "dimension",
+    "$value": "{appearance.opacity.80}"
   },
   "gap": {
     "4": {
@@ -638,6 +608,10 @@
         "tablet": "{appearance.measurement.200}"
       }
     }
+  },
+  "hover": {
+    "$type": "dimension",
+    "$value": "{appearance.opacity.80}"
   },
   "margin": {
     "giant": {
@@ -741,6 +715,10 @@
       }
     }
   },
+  "pressed": {
+    "$type": "dimension",
+    "$value": "{appearance.opacity.70}"
+  },
   "products": {
     "AM-02": {
       "dark": {
@@ -810,18 +788,6 @@
     }
   },
   "radius": {
-    "-large": {
-      "$type": "dimension",
-      "$value": "32px"
-    },
-    "-medium": {
-      "$type": "dimension",
-      "$value": "16px"
-    },
-    "-small": {
-      "$type": "dimension",
-      "$value": "8px"
-    },
     "full": {
       "$type": "dimension",
       "$value": "{appearance.measurement.2500}"
@@ -869,48 +835,10 @@
       "$value": "{color.primary.snow white t20}"
     }
   },
-  "spacing": {
-    "-base": {
-      "$type": "dimension",
-      "$value": "8px"
-    },
-    "-x10": {
-      "$type": "dimension",
-      "$value": "80px"
-    },
-    "-x2": {
-      "$type": "dimension",
-      "$value": "16px"
-    },
-    "-x4": {
-      "$type": "dimension",
-      "$value": "32px"
-    },
-    "-x5": {
-      "$type": "dimension",
-      "$value": "40px"
-    },
-    "-x6": {
-      "$type": "dimension",
-      "$value": "48px"
-    },
-    "-x7": {
-      "$type": "dimension",
-      "$value": "56px"
-    },
-    "-x8": {
-      "$type": "dimension",
-      "$value": "64px"
-    },
-    "spacing-06": {
-      "$type": "dimension",
-      "$value": "{unresolved:VariableID:68e9c988c342b725b011c3eaf1ca323cec64bfdf/114390:20}"
-    }
-  },
   "state layer": {
     "dark disabled": {
       "$type": "color",
-      "$value": "{color.dark opacity.60}"
+      "$value": "{color.dark opacity.40}"
     },
     "dark enabled": {
       "$type": "color",
@@ -957,24 +885,6 @@
       "$value": "#0000f5"
     }
   },
-  "state opacity": {
-    "disabled": {
-      "$type": "number",
-      "$value": "{appearance.opacity.40}"
-    },
-    "focused": {
-      "$type": "number",
-      "$value": "{appearance.opacity.80}"
-    },
-    "hover": {
-      "$type": "number",
-      "$value": "{appearance.opacity.80}"
-    },
-    "pressed": {
-      "$type": "number",
-      "$value": "{appearance.opacity.70}"
-    }
-  },
   "stroke": {
     "default": {
       "$type": "dimension",
@@ -1019,6 +929,10 @@
       }
     },
     "size": {
+      "250": {
+        "$type": "dimension",
+        "$value": "10px"
+      },
       "300": {
         "$type": "dimension",
         "$value": "12px"

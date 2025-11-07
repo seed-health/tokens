@@ -8,6 +8,16 @@ const VARIABLES_FILE = 'tokens/figma-variables.json';
 const STYLES_FILE = 'tokens/figma-styles.json';
 
 /**
+ * Format a value for display, handling objects properly
+ */
+function formatValue(value) {
+  if (typeof value === 'object' && value !== null) {
+    return JSON.stringify(value, null, 2);
+  }
+  return value;
+}
+
+/**
  * Format diff for display
  */
 function formatDiff(diff, title = 'Design Token Changes') {
@@ -21,34 +31,39 @@ function formatDiff(diff, title = 'Design Token Changes') {
   // Added tokens
   if (diff.added.length > 0) {
     output += `#### ➕ Added (${diff.added.length})\n\n`;
+    output += `<details>\n<summary>View all added tokens</summary>\n\n`;
     diff.added.forEach(token => {
       output += `- \`${token.path}\`\n`;
       output += `  - Type: \`${token.type}\`\n`;
-      output += `  - Value: \`${token.value}\`\n`;
+      output += `  - Value: \`${formatValue(token.value)}\`\n`;
       if (token.description) {
         output += `  - Description: ${token.description}\n`;
       }
       output += '\n';
     });
+    output += `</details>\n\n`;
   }
 
   // Removed tokens
   if (diff.removed.length > 0) {
     output += `#### ➖ Removed (${diff.removed.length})\n\n`;
+    output += `<details>\n<summary>View all removed tokens</summary>\n\n`;
     diff.removed.forEach(token => {
       output += `- \`${token.path}\`\n`;
-      output += `  - Was: \`${token.value}\`\n\n`;
+      output += `  - Was: \`${formatValue(token.value)}\`\n\n`;
     });
+    output += `</details>\n\n`;
   }
 
   // Modified tokens
   if (diff.modified.length > 0) {
     output += `#### 📝 Modified (${diff.modified.length})\n\n`;
+    output += `<details>\n<summary>View all modified tokens</summary>\n\n`;
     diff.modified.forEach(token => {
       output += `- \`${token.path}\`\n`;
 
       if (token.old.value !== token.new.value) {
-        output += `  - Value: \`${token.old.value}\` → \`${token.new.value}\`\n`;
+        output += `  - Value: \`${formatValue(token.old.value)}\` → \`${formatValue(token.new.value)}\`\n`;
       }
 
       if (token.old.type !== token.new.type) {
@@ -57,6 +72,7 @@ function formatDiff(diff, title = 'Design Token Changes') {
 
       output += '\n';
     });
+    output += `</details>\n\n`;
   }
 
   // Summary

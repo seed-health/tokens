@@ -1,31 +1,32 @@
 {
   "$metadata": {
-    "figmaFileKeys": "HRJIjk1pZtxRKlPabHqBaI",
+    "figmaFileKeys": "TWb3Fxsi76DlpJIFBD5CEG",
     "format": "W3C DTCG",
-    "generated": "2025-11-06T02:18:34.080Z",
+    "generated": "2025-11-07T15:00:01.149Z",
     "source": "Figma Styles API",
     "version": "1.0.0"
   },
   "desktop display": {
     "large": {
+      "$description": "adaptive",
       "$extensions": {
         "com.figma": {
           "boundVariables": {
             "fontFamily": [
               {
-                "id": "VariableID:20:6709",
+                "id": "VariableID:1:106",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontSize": [
               {
-                "id": "VariableID:55:100",
+                "id": "VariableID:1:120",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontStyle": [
               {
-                "id": "VariableID:20:6712",
+                "id": "VariableID:1:109",
                 "type": "VARIABLE_ALIAS"
               }
             ]
@@ -42,24 +43,25 @@
       }
     },
     "small": {
+      "$description": "adaptive",
       "$extensions": {
         "com.figma": {
           "boundVariables": {
             "fontFamily": [
               {
-                "id": "VariableID:20:6709",
+                "id": "VariableID:1:106",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontSize": [
               {
-                "id": "VariableID:55:99",
+                "id": "VariableID:1:119",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontStyle": [
               {
-                "id": "VariableID:20:6712",
+                "id": "VariableID:1:109",
                 "type": "VARIABLE_ALIAS"
               }
             ]
@@ -78,24 +80,25 @@
   },
   "fixed": {
     "body large": {
+      "$description": "fixed",
       "$extensions": {
         "com.figma": {
           "boundVariables": {
             "fontFamily": [
               {
-                "id": "VariableID:20:6709",
+                "id": "VariableID:1:106",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontSize": [
               {
-                "id": "VariableID:222:483",
+                "id": "VariableID:1:114",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontStyle": [
               {
-                "id": "VariableID:20:6712",
+                "id": "VariableID:1:109",
                 "type": "VARIABLE_ALIAS"
               }
             ]
@@ -112,24 +115,25 @@
       }
     },
     "body medium": {
+      "$description": "fixed",
       "$extensions": {
         "com.figma": {
           "boundVariables": {
             "fontFamily": [
               {
-                "id": "VariableID:20:6709",
+                "id": "VariableID:1:106",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontSize": [
               {
-                "id": "VariableID:55:94",
+                "id": "VariableID:1:113",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontStyle": [
               {
-                "id": "VariableID:20:6712",
+                "id": "VariableID:1:109",
                 "type": "VARIABLE_ALIAS"
               }
             ]
@@ -146,24 +150,25 @@
       }
     },
     "body small": {
+      "$description": "fixed",
       "$extensions": {
         "com.figma": {
           "boundVariables": {
             "fontFamily": [
               {
-                "id": "VariableID:20:6709",
+                "id": "VariableID:1:106",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontSize": [
               {
-                "id": "VariableID:55:93",
+                "id": "VariableID:1:112",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontStyle": [
               {
-                "id": "VariableID:20:6712",
+                "id": "VariableID:1:109",
                 "type": "VARIABLE_ALIAS"
               }
             ]
@@ -180,24 +185,25 @@
       }
     },
     "body x-large": {
+      "$description": "fixed",
       "$extensions": {
         "com.figma": {
           "boundVariables": {
             "fontFamily": [
               {
-                "id": "VariableID:20:6709",
+                "id": "VariableID:1:106",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontSize": [
               {
-                "id": "VariableID:55:95",
+                "id": "VariableID:1:115",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontStyle": [
               {
-                "id": "VariableID:20:6712",
+                "id": "VariableID:1:109",
                 "type": "VARIABLE_ALIAS"
               }
             ]
@@ -213,26 +219,26 @@
         "lineHeight": "140%"
       }
     },
-    "body xsmall": {
-      "$description": "For all platforms • captions",
+    "body x-small": {
+      "$description": "fixed",
       "$extensions": {
         "com.figma": {
           "boundVariables": {
             "fontFamily": [
               {
-                "id": "VariableID:20:6709",
+                "id": "VariableID:1:106",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontSize": [
               {
-                "id": "VariableID:55:92",
+                "id": "VariableID:1:111",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontStyle": [
               {
-                "id": "VariableID:20:6712",
+                "id": "VariableID:1:109",
                 "type": "VARIABLE_ALIAS"
               }
             ]
@@ -249,19 +255,25 @@
       }
     },
     "body xx-small": {
-      "$description": "used only for legal, not AA compliant",
+      "$description": "legal only, not AA compliant",
       "$extensions": {
         "com.figma": {
           "boundVariables": {
             "fontFamily": [
               {
-                "id": "VariableID:20:6709",
+                "id": "VariableID:1:106",
+                "type": "VARIABLE_ALIAS"
+              }
+            ],
+            "fontSize": [
+              {
+                "id": "VariableID:1:260",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontStyle": [
               {
-                "id": "VariableID:20:6712",
+                "id": "VariableID:1:109",
                 "type": "VARIABLE_ALIAS"
               }
             ]
@@ -278,25 +290,25 @@
       }
     },
     "eyebrow": {
-      "$description": "For all platforms • eyebrows",
+      "$description": "fixed",
       "$extensions": {
         "com.figma": {
           "boundVariables": {
             "fontFamily": [
               {
-                "id": "VariableID:20:6709",
+                "id": "VariableID:1:106",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontSize": [
               {
-                "id": "VariableID:55:92",
+                "id": "VariableID:1:111",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontStyle": [
               {
-                "id": "VariableID:20:6713",
+                "id": "VariableID:1:110",
                 "type": "VARIABLE_ALIAS"
               }
             ]
@@ -313,24 +325,25 @@
       }
     },
     "label large": {
+      "$description": "fixed",
       "$extensions": {
         "com.figma": {
           "boundVariables": {
             "fontFamily": [
               {
-                "id": "VariableID:20:6709",
+                "id": "VariableID:1:106",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontSize": [
               {
-                "id": "VariableID:222:483",
+                "id": "VariableID:1:114",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontStyle": [
               {
-                "id": "VariableID:20:6713",
+                "id": "VariableID:1:110",
                 "type": "VARIABLE_ALIAS"
               }
             ]
@@ -347,24 +360,25 @@
       }
     },
     "label medium": {
+      "$description": "fixed",
       "$extensions": {
         "com.figma": {
           "boundVariables": {
             "fontFamily": [
               {
-                "id": "VariableID:20:6709",
+                "id": "VariableID:1:106",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontSize": [
               {
-                "id": "VariableID:55:94",
+                "id": "VariableID:1:113",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontStyle": [
               {
-                "id": "VariableID:20:6713",
+                "id": "VariableID:1:110",
                 "type": "VARIABLE_ALIAS"
               }
             ]
@@ -381,24 +395,25 @@
       }
     },
     "label small": {
+      "$description": "fixed",
       "$extensions": {
         "com.figma": {
           "boundVariables": {
             "fontFamily": [
               {
-                "id": "VariableID:20:6709",
+                "id": "VariableID:1:106",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontSize": [
               {
-                "id": "VariableID:55:93",
+                "id": "VariableID:1:112",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontStyle": [
               {
-                "id": "VariableID:20:6713",
+                "id": "VariableID:1:110",
                 "type": "VARIABLE_ALIAS"
               }
             ]
@@ -415,24 +430,25 @@
       }
     },
     "label x-large": {
+      "$description": "fixed",
       "$extensions": {
         "com.figma": {
           "boundVariables": {
             "fontFamily": [
               {
-                "id": "VariableID:20:6709",
+                "id": "VariableID:1:106",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontSize": [
               {
-                "id": "VariableID:55:95",
+                "id": "VariableID:1:115",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontStyle": [
               {
-                "id": "VariableID:20:6713",
+                "id": "VariableID:1:110",
                 "type": "VARIABLE_ALIAS"
               }
             ]
@@ -448,25 +464,26 @@
         "lineHeight": "140%"
       }
     },
-    "label xsmall": {
+    "label x-small": {
+      "$description": "fixed",
       "$extensions": {
         "com.figma": {
           "boundVariables": {
             "fontFamily": [
               {
-                "id": "VariableID:20:6709",
+                "id": "VariableID:1:106",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontSize": [
               {
-                "id": "VariableID:55:92",
+                "id": "VariableID:1:111",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontStyle": [
               {
-                "id": "VariableID:20:6713",
+                "id": "VariableID:1:110",
                 "type": "VARIABLE_ALIAS"
               }
             ]
@@ -483,24 +500,25 @@
       }
     },
     "mono large": {
+      "$description": "fixed",
       "$extensions": {
         "com.figma": {
           "boundVariables": {
             "fontFamily": [
               {
-                "id": "VariableID:20:6710",
+                "id": "VariableID:1:107",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontSize": [
               {
-                "id": "VariableID:55:94",
+                "id": "VariableID:1:113",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontStyle": [
               {
-                "id": "VariableID:20:6712",
+                "id": "VariableID:1:109",
                 "type": "VARIABLE_ALIAS"
               }
             ]
@@ -517,24 +535,25 @@
       }
     },
     "mono small": {
+      "$description": "fixed",
       "$extensions": {
         "com.figma": {
           "boundVariables": {
             "fontFamily": [
               {
-                "id": "VariableID:20:6710",
+                "id": "VariableID:1:107",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontSize": [
               {
-                "id": "VariableID:55:92",
+                "id": "VariableID:1:111",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontStyle": [
               {
-                "id": "VariableID:20:6712",
+                "id": "VariableID:1:109",
                 "type": "VARIABLE_ALIAS"
               }
             ]
@@ -551,24 +570,25 @@
       }
     },
     "title large": {
+      "$description": "fixed",
       "$extensions": {
         "com.figma": {
           "boundVariables": {
             "fontFamily": [
               {
-                "id": "VariableID:20:6709",
+                "id": "VariableID:1:106",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontSize": [
               {
-                "id": "VariableID:55:97",
+                "id": "VariableID:1:117",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontStyle": [
               {
-                "id": "VariableID:20:6712",
+                "id": "VariableID:1:109",
                 "type": "VARIABLE_ALIAS"
               }
             ]
@@ -585,24 +605,25 @@
       }
     },
     "title small": {
+      "$description": "fixed",
       "$extensions": {
         "com.figma": {
           "boundVariables": {
             "fontFamily": [
               {
-                "id": "VariableID:20:6709",
+                "id": "VariableID:1:106",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontSize": [
               {
-                "id": "VariableID:55:96",
+                "id": "VariableID:1:116",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontStyle": [
               {
-                "id": "VariableID:20:6712",
+                "id": "VariableID:1:109",
                 "type": "VARIABLE_ALIAS"
               }
             ]
@@ -629,24 +650,25 @@
   },
   "mobile display": {
     "large": {
+      "$description": "adaptive",
       "$extensions": {
         "com.figma": {
           "boundVariables": {
             "fontFamily": [
               {
-                "id": "VariableID:20:6709",
+                "id": "VariableID:1:106",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontSize": [
               {
-                "id": "VariableID:55:99",
+                "id": "VariableID:1:119",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontStyle": [
               {
-                "id": "VariableID:20:6712",
+                "id": "VariableID:1:109",
                 "type": "VARIABLE_ALIAS"
               }
             ]
@@ -663,24 +685,25 @@
       }
     },
     "small": {
+      "$description": "adaptive",
       "$extensions": {
         "com.figma": {
           "boundVariables": {
             "fontFamily": [
               {
-                "id": "VariableID:20:6709",
+                "id": "VariableID:1:106",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontSize": [
               {
-                "id": "VariableID:55:98",
+                "id": "VariableID:1:118",
                 "type": "VARIABLE_ALIAS"
               }
             ],
             "fontStyle": [
               {
-                "id": "VariableID:20:6712",
+                "id": "VariableID:1:109",
                 "type": "VARIABLE_ALIAS"
               }
             ]
@@ -705,11 +728,15 @@
           "boundVariables": {
             "layoutGrids": [
               {
-                "id": "VariableID:6:1616",
+                "id": "VariableID:1:29",
                 "type": "VARIABLE_ALIAS"
               },
               {
-                "id": "VariableID:21:6721",
+                "id": "VariableID:1:203",
+                "type": "VARIABLE_ALIAS"
+              },
+              {
+                "id": "VariableID:1:209",
                 "type": "VARIABLE_ALIAS"
               }
             ]
@@ -741,15 +768,15 @@
           "boundVariables": {
             "layoutGrids": [
               {
-                "id": "VariableID:6:1616",
+                "id": "VariableID:1:29",
                 "type": "VARIABLE_ALIAS"
               },
               {
-                "id": "VariableID:21:6720",
+                "id": "VariableID:1:203",
                 "type": "VARIABLE_ALIAS"
               },
               {
-                "id": "VariableID:21:6721",
+                "id": "VariableID:1:206",
                 "type": "VARIABLE_ALIAS"
               }
             ]
@@ -776,6 +803,7 @@
     }
   },
   "subtle shadow": {
+    "$description": "elevation",
     "$type": "shadow",
     "$value": {
       "offsetX": "0px",
