@@ -31,6 +31,7 @@ function formatDiff(diff, title = 'Design Token Changes') {
   // Added tokens
   if (diff.added.length > 0) {
     output += `#### ➕ Added (${diff.added.length})\n\n`;
+    output += `<details>\n<summary>View all added tokens</summary>\n\n`;
     diff.added.forEach(token => {
       output += `- \`${token.path}\`\n`;
       output += `  - Type: \`${token.type}\`\n`;
@@ -40,20 +41,24 @@ function formatDiff(diff, title = 'Design Token Changes') {
       }
       output += '\n';
     });
+    output += `</details>\n\n`;
   }
 
   // Removed tokens
   if (diff.removed.length > 0) {
     output += `#### ➖ Removed (${diff.removed.length})\n\n`;
+    output += `<details>\n<summary>View all removed tokens</summary>\n\n`;
     diff.removed.forEach(token => {
       output += `- \`${token.path}\`\n`;
       output += `  - Was: \`${formatValue(token.value)}\`\n\n`;
     });
+    output += `</details>\n\n`;
   }
 
   // Modified tokens
   if (diff.modified.length > 0) {
     output += `#### 📝 Modified (${diff.modified.length})\n\n`;
+    output += `<details>\n<summary>View all modified tokens</summary>\n\n`;
     diff.modified.forEach(token => {
       output += `- \`${token.path}\`\n`;
 
@@ -67,6 +72,7 @@ function formatDiff(diff, title = 'Design Token Changes') {
 
       output += '\n';
     });
+    output += `</details>\n\n`;
   }
 
   // Summary
