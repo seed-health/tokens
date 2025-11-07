@@ -8,6 +8,16 @@ const VARIABLES_FILE = 'tokens/figma-variables.json';
 const STYLES_FILE = 'tokens/figma-styles.json';
 
 /**
+ * Format a value for display, handling objects properly
+ */
+function formatValue(value) {
+  if (typeof value === 'object' && value !== null) {
+    return JSON.stringify(value, null, 2);
+  }
+  return value;
+}
+
+/**
  * Format diff for display
  */
 function formatDiff(diff, title = 'Design Token Changes') {
@@ -24,7 +34,7 @@ function formatDiff(diff, title = 'Design Token Changes') {
     diff.added.forEach(token => {
       output += `- \`${token.path}\`\n`;
       output += `  - Type: \`${token.type}\`\n`;
-      output += `  - Value: \`${token.value}\`\n`;
+      output += `  - Value: \`${formatValue(token.value)}\`\n`;
       if (token.description) {
         output += `  - Description: ${token.description}\n`;
       }
@@ -37,7 +47,7 @@ function formatDiff(diff, title = 'Design Token Changes') {
     output += `#### ➖ Removed (${diff.removed.length})\n\n`;
     diff.removed.forEach(token => {
       output += `- \`${token.path}\`\n`;
-      output += `  - Was: \`${token.value}\`\n\n`;
+      output += `  - Was: \`${formatValue(token.value)}\`\n\n`;
     });
   }
 
@@ -48,7 +58,7 @@ function formatDiff(diff, title = 'Design Token Changes') {
       output += `- \`${token.path}\`\n`;
 
       if (token.old.value !== token.new.value) {
-        output += `  - Value: \`${token.old.value}\` → \`${token.new.value}\`\n`;
+        output += `  - Value: \`${formatValue(token.old.value)}\` → \`${formatValue(token.new.value)}\`\n`;
       }
 
       if (token.old.type !== token.new.type) {
