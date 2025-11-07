@@ -90,21 +90,19 @@
   --extended-palette-asparagus-green: #d0d9b9;
   --extended-palette-duck-green: #466b22;
   --extended-palette-emerald-green: #97b578;
-  --extended-palette-grass-green: #86996d; /** inaccessible, only use large white text */
+  --extended-palette-grass-green: #86996d;
   --extended-palette-indigo-blue: #4d628d;
   --extended-palette-indigo-blue-light: #cdd6d1;
   --extended-palette-oil-green: #ad9f61;
   --extended-palette-olive-green: #61735e;
-  --extended-palette-pistachio-green: #829249; /** inaccessible, only use large white text */
-  --extended-palette-reddish-orange: #be6140; /** inaccessible, only use large white text */
+  --extended-palette-pistachio-green: #829249;
+  --extended-palette-reddish-orange: #be6140;
   --extended-palette-reddish-orange-light: #f7ddaa;
   --extended-palette-scarlet-red: #ef4800;
   --extended-palette-siskin-green: #d7e090;
   --extended-palette-umber-brown: #533b3b;
   --extended-palette-umber-brown-light: #bb797a;
-  --extended-palette-verdigris-green: #71aa89; /** inaccessible, only use large white text */
-  --font-family: Seed Sans;
-  --font-family-mono: Seed Sans Mono;
+  --extended-palette-verdigris-green: #71aa89;
   --products-am-02-dark: #9f995b;
   --products-am-02-highlight: #fff593;
   --products-am-02-light: #faf7d3;
@@ -120,17 +118,10 @@
   --products-pm-02-light: #ebf5ef;
   --products-pm-02-primary: #b0d1be;
   --products-pm-02-secondary: #d2e6da;
-  --spacing-base: 8px;
-  --spacing-x10: 80px;
-  --spacing-x2: 16px;
-  --spacing-x4: 32px;
-  --spacing-x5: 40px;
-  --spacing-x6: 48px;
-  --spacing-x7: 56px;
-  --spacing-x8: 64px;
   --state-layer-outer-focused-fixed: #0000f5;
   --typography-font-brand: Seed Sans;
   --typography-font-brand-mono: Seed Sans Mono;
+  --typography-size-250: 10px;
   --typography-size-300: 12px;
   --typography-size-350: 14px;
   --typography-size-400: 16px;
@@ -144,11 +135,9 @@
   --typography-weight-300: light;
   --typography-weight-400: regular;
   --typography-weight-500: medium;
+  --actions-bright: var(--color-primary-white);
   --actions-inverse: var(--color-primary-snow-white);
   --actions-primary: var(--color-primary-seed-green);
-  --background-light: var(--color-primary-snow-white);
-  --background-lightest-white: var(--color-primary-white);
-  --background-medium: var(--color-neutral-foam-white);
   --column-compact: var(--appearance-measurement-300);
   --column-default: var(--appearance-measurement-100);
   --column-medium: var(--appearance-measurement-200);
@@ -161,6 +150,8 @@
   --container-snow-white: var(--color-primary-snow-white);
   --container-soft-green: var(--color-primary-soft-green);
   --container-yellowish-white: var(--color-neutral-yellowish-white);
+  --disabled: var(--appearance-opacity-40);
+  --focused: var(--appearance-opacity-80);
   --gap-4: var(--appearance-measurement-100);
   --gap-8: var(--appearance-measurement-200);
   --gap-16: var(--appearance-measurement-400);
@@ -178,6 +169,7 @@
   --gutter-medium: var(--appearance-measurement-400);
   --gutter-none: var(--appearance-measurement-00);
   --gutter-small: var(--appearance-measurement-200);
+  --hover: var(--appearance-opacity-80);
   --margin-giant: var(--appearance-measurement-2000);
   --margin-large: var(--appearance-measurement-600);
   --margin-medium: var(--appearance-measurement-400);
@@ -192,6 +184,7 @@
   --page-grid-column: var(--appearance-measurement-200);
   --page-grid-gutter: var(--appearance-measurement-400);
   --page-grid-margin: var(--appearance-measurement-400);
+  --pressed: var(--appearance-opacity-70);
   --radius-full: var(--appearance-measurement-2500);
   --radius-large: var(--appearance-measurement-800);
   --radius-medium: var(--appearance-measurement-400);
@@ -203,7 +196,7 @@
   --scrim-glass-dark-35: var(--color-neutral-frosted-glass-t35);
   --scrim-glass-light-10: var(--color-primary-snow-white-t10);
   --scrim-glass-light-20: var(--color-primary-snow-white-t20);
-  --state-layer-dark-disabled: var(--color-dark-opacity-60);
+  --state-layer-dark-disabled: var(--color-dark-opacity-40);
   --state-layer-dark-enabled: var(--color-dark-opacity-00);
   --state-layer-dark-focused: var(--color-dark-opacity-12);
   --state-layer-dark-hovered: var(--color-dark-opacity-08);
@@ -214,10 +207,6 @@
   --state-layer-light-focused: var(--color-light-opacity-12);
   --state-layer-light-hovered: var(--color-light-opacity-08);
   --state-layer-light-pressed: var(--color-light-opacity-12);
-  --state-opacity-disabled: var(--appearance-opacity-40);
-  --state-opacity-focused: var(--appearance-opacity-80);
-  --state-opacity-hover: var(--appearance-opacity-80);
-  --state-opacity-pressed: var(--appearance-opacity-70);
   --stroke-default: var(--appearance-measurement-025);
   --text-disabled: var(--color-primary-seed-green-t50);
   --text-error: var(--color-guidance-error);
