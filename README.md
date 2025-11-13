@@ -2,6 +2,8 @@
 
 Design tokens for Seed Health applications.
 
+> **Note:** This repository is maintained by Seed Health and is open for visibility and usage, but not accepting external contributions. Tokens are automatically synced from our Figma design system.
+
 ## Installation
 
 ```bash
