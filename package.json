@@ -38,7 +38,7 @@
     "style-dictionary",
     "tokens"
   ],
-  "author": "",
+  "author": "Seed Health",
   "license": "MIT",
   "engines": {
     "node": ">=20.11"
