@@ -15,18 +15,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          ssh-key: ${{ secrets.DEPLOY_KEY }}
           fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20.11'
+          node-version: '22'
           cache: 'npm'
           registry-url: 'https://registry.npmjs.org'
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Update npm for OIDC support
+        run: npm install -g npm@latest
 
       - name: Get current version
         id: get_version
@@ -50,9 +53,7 @@ jobs:
         run: npm run build-tokens
 
       - name: Publish to NPM
-        run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --access public --provenance
 
       - name: Commit version bump
         run: |
