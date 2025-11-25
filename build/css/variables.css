@@ -82,6 +82,7 @@
   --color-primary-snow-white: #fcfcf7;
   --color-primary-snow-white-t10: rgba(252, 252, 247, 0.1);
   --color-primary-snow-white-t20: rgba(252, 252, 247, 0.2);
+  --color-primary-snow-white-t50: rgba(252, 252, 247, 0.5);
   --color-primary-snow-white-t70: rgba(252, 252, 247, 0.7);
   --color-primary-soft-green: #3d5b34;
   --color-primary-white: #ffffff;
@@ -210,7 +211,9 @@
   --stroke-default: var(--appearance-measurement-025);
   --text-disabled: var(--color-primary-seed-green-t50);
   --text-error: var(--color-guidance-error);
-  --text-inverse: var(--color-primary-snow-white);
+  --text-inverse-disabled: var(--color-primary-snow-white-t50);
+  --text-inverse-primary: var(--color-primary-snow-white);
+  --text-inverse-secondary: var(--color-primary-snow-white-t70);
   --text-primary: var(--color-primary-seed-green);
   --text-secondary: var(--color-primary-seed-green-t70);
   --text-warning: var(--color-guidance-warning);
