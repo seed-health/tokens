@@ -2,7 +2,7 @@
   "$metadata": {
     "figmaFileKeys": "TWb3Fxsi76DlpJIFBD5CEG",
     "format": "W3C DTCG",
-    "generated": "2025-11-25T16:32:49.256Z",
+    "generated": "2025-11-25T19:04:11.886Z",
     "source": "Figma Variables API",
     "version": "1.0.0"
   },
@@ -198,7 +198,7 @@
         "$type": "color",
         "$value": "#eb5757"
       },
-      "flourescent green": {
+      "fluorescent green": {
         "$type": "color",
         "$value": "#d3fa99"
       },
@@ -568,7 +568,7 @@
   "guidance": {
     "guidance primary": {
       "$type": "color",
-      "$value": "{color.guidance.flourescent green}"
+      "$value": "{color.guidance.fluorescent green}"
     },
     "guidance secondary": {
       "$type": "color",

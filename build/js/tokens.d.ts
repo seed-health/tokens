@@ -233,7 +233,7 @@ export const ColorDarkOpacity100: "#000000";
 export const ColorDarkOpacity00: "#00000000";
 export const ColorDarkOpacity08: "#00000014";
 export const ColorGuidanceError: "#eb5757";
-export const ColorGuidanceFlourescentGreen: "#d3fa99";
+export const ColorGuidanceFluorescentGreen: "#d3fa99";
 export const ColorGuidanceLemongrass: "#e9f0ca";
 export const ColorGuidanceWarning: "#ebb057";
 export const ColorLightOpacity10: "#ffffff1a";

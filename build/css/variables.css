@@ -45,7 +45,7 @@
   --color-dark-opacity-00: rgba(0, 0, 0, 0);
   --color-dark-opacity-08: rgba(0, 0, 0, 0.08);
   --color-guidance-error: #eb5757;
-  --color-guidance-flourescent-green: #d3fa99;
+  --color-guidance-fluorescent-green: #d3fa99;
   --color-guidance-lemongrass: #e9f0ca;
   --color-guidance-warning: #ebb057;
   --color-light-opacity-10: rgba(255, 255, 255, 0.1);
@@ -164,7 +164,7 @@
   --gap-64: var(--appearance-measurement-1600);
   --gap-72: var(--appearance-measurement-1800);
   --gap-80: var(--appearance-measurement-2000);
-  --guidance-guidance-primary: var(--color-guidance-flourescent-green);
+  --guidance-guidance-primary: var(--color-guidance-fluorescent-green);
   --guidance-guidance-secondary: var(--color-guidance-lemongrass);
   --gutter-large: var(--appearance-measurement-600);
   --gutter-medium: var(--appearance-measurement-400);
