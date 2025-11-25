@@ -2,7 +2,7 @@
   "$metadata": {
     "figmaFileKeys": "TWb3Fxsi76DlpJIFBD5CEG",
     "format": "W3C DTCG",
-    "generated": "2025-11-07T14:59:59.051Z",
+    "generated": "2025-11-25T16:32:49.256Z",
     "source": "Figma Variables API",
     "version": "1.0.0"
   },
@@ -351,6 +351,10 @@
       "snow white t20": {
         "$type": "color",
         "$value": "rgba(252, 252, 247, 0.20000000298023224)"
+      },
+      "snow white t50": {
+        "$type": "color",
+        "$value": "rgba(252, 252, 247, 0.5)"
       },
       "snow white t70": {
         "$type": "color",
@@ -900,9 +904,17 @@
       "$type": "color",
       "$value": "{color.guidance.error}"
     },
-    "inverse": {
+    "inverse disabled": {
+      "$type": "color",
+      "$value": "{color.primary.snow white t50}"
+    },
+    "inverse primary": {
       "$type": "color",
       "$value": "{color.primary.snow white}"
+    },
+    "inverse secondary": {
+      "$type": "color",
+      "$value": "{color.primary.snow white t70}"
     },
     "primary": {
       "$type": "color",
