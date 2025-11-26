@@ -90,11 +90,23 @@ async function fetchFigmaVariables() {
 
 /**
  * Map Figma type to W3C DTCG type
+ * Uses Figma's scopes to determine whether FLOAT is 'dimension' or 'number'
  */
-function mapFigmaTypeToDTCG(figmaType) {
+function mapFigmaTypeToDTCG(figmaType, scopes = []) {
+  if (figmaType === 'FLOAT') {
+    // Scopes that indicate a dimension (size, spacing, etc.)
+    const dimensionScopes = ['WIDTH_HEIGHT', 'GAP', 'CORNER_RADIUS'];
+    const hasDimensionScope = scopes.some(s => dimensionScopes.includes(s));
+
+    // If it has OPACITY scope and no dimension scopes, it's a number
+    if (scopes.includes('OPACITY') && !hasDimensionScope) {
+      return 'number';
+    }
+    return 'dimension';
+  }
+
   const typeMap = {
     'COLOR': 'color',
-    'FLOAT': 'dimension',
     'STRING': 'string',
     'BOOLEAN': 'boolean'
   };
@@ -190,12 +202,8 @@ function transformToDTCG(figmaData, fileKeys = []) {
       // Split name into path (e.g., "color/primary/500" -> ["color", "primary", "500"])
       const pathParts = name.split('/');
 
-      // Check if this is a FLOAT opacity token and use 'number' type instead of 'dimension'
-      // Only apply this override for FLOAT types, not COLOR types
-      const pathString = pathParts.join('/').toLowerCase();
-      const dtcgType = (resolvedType === 'FLOAT' && pathString.includes('opacity'))
-        ? 'number'
-        : mapFigmaTypeToDTCG(resolvedType);
+      // Map Figma type to DTCG type using scopes for better accuracy
+      const dtcgType = mapFigmaTypeToDTCG(resolvedType, scopes);
 
       // Get mode information
       const modeIds = Object.keys(valuesByMode);
