@@ -208,7 +208,8 @@ export default {
   platforms: {
     // CSS Custom Properties (for CSS Modules, global styles, CSS-in-JS)
     css: {
-      transformGroup: 'css',
+      // Using explicit transforms instead of transformGroup to include size/pxToRem
+      transforms: ['attribute/cti', 'name/kebab', 'time/seconds', 'size/pxToRem', 'color/css'],
       buildPath: 'build/css/',
       files: [
         {
@@ -296,7 +297,8 @@ export default {
 
     // SCSS Variables (for Sass/SCSS projects)
     scss: {
-      transformGroup: 'scss',
+      // Using explicit transforms instead of transformGroup to include size/pxToRem
+      transforms: ['attribute/cti', 'name/kebab', 'time/seconds', 'size/pxToRem', 'color/css'],
       buildPath: 'build/scss/',
       files: [
         {

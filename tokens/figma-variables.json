@@ -2,7 +2,7 @@
   "$metadata": {
     "figmaFileKeys": "TWb3Fxsi76DlpJIFBD5CEG",
     "format": "W3C DTCG",
-    "generated": "2025-11-25T19:04:11.886Z",
+    "generated": "2025-11-26T21:20:17.340Z",
     "source": "Figma Variables API",
     "version": "1.0.0"
   },
@@ -438,7 +438,7 @@
     }
   },
   "disabled": {
-    "$type": "dimension",
+    "$type": "number",
     "$value": "{appearance.opacity.40}"
   },
   "extended palette": {
@@ -516,7 +516,7 @@
     }
   },
   "focused": {
-    "$type": "dimension",
+    "$type": "number",
     "$value": "{appearance.opacity.80}"
   },
   "gap": {
@@ -614,7 +614,7 @@
     }
   },
   "hover": {
-    "$type": "dimension",
+    "$type": "number",
     "$value": "{appearance.opacity.80}"
   },
   "margin": {
@@ -720,7 +720,7 @@
     }
   },
   "pressed": {
-    "$type": "dimension",
+    "$type": "number",
     "$value": "{appearance.opacity.70}"
   },
   "products": {
