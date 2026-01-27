@@ -1,0 +1,28 @@
+name: Asana Integration
+
+on:
+  pull_request:
+    types: [opened, closed, reopened]
+  pull_request_review:
+    types: [submitted]
+
+jobs:
+  asana-integration:
+    runs-on: ubuntu-latest
+    name: Update Asana Task
+    steps:
+      # Attach the PR as a GitHub card on the Asana task
+      - name: Attach PR to Asana Task
+        uses: Asana/create-app-attachment-github-action@v1.3
+        id: attach
+        with:
+          asana-secret: ${{ secrets.ASANA_SECRET }}
+
+      # Post a comment on the Asana task with PR status
+      - name: Comment on Asana Task
+        uses: Asana/comment-on-task-github-action@v1.2
+        with:
+          asana-secret: ${{ secrets.ASANA_SECRET }}
+          comment-text: |
+            PR {{PR_NAME}} is now {{PR_STATE}}.
+            {{PR_URL}}
