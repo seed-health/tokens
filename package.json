@@ -1,6 +1,6 @@
 {
   "name": "@seed-health/tokens",
-  "version": "1.0.12",
+  "version": "2.0.0",
   "description": "Design tokens for Seed Health applications.",
   "main": "build/js/tokens.js",
   "module": "build/js/tokens.js",
@@ -13,7 +13,9 @@
     "./react": "./build/react/global-token-styles.tsx",
     "./css/*": "./build/css/*",
     "./scss/*": "./build/scss/*",
-    "./json/*": "./build/json/*"
+    "./json/*": "./build/json/*",
+    "./tailwind": "./build/tailwind/theme.css",
+    "./tailwind/components": "./build/tailwind/components.css"
   },
   "files": [
     "build/"
@@ -48,10 +50,14 @@
     "url": "git+https://github.com/seed-health/tokens.git"
   },
   "peerDependencies": {
-    "styled-components": "^5.0.0 || ^6.0.0"
+    "styled-components": "^5.0.0 || ^6.0.0",
+    "tailwindcss": "^4.0.0"
   },
   "peerDependenciesMeta": {
     "styled-components": {
+      "optional": true
+    },
+    "tailwindcss": {
       "optional": true
     }
   },

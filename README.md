@@ -12,19 +12,39 @@ npm install @seed-health/tokens
 
 ## Usage
 
+### Tailwind CSS v4 (Recommended)
+
+Import the theme and component classes directly in your CSS:
+
+```css
+@import "tailwindcss";
+@import "@seed-health/tokens/tailwind";
+@import "@seed-health/tokens/tailwind/components";
+```
+
+Use Tailwind utilities with your design tokens:
+
+```html
+<div class="bg-color-primary-seed-green text-color-primary-snow-white p-spacing-400 rounded-radius-medium">
+  <h1 class="text-fixed-title-large">Hello</h1>
+  <p class="text-fixed-body-medium">Body text with typography preset</p>
+</div>
+```
+
 ### CSS Variables
 
 ```jsx
-import '@seed-health/tokens/build/css/variables.css';
-import '@seed-health/tokens/build/css/styles.css';
+import '@seed-health/tokens/css/variables.css';
+import '@seed-health/tokens/css/styles.css';
 
 function Button() {
   return (
     <button
       className="text-fixed-body-medium"
       style={{
-        backgroundColor: 'var(--color-primary-500)',
-        padding: 'var(--spacing-medium)'
+        backgroundColor: 'var(--color-primary-seed-green)',
+        padding: 'var(--spacing-400)',
+        borderRadius: 'var(--radius-medium)'
       }}>
       Click me
     </button>
@@ -41,7 +61,7 @@ function Button() {
   return (
     <button style={{
       ...tokens.FixedLabelMedium,
-      padding: tokens.SpacingX2
+      padding: tokens.Spacing400
     }}>
       Click me
     </button>
@@ -52,13 +72,14 @@ function Button() {
 ### SCSS
 
 ```scss
-@use '@seed-health/tokens/build/scss/variables' as *;
-@use '@seed-health/tokens/build/scss/mixins' as *;
+@use '@seed-health/tokens/scss/variables' as *;
+@use '@seed-health/tokens/scss/mixins' as *;
 
 .button {
   @include text-fixed-label-medium;
-  background-color: $color-primary-500;
-  padding: $spacing-medium;
+  background-color: $color-primary-seed-green;
+  padding: $spacing-400;
+  border-radius: $radius-medium;
 }
 ```
 
@@ -66,8 +87,9 @@ function Button() {
 
 ```css
 .button {
-  background-color: var(--color-primary-500);
-  padding: var(--spacing-medium);
+  background-color: var(--color-primary-seed-green);
+  padding: var(--spacing-400);
+  border-radius: var(--radius-medium);
 }
 ```
 
@@ -90,6 +112,8 @@ function App() {
 
 | Format | Path | Description |
 |--------|------|-------------|
+| Tailwind Theme | `build/tailwind/theme.css` | Tailwind v4 `@theme` block with CSS variables |
+| Tailwind Components | `build/tailwind/components.css` | Typography utility classes for `@layer components` |
 | CSS Variables | `build/css/variables.css` | Custom properties for colors, spacing, etc. |
 | CSS Classes | `build/css/styles.css` | Typography and effect utility classes |
 | React Component | `build/react/global-token-styles.tsx` | styled-components GlobalStyle |
@@ -99,6 +123,20 @@ function App() {
 | TypeScript | `build/js/tokens.d.ts` | Type definitions |
 | JSON | `build/json/tokens.json` | Nested structure (kebab-case keys) |
 | JSON (Flat) | `build/json/tokens-flat.json` | Flat key-value pairs |
+
+## Breaking Changes in v2.0.0
+
+Variable names have been updated to follow Tailwind conventions:
+
+| Old Name | New Name |
+|----------|----------|
+| `--appearance-measurement-*` | `--spacing-*` |
+| `--typography-font-*` | `--font-family-*` |
+| `--typography-size-*` | `--font-size-*` |
+| `--typography-weight-*` | `--font-weight-*` |
+| `--appearance-opacity-*` | `--opacity-*` |
+
+Semantic aliases like `--gap-*`, `--margin-*`, and `--gutter-*` remain unchanged and reference the new `--spacing-*` variables.
 
 ## License
 
