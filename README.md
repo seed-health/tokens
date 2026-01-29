@@ -25,7 +25,7 @@ Import the theme and component classes directly in your CSS:
 Use Tailwind utilities with your design tokens:
 
 ```html
-<div class="bg-color-primary-seed-green text-color-primary-snow-white p-spacing-400 rounded-radius-medium">
+<div class="bg-color-primary-seed-green text-color-primary-snow-white p-appearance-measurement-400 rounded-radius-medium">
   <h1 class="text-fixed-title-large">Hello</h1>
   <p class="text-fixed-body-medium">Body text with typography preset</p>
 </div>
@@ -43,7 +43,7 @@ function Button() {
       className="text-fixed-body-medium"
       style={{
         backgroundColor: 'var(--color-primary-seed-green)',
-        padding: 'var(--spacing-400)',
+        padding: 'var(--appearance-measurement-400)',
         borderRadius: 'var(--radius-medium)'
       }}>
       Click me
@@ -61,7 +61,7 @@ function Button() {
   return (
     <button style={{
       ...tokens.FixedLabelMedium,
-      padding: tokens.Spacing400
+      padding: tokens.AppearanceMeasurement400
     }}>
       Click me
     </button>
@@ -78,7 +78,7 @@ function Button() {
 .button {
   @include text-fixed-label-medium;
   background-color: $color-primary-seed-green;
-  padding: $spacing-400;
+  padding: $appearance-measurement-400;
   border-radius: $radius-medium;
 }
 ```
@@ -88,7 +88,7 @@ function Button() {
 ```css
 .button {
   background-color: var(--color-primary-seed-green);
-  padding: var(--spacing-400);
+  padding: var(--appearance-measurement-400);
   border-radius: var(--radius-medium);
 }
 ```
@@ -123,20 +123,6 @@ function App() {
 | TypeScript | `build/js/tokens.d.ts` | Type definitions |
 | JSON | `build/json/tokens.json` | Nested structure (kebab-case keys) |
 | JSON (Flat) | `build/json/tokens-flat.json` | Flat key-value pairs |
-
-## Breaking Changes in v2.0.0
-
-Variable names have been updated to follow Tailwind conventions:
-
-| Old Name | New Name |
-|----------|----------|
-| `--appearance-measurement-*` | `--spacing-*` |
-| `--typography-font-*` | `--font-family-*` |
-| `--typography-size-*` | `--font-size-*` |
-| `--typography-weight-*` | `--font-weight-*` |
-| `--appearance-opacity-*` | `--opacity-*` |
-
-Semantic aliases like `--gap-*`, `--margin-*`, and `--gutter-*` remain unchanged and reference the new `--spacing-*` variables.
 
 ## License
 
