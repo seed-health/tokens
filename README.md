@@ -12,25 +12,6 @@ npm install @seed-health/tokens
 
 ## Usage
 
-### Tailwind CSS v4 (Recommended)
-
-Import the theme and component classes directly in your CSS:
-
-```css
-@import "tailwindcss";
-@import "@seed-health/tokens/tailwind";
-@import "@seed-health/tokens/tailwind/components";
-```
-
-Use Tailwind utilities with your design tokens:
-
-```html
-<div class="bg-color-primary-seed-green text-color-primary-snow-white p-appearance-measurement-400 rounded-radius-medium">
-  <h1 class="text-fixed-title-large">Hello</h1>
-  <p class="text-fixed-body-medium">Body text with typography preset</p>
-</div>
-```
-
 ### CSS Variables
 
 ```jsx
@@ -108,12 +89,29 @@ function App() {
 }
 ```
 
+### Tailwind CSS v4
+Import the theme and component classes directly in your CSS:
+
+```css
+@import "tailwindcss";
+@import "@seed-health/tokens/tailwind";
+@import "@seed-health/tokens/tailwind/components";
+```
+
+Use Tailwind utilities with your design tokens:
+
+```html
+<div class="bg-color-primary-seed-green text-color-primary-snow-white p-appearance-measurement-400 rounded-radius-medium">
+  <h1 class="text-fixed-title-large">Hello</h1>
+  <p class="text-fixed-body-medium">Body text with typography preset</p>
+</div>
+```
+
+
 ## Available Formats
 
 | Format | Path | Description |
 |--------|------|-------------|
-| Tailwind Theme | `build/tailwind/theme.css` | Tailwind v4 `@theme` block with CSS variables |
-| Tailwind Components | `build/tailwind/components.css` | Typography utility classes for `@layer components` |
 | CSS Variables | `build/css/variables.css` | Custom properties for colors, spacing, etc. |
 | CSS Classes | `build/css/styles.css` | Typography and effect utility classes |
 | React Component | `build/react/global-token-styles.tsx` | styled-components GlobalStyle |
@@ -123,6 +121,8 @@ function App() {
 | TypeScript | `build/js/tokens.d.ts` | Type definitions |
 | JSON | `build/json/tokens.json` | Nested structure (kebab-case keys) |
 | JSON (Flat) | `build/json/tokens-flat.json` | Flat key-value pairs |
+| Tailwind Theme | `build/tailwind/theme.css` | Tailwind v4 `@theme` block with CSS variables |
+| Tailwind Components | `build/tailwind/components.css` | Typography utility classes for `@layer components` |
 
 ## License
 
