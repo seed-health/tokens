@@ -21,7 +21,9 @@ StyleDictionary.registerFormat({
 });
 
 /**
- * Helper to convert px to rem (base 16px)
+ * Helper to convert px to rem (base 16px) for composite token properties
+ * Note: The size/pxToRem transform only works on simple dimension tokens,
+ * not on nested properties in composite tokens like typography.
  */
 function pxToRem(value) {
   if (typeof value !== 'string') return value;
@@ -95,9 +97,9 @@ StyleDictionary.registerFormat({
 
         css += `${className} {\n`;
         if (value.fontFamily) css += `  font-family: "${value.fontFamily}";\n`;
-        if (value.fontSize) css += `  font-size: ${value.fontSize};\n`;
+        if (value.fontSize) css += `  font-size: ${pxToRem(value.fontSize)};\n`;
         if (value.fontWeight) css += `  font-weight: ${value.fontWeight};\n`;
-        if (value.letterSpacing) css += `  letter-spacing: ${value.letterSpacing};\n`;
+        if (value.letterSpacing) css += `  letter-spacing: ${pxToRem(value.letterSpacing)};\n`;
         if (value.lineHeight) css += `  line-height: ${value.lineHeight};\n`;
         css += '}\n\n';
       } else if (token.$type === 'blur') {
@@ -146,9 +148,9 @@ StyleDictionary.registerFormat({
 
         scss += `@mixin ${mixinName} {\n`;
         if (value.fontFamily) scss += `  font-family: "${value.fontFamily}";\n`;
-        if (value.fontSize) scss += `  font-size: ${value.fontSize};\n`;
+        if (value.fontSize) scss += `  font-size: ${pxToRem(value.fontSize)};\n`;
         if (value.fontWeight) scss += `  font-weight: ${value.fontWeight};\n`;
-        if (value.letterSpacing) scss += `  letter-spacing: ${value.letterSpacing};\n`;
+        if (value.letterSpacing) scss += `  letter-spacing: ${pxToRem(value.letterSpacing)};\n`;
         if (value.lineHeight) scss += `  line-height: ${value.lineHeight};\n`;
         scss += '}\n\n';
       } else if (token.$type === 'blur') {
@@ -278,7 +280,6 @@ export default {
   platforms: {
     // CSS Custom Properties (for CSS Modules, global styles, CSS-in-JS)
     css: {
-      // Using explicit transforms with Tailwind naming conventions
       transforms: ['attribute/cti', 'name/kebab', 'time/seconds', 'size/pxToRem', 'color/css'],
       buildPath: 'build/css/',
       files: [
@@ -367,7 +368,6 @@ export default {
 
     // SCSS Variables (for Sass/SCSS projects)
     scss: {
-      // Using explicit transforms with Tailwind naming conventions
       transforms: ['attribute/cti', 'name/kebab', 'time/seconds', 'size/pxToRem', 'color/css'],
       buildPath: 'build/scss/',
       files: [
