@@ -2,7 +2,7 @@
   "$metadata": {
     "figmaFileKeys": "TWb3Fxsi76DlpJIFBD5CEG",
     "format": "W3C DTCG",
-    "generated": "2025-11-26T21:20:17.340Z",
+    "generated": "2026-03-06T19:12:19.120Z",
     "source": "Figma Variables API",
     "version": "1.0.0"
   },
@@ -519,6 +519,12 @@
     "$type": "number",
     "$value": "{appearance.opacity.80}"
   },
+  "font": {
+    "-family": {
+      "$type": "string",
+      "$value": "Seed Sans"
+    }
+  },
   "gap": {
     "4": {
       "$type": "dimension",
@@ -729,6 +735,10 @@
         "$type": "color",
         "$value": "#9f995b"
       },
+      "darkest": {
+        "$type": "color",
+        "$value": "#797648"
+      },
       "highlight": {
         "$type": "color",
         "$value": "#fff593"
@@ -751,6 +761,10 @@
         "$type": "color",
         "$value": "#757c5d"
       },
+      "darkest": {
+        "$type": "color",
+        "$value": "#6e7951"
+      },
       "highlight": {
         "$type": "color",
         "$value": "#dcf194"
@@ -772,6 +786,10 @@
       "dark": {
         "$type": "color",
         "$value": "#698e79"
+      },
+      "darkest": {
+        "$type": "color",
+        "$value": "#4e6b5c"
       },
       "highlight": {
         "$type": "color",
@@ -886,7 +904,7 @@
     },
     "outer focused fixed": {
       "$type": "color",
-      "$value": "#0000f5"
+      "$value": "{outline.primary}"
     }
   },
   "stroke": {
