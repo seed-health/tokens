@@ -111,7 +111,7 @@ StyleDictionary.registerTransform({
   name: 'value/quote-strings',
   type: 'value',
   filter: (token) => token.$type === 'string',
-  transform: (token) => `"${token.$value}"`
+  transform: (token) => `"${token.$value.replace(/"/g, '\\"')}"`
 });
 
 /**
