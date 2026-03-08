@@ -129,8 +129,8 @@ export const GlobalTokenStyles = createGlobalStyle`
   --products-pm-02-primary: #b0d1be;
   --products-pm-02-secondary: #d2e6da;
   --state-layer-outer-focused-fixed: #0000f5;
-  --typography-font-brand: Seed Sans;
-  --typography-font-brand-mono: Seed Sans Mono;
+  --typography-font-brand: "Seed Sans";
+  --typography-font-brand-mono: "Seed Sans Mono";
   --typography-size-250: 0.625rem;
   --typography-size-300: 0.75rem;
   --typography-size-350: 0.875rem;
@@ -142,9 +142,9 @@ export const GlobalTokenStyles = createGlobalStyle`
   --typography-size-1000: 2.5rem;
   --typography-size-1200: 3rem;
   --typography-size-1600: 4rem;
-  --typography-weight-300: light;
-  --typography-weight-400: regular;
-  --typography-weight-500: medium;
+  --typography-weight-300: "light";
+  --typography-weight-400: "regular";
+  --typography-weight-500: "medium";
   --actions-bright: var(--color-primary-white);
   --actions-inverse: var(--color-primary-snow-white);
   --actions-primary: var(--color-primary-seed-green);
