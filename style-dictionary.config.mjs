@@ -105,6 +105,16 @@ StyleDictionary.registerFormat({
 });
 
 /**
+ * Wrap $type: "string" values in quotes for CSS/SCSS output
+ */
+StyleDictionary.registerTransform({
+  name: 'value/quote-strings',
+  type: 'value',
+  filter: (token) => token.$type === 'string',
+  transform: (token) => `"${token.$value.replace(/"/g, '\\"')}"`
+});
+
+/**
  * Helper function to filter out broken tokens
  */
 function isValidToken(token) {
@@ -209,7 +219,7 @@ export default {
     // CSS Custom Properties (for CSS Modules, global styles, CSS-in-JS)
     css: {
       // Using explicit transforms instead of transformGroup to include size/pxToRem
-      transforms: ['attribute/cti', 'name/kebab', 'time/seconds', 'size/pxToRem', 'color/css'],
+      transforms: ['attribute/cti', 'name/kebab', 'time/seconds', 'size/pxToRem', 'color/css', 'value/quote-strings'],
       buildPath: 'build/css/',
       files: [
         {
@@ -298,7 +308,7 @@ export default {
     // SCSS Variables (for Sass/SCSS projects)
     scss: {
       // Using explicit transforms instead of transformGroup to include size/pxToRem
-      transforms: ['attribute/cti', 'name/kebab', 'time/seconds', 'size/pxToRem', 'color/css'],
+      transforms: ['attribute/cti', 'name/kebab', 'time/seconds', 'size/pxToRem', 'color/css', 'value/quote-strings'],
       buildPath: 'build/scss/',
       files: [
         {
