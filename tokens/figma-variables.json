@@ -2,7 +2,7 @@
   "$metadata": {
     "figmaFileKeys": "TWb3Fxsi76DlpJIFBD5CEG",
     "format": "W3C DTCG",
-    "generated": "2026-03-18T11:14:44.022Z",
+    "generated": "2026-03-23T11:14:28.453Z",
     "source": "Figma Variables API",
     "version": "1.0.0"
   },
@@ -19,6 +19,10 @@
       "$type": "color",
       "$value": "{color.primary.seed green}"
     }
+  },
+  "active": {
+    "$type": "number",
+    "$value": "{opacity.70}"
   },
   "color": {
     "dark opacity": {
@@ -184,13 +188,13 @@
         "$type": "color",
         "$value": "#eff1e4"
       },
-      "frosted glass t35": {
-        "$type": "color",
-        "$value": "rgba(87, 94, 85, 0.3499999940395355)"
-      },
-      "frosted glass t8": {
+      "frosted glass 08": {
         "$type": "color",
         "$value": "rgba(87, 94, 85, 0.07999999821186066)"
+      },
+      "frosted glass 35": {
+        "$type": "color",
+        "$value": "rgba(87, 94, 85, 0.3499999940395355)"
       },
       "yellowish white": {
         "$type": "color",
@@ -202,27 +206,27 @@
         "$type": "color",
         "$value": "#1c3a13"
       },
-      "seed green t10": {
-        "$type": "color",
-        "$value": "rgba(28, 58, 19, 0.10000000149011612)"
-      },
-      "seed green t15": {
-        "$type": "color",
-        "$value": "rgba(28, 58, 19, 0.15000000596046448)"
-      },
-      "seed green t20": {
-        "$type": "color",
-        "$value": "rgba(28, 58, 19, 0.20000000298023224)"
-      },
-      "seed green t5": {
+      "seed green 05": {
         "$type": "color",
         "$value": "rgba(28, 58, 19, 0.05000000074505806)"
       },
-      "seed green t50": {
+      "seed green 10": {
+        "$type": "color",
+        "$value": "rgba(28, 58, 19, 0.10000000149011612)"
+      },
+      "seed green 15": {
+        "$type": "color",
+        "$value": "rgba(28, 58, 19, 0.15000000596046448)"
+      },
+      "seed green 20": {
+        "$type": "color",
+        "$value": "rgba(28, 58, 19, 0.20000000298023224)"
+      },
+      "seed green 50": {
         "$type": "color",
         "$value": "rgba(28, 58, 19, 0.5)"
       },
-      "seed green t70": {
+      "seed green 70": {
         "$type": "color",
         "$value": "rgba(28, 58, 19, 0.699999988079071)"
       },
@@ -230,19 +234,19 @@
         "$type": "color",
         "$value": "#fcfcf7"
       },
-      "snow white t10": {
+      "snow white 10": {
         "$type": "color",
         "$value": "rgba(252, 252, 247, 0.10000000149011612)"
       },
-      "snow white t20": {
+      "snow white 20": {
         "$type": "color",
         "$value": "rgba(252, 252, 247, 0.20000000298023224)"
       },
-      "snow white t50": {
+      "snow white 50": {
         "$type": "color",
         "$value": "rgba(252, 252, 247, 0.5)"
       },
-      "snow white t70": {
+      "snow white 70": {
         "$type": "color",
         "$value": "rgba(252, 252, 247, 0.699999988079071)"
       },
@@ -482,11 +486,11 @@
     }
   },
   "guidance": {
-    "guidance primary": {
+    "primary": {
       "$type": "color",
       "$value": "{color.guidance.bright green}"
     },
-    "guidance secondary": {
+    "secondary": {
       "$type": "color",
       "$value": "{color.guidance.lemongrass}"
     }
@@ -637,7 +641,7 @@
     },
     "lightest": {
       "$type": "color",
-      "$value": "{color.primary.snow white t20}"
+      "$value": "{color.primary.snow white 20}"
     },
     "neutral": {
       "$type": "color",
@@ -645,7 +649,7 @@
     },
     "neutral light": {
       "$type": "color",
-      "$value": "{color.primary.seed green t10}"
+      "$value": "{color.primary.seed green 10}"
     },
     "primary": {
       "$type": "color",
@@ -680,10 +684,6 @@
         "tablet": "{size.600}"
       }
     }
-  },
-  "pressed": {
-    "$type": "number",
-    "$value": "{opacity.70}"
   },
   "products": {
     "AM-02": {
@@ -770,19 +770,23 @@
       "$type": "dimension",
       "$value": "{size.2500}"
     },
-    "large": {
+    "lg": {
       "$type": "dimension",
-      "$value": "{size.800}"
+      "$value": "{size.600}"
     },
-    "medium": {
+    "md": {
       "$type": "dimension",
       "$value": "{size.400}"
     },
-    "small": {
+    "sm": {
       "$type": "dimension",
       "$value": "{size.200}"
     },
-    "x-small": {
+    "xl": {
+      "$type": "dimension",
+      "$value": "{size.800}"
+    },
+    "xs": {
       "$type": "dimension",
       "$value": "{size.100}"
     }
@@ -798,19 +802,19 @@
     },
     "glass dark 08": {
       "$type": "color",
-      "$value": "{color.neutral.frosted glass t8}"
+      "$value": "{color.neutral.frosted glass 08}"
     },
     "glass dark 35": {
       "$type": "color",
-      "$value": "{color.neutral.frosted glass t35}"
+      "$value": "{color.neutral.frosted glass 35}"
     },
     "glass light 10": {
       "$type": "color",
-      "$value": "{color.primary.snow white t10}"
+      "$value": "{color.primary.snow white 10}"
     },
     "glass light 20": {
       "$type": "color",
-      "$value": "{color.primary.snow white t20}"
+      "$value": "{color.primary.snow white 20}"
     }
   },
   "size": {
@@ -984,7 +988,7 @@
   "text": {
     "disabled": {
       "$type": "color",
-      "$value": "{color.primary.seed green t50}"
+      "$value": "{color.primary.seed green 50}"
     },
     "error": {
       "$type": "color",
@@ -992,7 +996,7 @@
     },
     "inverse disabled": {
       "$type": "color",
-      "$value": "{color.primary.snow white t50}"
+      "$value": "{color.primary.snow white 50}"
     },
     "inverse primary": {
       "$type": "color",
@@ -1000,7 +1004,7 @@
     },
     "inverse secondary": {
       "$type": "color",
-      "$value": "{color.primary.snow white t70}"
+      "$value": "{color.primary.snow white 70}"
     },
     "primary": {
       "$type": "color",
@@ -1008,7 +1012,7 @@
     },
     "secondary": {
       "$type": "color",
-      "$value": "{color.primary.seed green t70}"
+      "$value": "{color.primary.seed green 70}"
     },
     "warning": {
       "$type": "color",
