@@ -2,7 +2,7 @@
   "$metadata": {
     "figmaFileKeys": "TWb3Fxsi76DlpJIFBD5CEG",
     "format": "W3C DTCG",
-    "generated": "2026-03-23T11:14:28.453Z",
+    "generated": "2026-03-24T11:14:27.955Z",
     "source": "Figma Variables API",
     "version": "1.0.0"
   },
@@ -368,41 +368,41 @@
     }
   },
   "fill": {
-    "foam white": {
-      "$type": "color",
-      "$value": "{color.neutral.foam white}"
-    },
-    "gray": {
-      "$type": "color",
-      "$value": "{color.neutral.cool neutral 40}"
-    },
-    "light gray": {
-      "$type": "color",
-      "$value": "{color.neutral.cool neutral 20}"
-    },
-    "lightest": {
-      "$type": "color",
-      "$value": "{color.primary.white}"
-    },
-    "medium gray": {
-      "$type": "color",
-      "$value": "{color.neutral.cool neutral 60}"
-    },
-    "seed green": {
+    "brand": {
       "$type": "color",
       "$value": "{color.primary.seed green}"
     },
-    "snow white": {
-      "$type": "color",
-      "$value": "{color.primary.snow white}"
-    },
-    "soft green": {
+    "brand subtle": {
       "$type": "color",
       "$value": "{color.primary.soft green}"
     },
-    "yellowish white": {
+    "bright": {
+      "$type": "color",
+      "$value": "{color.primary.white}"
+    },
+    "neutral dark": {
+      "$type": "color",
+      "$value": "{color.neutral.cool neutral 60}"
+    },
+    "neutral light": {
+      "$type": "color",
+      "$value": "{color.neutral.cool neutral 20}"
+    },
+    "neutral medium": {
+      "$type": "color",
+      "$value": "{color.neutral.cool neutral 40}"
+    },
+    "primary": {
+      "$type": "color",
+      "$value": "{color.primary.snow white}"
+    },
+    "secondary": {
       "$type": "color",
       "$value": "{color.neutral.yellowish white}"
+    },
+    "tertiary": {
+      "$type": "color",
+      "$value": "{color.neutral.foam white}"
     }
   },
   "focused": {
@@ -639,7 +639,7 @@
       "$type": "color",
       "$value": "{color.primary.snow white}"
     },
-    "lightest": {
+    "light 20": {
       "$type": "color",
       "$value": "{color.primary.snow white 20}"
     },
@@ -647,13 +647,13 @@
       "$type": "color",
       "$value": "{color.neutral.faded green 20}"
     },
-    "neutral light": {
-      "$type": "color",
-      "$value": "{color.primary.seed green 10}"
-    },
     "primary": {
       "$type": "color",
       "$value": "{color.primary.seed green}"
+    },
+    "primary 10": {
+      "$type": "color",
+      "$value": "{color.primary.seed green 10}"
     }
   },
   "page grid": {
@@ -689,10 +689,6 @@
     "AM-02": {
       "dark": {
         "$type": "color",
-        "$value": "#9f995b"
-      },
-      "darkest": {
-        "$type": "color",
         "$value": "#797648"
       },
       "highlight": {
@@ -702,6 +698,10 @@
       "light": {
         "$type": "color",
         "$value": "#faf7d3"
+      },
+      "medium": {
+        "$type": "color",
+        "$value": "#9f995b"
       },
       "primary": {
         "$type": "color",
@@ -715,10 +715,6 @@
     "DM-02": {
       "dark": {
         "$type": "color",
-        "$value": "#757c5d"
-      },
-      "darkest": {
-        "$type": "color",
         "$value": "#6e7951"
       },
       "highlight": {
@@ -728,6 +724,10 @@
       "light": {
         "$type": "color",
         "$value": "#ecf2d7"
+      },
+      "medium": {
+        "$type": "color",
+        "$value": "#757c5d"
       },
       "primary": {
         "$type": "color",
@@ -741,10 +741,6 @@
     "PM-02": {
       "dark": {
         "$type": "color",
-        "$value": "#698e79"
-      },
-      "darkest": {
-        "$type": "color",
         "$value": "#4e6b5c"
       },
       "highlight": {
@@ -754,6 +750,10 @@
       "light": {
         "$type": "color",
         "$value": "#ebf5ef"
+      },
+      "medium": {
+        "$type": "color",
+        "$value": "#698e79"
       },
       "primary": {
         "$type": "color",
@@ -768,7 +768,7 @@
   "radius": {
     "full": {
       "$type": "dimension",
-      "$value": "{size.2500}"
+      "$value": "{size.25000}"
     },
     "lg": {
       "$type": "dimension",
@@ -869,6 +869,10 @@
     "2500": {
       "$type": "dimension",
       "$value": "100px"
+    },
+    "25000": {
+      "$type": "dimension",
+      "$value": "1000px"
     },
     "00": {
       "$type": "dimension",
