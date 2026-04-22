@@ -78,6 +78,78 @@
       }
     }
   },
+  "mobile display": {
+    "large": {
+      "$description": "adaptive",
+      "$extensions": {
+        "com.figma": {
+          "boundVariables": {
+            "fontFamily": [
+              {
+                "id": "VariableID:1:106",
+                "type": "VARIABLE_ALIAS"
+              }
+            ],
+            "fontSize": [
+              {
+                "id": "VariableID:1:119",
+                "type": "VARIABLE_ALIAS"
+              }
+            ],
+            "fontStyle": [
+              {
+                "id": "VariableID:1:109",
+                "type": "VARIABLE_ALIAS"
+              }
+            ]
+          }
+        }
+      },
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Seed Sans",
+        "fontSize": "48px",
+        "fontWeight": 350,
+        "letterSpacing": "-0.96px",
+        "lineHeight": "110%"
+      }
+    },
+    "small": {
+      "$description": "adaptive",
+      "$extensions": {
+        "com.figma": {
+          "boundVariables": {
+            "fontFamily": [
+              {
+                "id": "VariableID:1:106",
+                "type": "VARIABLE_ALIAS"
+              }
+            ],
+            "fontSize": [
+              {
+                "id": "VariableID:1:118",
+                "type": "VARIABLE_ALIAS"
+              }
+            ],
+            "fontStyle": [
+              {
+                "id": "VariableID:1:109",
+                "type": "VARIABLE_ALIAS"
+              }
+            ]
+          }
+        }
+      },
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Seed Sans",
+        "fontSize": "40px",
+        "fontWeight": 350,
+        "letterSpacing": "-0.8px",
+        "lineHeight": "110%"
+      }
+    }
+  },
   "fixed": {
     "body large": {
       "$description": "fixed",
@@ -647,78 +719,6 @@
   "frosted glass strong": {
     "$type": "blur",
     "$value": "blur(75px)"
-  },
-  "mobile display": {
-    "large": {
-      "$description": "adaptive",
-      "$extensions": {
-        "com.figma": {
-          "boundVariables": {
-            "fontFamily": [
-              {
-                "id": "VariableID:1:106",
-                "type": "VARIABLE_ALIAS"
-              }
-            ],
-            "fontSize": [
-              {
-                "id": "VariableID:1:119",
-                "type": "VARIABLE_ALIAS"
-              }
-            ],
-            "fontStyle": [
-              {
-                "id": "VariableID:1:109",
-                "type": "VARIABLE_ALIAS"
-              }
-            ]
-          }
-        }
-      },
-      "$type": "typography",
-      "$value": {
-        "fontFamily": "Seed Sans",
-        "fontSize": "48px",
-        "fontWeight": 350,
-        "letterSpacing": "-0.96px",
-        "lineHeight": "110%"
-      }
-    },
-    "small": {
-      "$description": "adaptive",
-      "$extensions": {
-        "com.figma": {
-          "boundVariables": {
-            "fontFamily": [
-              {
-                "id": "VariableID:1:106",
-                "type": "VARIABLE_ALIAS"
-              }
-            ],
-            "fontSize": [
-              {
-                "id": "VariableID:1:118",
-                "type": "VARIABLE_ALIAS"
-              }
-            ],
-            "fontStyle": [
-              {
-                "id": "VariableID:1:109",
-                "type": "VARIABLE_ALIAS"
-              }
-            ]
-          }
-        }
-      },
-      "$type": "typography",
-      "$value": {
-        "fontFamily": "Seed Sans",
-        "fontSize": "40px",
-        "fontWeight": 350,
-        "letterSpacing": "-0.8px",
-        "lineHeight": "110%"
-      }
-    }
   },
   "screen grids": {
     "fluid grid": {
