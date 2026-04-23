@@ -1,6 +1,8 @@
 {
   "DesktopDisplayLarge": {"fontFamily":"Seed Sans","fontSize":"64px","fontWeight":350,"letterSpacing":"-1.28px","lineHeight":"110%"},
   "DesktopDisplaySmall": {"fontFamily":"Seed Sans","fontSize":"48px","fontWeight":350,"letterSpacing":"-0.96px","lineHeight":"100%"},
+  "MobileDisplayLarge": {"fontFamily":"Seed Sans","fontSize":"48px","fontWeight":350,"letterSpacing":"-0.96px","lineHeight":"110%"},
+  "MobileDisplaySmall": {"fontFamily":"Seed Sans","fontSize":"40px","fontWeight":350,"letterSpacing":"-0.8px","lineHeight":"110%"},
   "FixedBodyLarge": {"fontFamily":"Seed Sans","fontSize":"18px","fontWeight":350,"letterSpacing":"-0.18px","lineHeight":"140%"},
   "FixedBodyMedium": {"fontFamily":"Seed Sans","fontSize":"16px","fontWeight":350,"letterSpacing":"-0.16px","lineHeight":"140%"},
   "FixedBodySmall": {"fontFamily":"Seed Sans","fontSize":"14px","fontWeight":350,"letterSpacing":"-0.14px","lineHeight":"140%"},
@@ -19,8 +21,6 @@
   "FixedTitleSmall": {"fontFamily":"Seed Sans","fontSize":"24px","fontWeight":350,"letterSpacing":"-0.36px","lineHeight":"120.00000762939453%"},
   "FrostedGlassLight": "blur(38px)",
   "FrostedGlassStrong": "blur(75px)",
-  "MobileDisplayLarge": {"fontFamily":"Seed Sans","fontSize":"48px","fontWeight":350,"letterSpacing":"-0.96px","lineHeight":"110%"},
-  "MobileDisplaySmall": {"fontFamily":"Seed Sans","fontSize":"40px","fontWeight":350,"letterSpacing":"-0.8px","lineHeight":"110%"},
   "ScreenGridsFluidGrid": [{"alignment":"min","count":-1,"gutterSize":"8px","pattern":"rows","sectionSize":"8px"},{"alignment":"stretch","count":4,"gutterSize":"16px","pattern":"columns","sectionSize":"5px"}],
   "ScreenGridsStaticGrid": [{"alignment":"min","count":-1,"gutterSize":"8px","pattern":"rows","sectionSize":"8px"},{"alignment":"center","count":12,"gutterSize":"16px","pattern":"columns","sectionSize":"96px"}],
   "SubtleShadow": {"offsetX":"0px","offsetY":"4px","blur":"30px","spread":"0px","color":"rgba(0, 0, 0, 0.07999999821186066)"},

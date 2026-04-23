@@ -16,6 +16,20 @@ export const DesktopDisplaySmall = {
   letterSpacing: "-0.96px",
   lineHeight: "100%",
 }; // adaptive
+export const MobileDisplayLarge = {
+  fontFamily: "Seed Sans",
+  fontSize: "48px",
+  fontWeight: 350,
+  letterSpacing: "-0.96px",
+  lineHeight: "110%",
+}; // adaptive
+export const MobileDisplaySmall = {
+  fontFamily: "Seed Sans",
+  fontSize: "40px",
+  fontWeight: 350,
+  letterSpacing: "-0.8px",
+  lineHeight: "110%",
+}; // adaptive
 export const FixedBodyLarge = {
   fontFamily: "Seed Sans",
   fontSize: "18px",
@@ -130,20 +144,6 @@ export const FixedTitleSmall = {
 }; // fixed
 export const FrostedGlassLight = "blur(38px)";
 export const FrostedGlassStrong = "blur(75px)";
-export const MobileDisplayLarge = {
-  fontFamily: "Seed Sans",
-  fontSize: "48px",
-  fontWeight: 350,
-  letterSpacing: "-0.96px",
-  lineHeight: "110%",
-}; // adaptive
-export const MobileDisplaySmall = {
-  fontFamily: "Seed Sans",
-  fontSize: "40px",
-  fontWeight: 350,
-  letterSpacing: "-0.8px",
-  lineHeight: "110%",
-}; // adaptive
 export const ScreenGridsFluidGrid = [
   {
     alignment: "min",

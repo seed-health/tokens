@@ -17,6 +17,20 @@ module.exports = {
     letterSpacing: "-0.96px",
     lineHeight: "100%",
   },
+  MobileDisplayLarge: {
+    fontFamily: "Seed Sans",
+    fontSize: "48px",
+    fontWeight: 350,
+    letterSpacing: "-0.96px",
+    lineHeight: "110%",
+  },
+  MobileDisplaySmall: {
+    fontFamily: "Seed Sans",
+    fontSize: "40px",
+    fontWeight: 350,
+    letterSpacing: "-0.8px",
+    lineHeight: "110%",
+  },
   FixedBodyLarge: {
     fontFamily: "Seed Sans",
     fontSize: "18px",
@@ -131,20 +145,6 @@ module.exports = {
   },
   FrostedGlassLight: "blur(38px)",
   FrostedGlassStrong: "blur(75px)",
-  MobileDisplayLarge: {
-    fontFamily: "Seed Sans",
-    fontSize: "48px",
-    fontWeight: 350,
-    letterSpacing: "-0.96px",
-    lineHeight: "110%",
-  },
-  MobileDisplaySmall: {
-    fontFamily: "Seed Sans",
-    fontSize: "40px",
-    fontWeight: 350,
-    letterSpacing: "-0.8px",
-    lineHeight: "110%",
-  },
   ScreenGridsFluidGrid: [
     {
       alignment: "min",
