@@ -18,6 +18,22 @@ export const DesktopDisplaySmall: {
   letterSpacing: string;
   lineHeight: string;
 };
+/** adaptive */
+export const MobileDisplayLarge: {
+  fontFamily: string;
+  fontSize: string;
+  fontWeight: number;
+  letterSpacing: string;
+  lineHeight: string;
+};
+/** adaptive */
+export const MobileDisplaySmall: {
+  fontFamily: string;
+  fontSize: string;
+  fontWeight: number;
+  letterSpacing: string;
+  lineHeight: string;
+};
 /** fixed */
 export const FixedBodyLarge: {
   fontFamily: string;
@@ -148,22 +164,6 @@ export const FixedTitleSmall: {
 };
 export const FrostedGlassLight: "blur(38px)";
 export const FrostedGlassStrong: "blur(75px)";
-/** adaptive */
-export const MobileDisplayLarge: {
-  fontFamily: string;
-  fontSize: string;
-  fontWeight: number;
-  letterSpacing: string;
-  lineHeight: string;
-};
-/** adaptive */
-export const MobileDisplaySmall: {
-  fontFamily: string;
-  fontSize: string;
-  fontWeight: number;
-  letterSpacing: string;
-  lineHeight: string;
-};
 /** for screens upto 767px */
 export const ScreenGridsFluidGrid: {
   alignment: string;
