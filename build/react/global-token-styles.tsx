@@ -86,7 +86,6 @@ export const GlobalTokenStyles = createGlobalStyle`
   --extended-palette-umber-brown: #533b3b;
   --extended-palette-umber-brown-light: #bb797a;
   --extended-palette-verdigris-green: #71aa89;
-  --font-family: "Seed Sans";
   --font-family-brand: "Seed Sans";
   --font-family-brand-mono: "Seed Sans Mono";
   --font-size-250: 0.625rem;
@@ -148,6 +147,7 @@ export const GlobalTokenStyles = createGlobalStyle`
   --size-25000: 62.5rem;
   --size-00: 0;
   --size-025: 0.0625rem;
+  --size-037: 0.09375rem;
   --size-050: 0.125rem;
   --actions-bright: var(--color-primary-white);
   --actions-inverse: var(--color-primary-snow-white);
@@ -222,6 +222,7 @@ export const GlobalTokenStyles = createGlobalStyle`
   --state-layer-light-focused: var(--color-light-opacity-12);
   --state-layer-light-hovered: var(--color-light-opacity-08);
   --state-layer-light-pressed: var(--color-light-opacity-12);
+  --stroke-active: var(--size-037);
   --stroke-default: var(--size-025);
   --text-disabled: var(--color-primary-seed-green-50);
   --text-error: var(--color-guidance-error);

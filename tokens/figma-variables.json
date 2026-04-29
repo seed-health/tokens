@@ -2,7 +2,7 @@
   "$metadata": {
     "figmaFileKeys": "TWb3Fxsi76DlpJIFBD5CEG",
     "format": "W3C DTCG",
-    "generated": "2026-03-24T11:14:27.955Z",
+    "generated": "2026-04-29T11:29:41.515Z",
     "source": "Figma Variables API",
     "version": "1.0.0"
   },
@@ -410,10 +410,6 @@
     "$value": "{opacity.80}"
   },
   "font": {
-    "-family": {
-      "$type": "string",
-      "$value": "Seed Sans"
-    },
     "family": {
       "brand": {
         "$type": "string",
@@ -882,6 +878,10 @@
       "$type": "dimension",
       "$value": "1px"
     },
+    "037": {
+      "$type": "dimension",
+      "$value": "1.5px"
+    },
     "050": {
       "$type": "dimension",
       "$value": "2px"
@@ -984,6 +984,10 @@
     }
   },
   "stroke": {
+    "active": {
+      "$type": "dimension",
+      "$value": "{size.037}"
+    },
     "default": {
       "$type": "dimension",
       "$value": "{size.025}"
