@@ -41,7 +41,7 @@
   "author": "Seed Health",
   "license": "MIT",
   "engines": {
-    "node": ">=20.17"
+    "node": ">=20.24"
   },
   "repository": {
     "type": "git",
