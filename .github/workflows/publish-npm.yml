@@ -24,6 +24,8 @@ jobs:
           node-version: '22'
           cache: 'npm'
           registry-url: 'https://registry.npmjs.org'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Enable Corepack and use npm latest
         run: |
