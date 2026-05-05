@@ -18,17 +18,17 @@ jobs:
           ssh-key: ${{ secrets.DEPLOY_KEY }}
           fetch-depth: 0
 
+      - name: Enable Corepack and use npm latest
+        run: |
+          corepack enable
+          corepack prepare npm@latest --activate
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '22'
           cache: 'npm'
           registry-url: 'https://registry.npmjs.org'
-
-      - name: Enable Corepack and use npm latest
-        run: |
-          corepack enable
-          corepack prepare npm@latest --activate
 
       - name: Install dependencies
         run: npm ci
