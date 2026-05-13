@@ -2,7 +2,7 @@
   "$metadata": {
     "figmaFileKeys": "TWb3Fxsi76DlpJIFBD5CEG",
     "format": "W3C DTCG",
-    "generated": "2025-11-07T15:00:01.149Z",
+    "generated": "2026-05-13T11:41:05.553Z",
     "source": "Figma Styles API",
     "version": "1.0.0"
   },
@@ -21,12 +21,6 @@
             "fontSize": [
               {
                 "id": "VariableID:1:120",
-                "type": "VARIABLE_ALIAS"
-              }
-            ],
-            "fontStyle": [
-              {
-                "id": "VariableID:1:109",
                 "type": "VARIABLE_ALIAS"
               }
             ]
@@ -56,12 +50,6 @@
             "fontSize": [
               {
                 "id": "VariableID:1:119",
-                "type": "VARIABLE_ALIAS"
-              }
-            ],
-            "fontStyle": [
-              {
-                "id": "VariableID:1:109",
                 "type": "VARIABLE_ALIAS"
               }
             ]
@@ -95,12 +83,6 @@
                 "id": "VariableID:1:114",
                 "type": "VARIABLE_ALIAS"
               }
-            ],
-            "fontStyle": [
-              {
-                "id": "VariableID:1:109",
-                "type": "VARIABLE_ALIAS"
-              }
             ]
           }
         }
@@ -128,12 +110,6 @@
             "fontSize": [
               {
                 "id": "VariableID:1:113",
-                "type": "VARIABLE_ALIAS"
-              }
-            ],
-            "fontStyle": [
-              {
-                "id": "VariableID:1:109",
                 "type": "VARIABLE_ALIAS"
               }
             ]
@@ -165,12 +141,6 @@
                 "id": "VariableID:1:112",
                 "type": "VARIABLE_ALIAS"
               }
-            ],
-            "fontStyle": [
-              {
-                "id": "VariableID:1:109",
-                "type": "VARIABLE_ALIAS"
-              }
             ]
           }
         }
@@ -198,12 +168,6 @@
             "fontSize": [
               {
                 "id": "VariableID:1:115",
-                "type": "VARIABLE_ALIAS"
-              }
-            ],
-            "fontStyle": [
-              {
-                "id": "VariableID:1:109",
                 "type": "VARIABLE_ALIAS"
               }
             ]
@@ -235,12 +199,6 @@
                 "id": "VariableID:1:111",
                 "type": "VARIABLE_ALIAS"
               }
-            ],
-            "fontStyle": [
-              {
-                "id": "VariableID:1:109",
-                "type": "VARIABLE_ALIAS"
-              }
             ]
           }
         }
@@ -270,12 +228,6 @@
                 "id": "VariableID:1:260",
                 "type": "VARIABLE_ALIAS"
               }
-            ],
-            "fontStyle": [
-              {
-                "id": "VariableID:1:109",
-                "type": "VARIABLE_ALIAS"
-              }
             ]
           }
         }
@@ -303,12 +255,6 @@
             "fontSize": [
               {
                 "id": "VariableID:1:111",
-                "type": "VARIABLE_ALIAS"
-              }
-            ],
-            "fontStyle": [
-              {
-                "id": "VariableID:1:110",
                 "type": "VARIABLE_ALIAS"
               }
             ]
@@ -515,12 +461,6 @@
                 "id": "VariableID:1:113",
                 "type": "VARIABLE_ALIAS"
               }
-            ],
-            "fontStyle": [
-              {
-                "id": "VariableID:1:109",
-                "type": "VARIABLE_ALIAS"
-              }
             ]
           }
         }
@@ -548,12 +488,6 @@
             "fontSize": [
               {
                 "id": "VariableID:1:111",
-                "type": "VARIABLE_ALIAS"
-              }
-            ],
-            "fontStyle": [
-              {
-                "id": "VariableID:1:109",
                 "type": "VARIABLE_ALIAS"
               }
             ]
@@ -585,12 +519,6 @@
                 "id": "VariableID:1:117",
                 "type": "VARIABLE_ALIAS"
               }
-            ],
-            "fontStyle": [
-              {
-                "id": "VariableID:1:109",
-                "type": "VARIABLE_ALIAS"
-              }
             ]
           }
         }
@@ -618,12 +546,6 @@
             "fontSize": [
               {
                 "id": "VariableID:1:116",
-                "type": "VARIABLE_ALIAS"
-              }
-            ],
-            "fontStyle": [
-              {
-                "id": "VariableID:1:109",
                 "type": "VARIABLE_ALIAS"
               }
             ]
@@ -665,12 +587,6 @@
                 "id": "VariableID:1:119",
                 "type": "VARIABLE_ALIAS"
               }
-            ],
-            "fontStyle": [
-              {
-                "id": "VariableID:1:109",
-                "type": "VARIABLE_ALIAS"
-              }
             ]
           }
         }
@@ -698,12 +614,6 @@
             "fontSize": [
               {
                 "id": "VariableID:1:118",
-                "type": "VARIABLE_ALIAS"
-              }
-            ],
-            "fontStyle": [
-              {
-                "id": "VariableID:1:109",
                 "type": "VARIABLE_ALIAS"
               }
             ]
