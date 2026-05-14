@@ -100,6 +100,17 @@ function App() {
 | JSON | `build/json/tokens.json` | Nested structure (kebab-case keys) |
 | JSON (Flat) | `build/json/tokens-flat.json` | Flat key-value pairs |
 
+## Syncing tokens from Figma
+
+Tokens sync automatically from Figma on a regular cadence via the [Sync Figma tokens](.github/workflows/sync-figma-tokens.yml) GitHub Action. When tokens change, the workflow opens a PR titled "Update design tokens from Figma".
+
+To trigger a sync manually:
+
+- **GitHub UI:** Open the [Actions tab](https://github.com/seed-health/tokens/actions/workflows/sync-figma-tokens.yml), select "Sync Figma tokens", and click **Run workflow** on the `main` branch.
+- **GitHub CLI:** `gh workflow run sync-figma-tokens.yml`
+
+If Figma has changes, the run will open (or update) the applicable PR. If nothing changed, the run exits cleanly with no PR.
+
 ## License
 
 MIT
