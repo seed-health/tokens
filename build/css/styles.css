@@ -3,23 +3,15 @@
  * Generated from Figma Styles API
  */
 
-.text-desktop-display-large {
+.text-body-lg-bold {
   font-family: "Seed Sans";
-  font-size: 64px;
-  font-weight: 350;
-  letter-spacing: -1.28px;
-  line-height: 110%;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.18px;
+  line-height: 140%;
 }
 
-.text-desktop-display-small {
-  font-family: "Seed Sans";
-  font-size: 48px;
-  font-weight: 350;
-  letter-spacing: -0.96px;
-  line-height: 100%;
-}
-
-.text-fixed-body-large {
+.text-body-lg-reg {
   font-family: "Seed Sans";
   font-size: 18px;
   font-weight: 350;
@@ -27,7 +19,15 @@
   line-height: 140%;
 }
 
-.text-fixed-body-medium {
+.text-body-med-bold {
+  font-family: "Seed Sans";
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.16px;
+  line-height: 140%;
+}
+
+.text-body-med-reg {
   font-family: "Seed Sans";
   font-size: 16px;
   font-weight: 350;
@@ -35,7 +35,15 @@
   line-height: 140%;
 }
 
-.text-fixed-body-small {
+.text-body-sm-bold {
+  font-family: "Seed Sans";
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.14px;
+  line-height: 140%;
+}
+
+.text-body-sm-reg {
   font-family: "Seed Sans";
   font-size: 14px;
   font-weight: 350;
@@ -43,7 +51,15 @@
   line-height: 140%;
 }
 
-.text-fixed-body-x-large {
+.text-body-xl-bold {
+  font-family: "Seed Sans";
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+  line-height: 140%;
+}
+
+.text-body-xl-reg {
   font-family: "Seed Sans";
   font-size: 20px;
   font-weight: 350;
@@ -51,7 +67,15 @@
   line-height: 140%;
 }
 
-.text-fixed-body-x-small {
+.text-body-xs-bold {
+  font-family: "Seed Sans";
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: -0.06px;
+  line-height: 140%;
+}
+
+.text-body-xs-reg {
   font-family: "Seed Sans";
   font-size: 12px;
   font-weight: 350;
@@ -59,7 +83,7 @@
   line-height: 140%;
 }
 
-.text-fixed-body-xx-small {
+.text-body-xxs-reg {
   font-family: "Seed Sans";
   font-size: 10px;
   font-weight: 350;
@@ -67,84 +91,52 @@
   line-height: 140%;
 }
 
-.text-fixed-eyebrow {
+.text-display-lg-reg {
+  font-family: "Seed Sans";
+  font-size: 64px;
+  font-weight: 350;
+  letter-spacing: -1.28px;
+  line-height: 110%;
+}
+
+.text-display-lg-mobile-reg {
+  font-family: "Seed Sans";
+  font-size: 48px;
+  font-weight: 350;
+  letter-spacing: -0.96px;
+  line-height: 110%;
+}
+
+.text-display-med-reg {
+  font-family: "Seed Sans";
+  font-size: 48px;
+  font-weight: 350;
+  letter-spacing: -0.96px;
+  line-height: 100%;
+}
+
+.text-display-sm-reg {
+  font-family: "Seed Sans";
+  font-size: 40px;
+  font-weight: 350;
+  letter-spacing: -0.8px;
+  line-height: 110%;
+}
+
+.text-display-sm-mobile-reg {
+  font-family: "Seed Sans";
+  font-size: 40px;
+  font-weight: 350;
+  letter-spacing: -0.8px;
+  line-height: 110%;
+}
+
+.text-eyebrow-xs-bold {
   font-family: "Seed Sans";
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.24px;
   line-height: 110%;
-}
-
-.text-fixed-label-large {
-  font-family: "Seed Sans";
-  font-size: 18px;
-  font-weight: 500;
-  letter-spacing: -0.18px;
-  line-height: 140%;
-}
-
-.text-fixed-label-medium {
-  font-family: "Seed Sans";
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: -0.16px;
-  line-height: 140%;
-}
-
-.text-fixed-label-small {
-  font-family: "Seed Sans";
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: -0.14px;
-  line-height: 140%;
-}
-
-.text-fixed-label-x-large {
-  font-family: "Seed Sans";
-  font-size: 20px;
-  font-weight: 500;
-  letter-spacing: -0.2px;
-  line-height: 140%;
-}
-
-.text-fixed-label-x-small {
-  font-family: "Seed Sans";
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: -0.06px;
-  line-height: 140%;
-}
-
-.text-fixed-mono-large {
-  font-family: "Seed Sans Mono";
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: 0px;
-  line-height: 110%;
-}
-
-.text-fixed-mono-small {
-  font-family: "Seed Sans Mono";
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0px;
-  line-height: 110%;
-}
-
-.text-fixed-title-large {
-  font-family: "Seed Sans";
-  font-size: 32px;
-  font-weight: 350;
-  letter-spacing: -0.64px;
-  line-height: 110%;
-}
-
-.text-fixed-title-small {
-  font-family: "Seed Sans";
-  font-size: 24px;
-  font-weight: 350;
-  letter-spacing: -0.36px;
-  line-height: 120.00000762939453%;
 }
 
 .effect-frosted-glass-light {
@@ -157,23 +149,39 @@
   -webkit-backdrop-filter: blur(75px);
 }
 
-.text-mobile-display-large {
-  font-family: "Seed Sans";
-  font-size: 48px;
-  font-weight: 350;
-  letter-spacing: -0.96px;
+.text-mono-lg-reg {
+  font-family: "Seed Sans Mono";
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0px;
   line-height: 110%;
 }
 
-.text-mobile-display-small {
-  font-family: "Seed Sans";
-  font-size: 40px;
-  font-weight: 350;
-  letter-spacing: -0.8px;
+.text-mono-sm-reg {
+  font-family: "Seed Sans Mono";
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0px;
   line-height: 110%;
 }
 
 .shadow-subtle-shadow {
   box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.07999999821186066);
+}
+
+.text-title-lg-reg {
+  font-family: "Seed Sans";
+  font-size: 32px;
+  font-weight: 350;
+  letter-spacing: -0.64px;
+  line-height: 110%;
+}
+
+.text-title-sm-reg {
+  font-family: "Seed Sans";
+  font-size: 24px;
+  font-weight: 350;
+  letter-spacing: -0.36px;
+  line-height: 120.00000762939453%;
 }
 

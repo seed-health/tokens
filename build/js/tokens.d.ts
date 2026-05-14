@@ -2,16 +2,8 @@
  * Do not edit directly, this file was auto-generated.
  */
 
-/** adaptive */
-export const DesktopDisplayLarge: {
-  fontFamily: string;
-  fontSize: string;
-  fontWeight: number;
-  letterSpacing: string;
-  lineHeight: string;
-};
-/** adaptive */
-export const DesktopDisplaySmall: {
+/** fixed */
+export const BodyLgBold: {
   fontFamily: string;
   fontSize: string;
   fontWeight: number;
@@ -19,7 +11,7 @@ export const DesktopDisplaySmall: {
   lineHeight: string;
 };
 /** fixed */
-export const FixedBodyLarge: {
+export const BodyLgReg: {
   fontFamily: string;
   fontSize: string;
   fontWeight: number;
@@ -27,7 +19,7 @@ export const FixedBodyLarge: {
   lineHeight: string;
 };
 /** fixed */
-export const FixedBodyMedium: {
+export const BodyMedBold: {
   fontFamily: string;
   fontSize: string;
   fontWeight: number;
@@ -35,7 +27,7 @@ export const FixedBodyMedium: {
   lineHeight: string;
 };
 /** fixed */
-export const FixedBodySmall: {
+export const BodyMedReg: {
   fontFamily: string;
   fontSize: string;
   fontWeight: number;
@@ -43,7 +35,7 @@ export const FixedBodySmall: {
   lineHeight: string;
 };
 /** fixed */
-export const FixedBodyXLarge: {
+export const BodySmBold: {
   fontFamily: string;
   fontSize: string;
   fontWeight: number;
@@ -51,7 +43,39 @@ export const FixedBodyXLarge: {
   lineHeight: string;
 };
 /** fixed */
-export const FixedBodyXSmall: {
+export const BodySmReg: {
+  fontFamily: string;
+  fontSize: string;
+  fontWeight: number;
+  letterSpacing: string;
+  lineHeight: string;
+};
+/** fixed */
+export const BodyXlBold: {
+  fontFamily: string;
+  fontSize: string;
+  fontWeight: number;
+  letterSpacing: string;
+  lineHeight: string;
+};
+/** fixed */
+export const BodyXlReg: {
+  fontFamily: string;
+  fontSize: string;
+  fontWeight: number;
+  letterSpacing: string;
+  lineHeight: string;
+};
+/** fixed */
+export const BodyXsBold: {
+  fontFamily: string;
+  fontSize: string;
+  fontWeight: number;
+  letterSpacing: string;
+  lineHeight: string;
+};
+/** fixed */
+export const BodyXsReg: {
   fontFamily: string;
   fontSize: string;
   fontWeight: number;
@@ -59,7 +83,47 @@ export const FixedBodyXSmall: {
   lineHeight: string;
 };
 /** legal only, not AA compliant */
-export const FixedBodyXxSmall: {
+export const BodyXxsReg: {
+  fontFamily: string;
+  fontSize: string;
+  fontWeight: number;
+  letterSpacing: string;
+  lineHeight: string;
+};
+/** adaptive */
+export const DisplayLgReg: {
+  fontFamily: string;
+  fontSize: string;
+  fontWeight: number;
+  letterSpacing: string;
+  lineHeight: string;
+};
+/** adaptive */
+export const DisplayLgMobileReg: {
+  fontFamily: string;
+  fontSize: string;
+  fontWeight: number;
+  letterSpacing: string;
+  lineHeight: string;
+};
+/** adaptive */
+export const DisplayMedReg: {
+  fontFamily: string;
+  fontSize: string;
+  fontWeight: number;
+  letterSpacing: string;
+  lineHeight: string;
+};
+/** adaptive */
+export const DisplaySmReg: {
+  fontFamily: string;
+  fontSize: string;
+  fontWeight: number;
+  letterSpacing: string;
+  lineHeight: string;
+};
+/** adaptive */
+export const DisplaySmMobileReg: {
   fontFamily: string;
   fontSize: string;
   fontWeight: number;
@@ -67,79 +131,7 @@ export const FixedBodyXxSmall: {
   lineHeight: string;
 };
 /** fixed */
-export const FixedEyebrow: {
-  fontFamily: string;
-  fontSize: string;
-  fontWeight: number;
-  letterSpacing: string;
-  lineHeight: string;
-};
-/** fixed */
-export const FixedLabelLarge: {
-  fontFamily: string;
-  fontSize: string;
-  fontWeight: number;
-  letterSpacing: string;
-  lineHeight: string;
-};
-/** fixed */
-export const FixedLabelMedium: {
-  fontFamily: string;
-  fontSize: string;
-  fontWeight: number;
-  letterSpacing: string;
-  lineHeight: string;
-};
-/** fixed */
-export const FixedLabelSmall: {
-  fontFamily: string;
-  fontSize: string;
-  fontWeight: number;
-  letterSpacing: string;
-  lineHeight: string;
-};
-/** fixed */
-export const FixedLabelXLarge: {
-  fontFamily: string;
-  fontSize: string;
-  fontWeight: number;
-  letterSpacing: string;
-  lineHeight: string;
-};
-/** fixed */
-export const FixedLabelXSmall: {
-  fontFamily: string;
-  fontSize: string;
-  fontWeight: number;
-  letterSpacing: string;
-  lineHeight: string;
-};
-/** fixed */
-export const FixedMonoLarge: {
-  fontFamily: string;
-  fontSize: string;
-  fontWeight: number;
-  letterSpacing: string;
-  lineHeight: string;
-};
-/** fixed */
-export const FixedMonoSmall: {
-  fontFamily: string;
-  fontSize: string;
-  fontWeight: number;
-  letterSpacing: string;
-  lineHeight: string;
-};
-/** fixed */
-export const FixedTitleLarge: {
-  fontFamily: string;
-  fontSize: string;
-  fontWeight: number;
-  letterSpacing: string;
-  lineHeight: string;
-};
-/** fixed */
-export const FixedTitleSmall: {
+export const EyebrowXsBold: {
   fontFamily: string;
   fontSize: string;
   fontWeight: number;
@@ -148,16 +140,16 @@ export const FixedTitleSmall: {
 };
 export const FrostedGlassLight: "blur(38px)";
 export const FrostedGlassStrong: "blur(75px)";
-/** adaptive */
-export const MobileDisplayLarge: {
+/** fixed */
+export const MonoLgReg: {
   fontFamily: string;
   fontSize: string;
   fontWeight: number;
   letterSpacing: string;
   lineHeight: string;
 };
-/** adaptive */
-export const MobileDisplaySmall: {
+/** fixed */
+export const MonoSmReg: {
   fontFamily: string;
   fontSize: string;
   fontWeight: number;
@@ -187,6 +179,22 @@ export const SubtleShadow: {
   blur: string;
   spread: string;
   color: string;
+};
+/** fixed */
+export const TitleLgReg: {
+  fontFamily: string;
+  fontSize: string;
+  fontWeight: number;
+  letterSpacing: string;
+  lineHeight: string;
+};
+/** fixed */
+export const TitleSmReg: {
+  fontFamily: string;
+  fontSize: string;
+  fontWeight: number;
+  letterSpacing: string;
+  lineHeight: string;
 };
 export const ActionsBright: "#ffffff";
 export const ActionsInverse: "#fcfcf7";
@@ -252,24 +260,6 @@ export const ColumnCompact: "12px";
 export const ColumnDefault: "4px";
 export const ColumnMedium: "8px";
 export const Disabled: number;
-export const ExtendedPaletteArterialRed: "#731418";
-export const ExtendedPaletteArterialRedLight: "#eedac2";
-export const ExtendedPaletteAsparagusGreen: "#d0d9b9";
-export const ExtendedPaletteDuckGreen: "#466b22";
-export const ExtendedPaletteEmeraldGreen: "#97b578";
-export const ExtendedPaletteGrassGreen: "#86996d";
-export const ExtendedPaletteIndigoBlue: "#4d628d";
-export const ExtendedPaletteIndigoBlueLight: "#cdd6d1";
-export const ExtendedPaletteOilGreen: "#ad9f61";
-export const ExtendedPaletteOliveGreen: "#61735e";
-export const ExtendedPalettePistachioGreen: "#829249";
-export const ExtendedPaletteReddishOrange: "#be6140";
-export const ExtendedPaletteReddishOrangeLight: "#f7ddaa";
-export const ExtendedPaletteScarletRed: "#ef4800";
-export const ExtendedPaletteSiskinGreen: "#d7e090";
-export const ExtendedPaletteUmberBrown: "#533b3b";
-export const ExtendedPaletteUmberBrownLight: "#bb797a";
-export const ExtendedPaletteVerdigrisGreen: "#71aa89";
 export const FillBrand: "#1c3a13";
 export const FillBrandSubtle: "#3d5b34";
 export const FillBright: "#ffffff";
@@ -328,24 +318,22 @@ export const OutlinePrimary10: "#1c3a131a";
 export const PageGridColumn: "8px";
 export const PageGridGutter: "16px";
 export const PageGridMargin: "16px";
-export const ProductsAm02Dark: "#797648";
+export const ProductsAm02Dark: "#9f995b";
 export const ProductsAm02Highlight: "#fff593";
 export const ProductsAm02Light: "#faf7d3";
-export const ProductsAm02Medium: "#9f995b";
 export const ProductsAm02Primary: "#eae081";
-export const ProductsAm02Secondary: "#f2ecae";
-export const ProductsDm02Dark: "#6e7951";
+export const ProductsDm02Dark: "#757c5d";
 export const ProductsDm02Highlight: "#dcf194";
 export const ProductsDm02Light: "#ecf2d7";
-export const ProductsDm02Medium: "#757c5d";
 export const ProductsDm02Primary: "#b7c194";
-export const ProductsDm02Secondary: "#dee3ca";
-export const ProductsPm02Dark: "#4e6b5c";
+export const ProductsDvs01Dark: "#6a4540";
+export const ProductsDvs01Highlight: "#e7938e";
+export const ProductsDvs01Light: "#e0cdca";
+export const ProductsDvs01Primary: "#844b4a";
+export const ProductsPm02Dark: "#698e79";
 export const ProductsPm02Highlight: "#c9f3db";
 export const ProductsPm02Light: "#ebf5ef";
-export const ProductsPm02Medium: "#698e79";
 export const ProductsPm02Primary: "#b0d1be";
-export const ProductsPm02Secondary: "#d2e6da";
 export const RadiusFull: "1000px";
 export const RadiusLg: "24px";
 export const RadiusMd: "16px";

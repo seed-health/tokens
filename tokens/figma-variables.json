@@ -2,7 +2,7 @@
   "$metadata": {
     "figmaFileKeys": "TWb3Fxsi76DlpJIFBD5CEG",
     "format": "W3C DTCG",
-    "generated": "2026-05-07T11:31:15.967Z",
+    "generated": "2026-05-14T17:58:56.722Z",
     "source": "Figma Variables API",
     "version": "1.0.0"
   },
@@ -292,80 +292,6 @@
   "disabled": {
     "$type": "number",
     "$value": "{opacity.40}"
-  },
-  "extended palette": {
-    "arterial red": {
-      "$type": "color",
-      "$value": "#731418"
-    },
-    "arterial red light": {
-      "$type": "color",
-      "$value": "#eedac2"
-    },
-    "asparagus green": {
-      "$type": "color",
-      "$value": "#d0d9b9"
-    },
-    "duck green": {
-      "$type": "color",
-      "$value": "#466b22"
-    },
-    "emerald green": {
-      "$type": "color",
-      "$value": "#97b578"
-    },
-    "grass green": {
-      "$type": "color",
-      "$value": "#86996d"
-    },
-    "indigo blue": {
-      "$type": "color",
-      "$value": "#4d628d"
-    },
-    "indigo blue light": {
-      "$type": "color",
-      "$value": "#cdd6d1"
-    },
-    "oil green": {
-      "$type": "color",
-      "$value": "#ad9f61"
-    },
-    "olive green": {
-      "$type": "color",
-      "$value": "#61735e"
-    },
-    "pistachio green": {
-      "$type": "color",
-      "$value": "#829249"
-    },
-    "reddish orange": {
-      "$type": "color",
-      "$value": "#be6140"
-    },
-    "reddish orange light": {
-      "$type": "color",
-      "$value": "#f7ddaa"
-    },
-    "scarlet red": {
-      "$type": "color",
-      "$value": "#ef4800"
-    },
-    "siskin green": {
-      "$type": "color",
-      "$value": "#d7e090"
-    },
-    "umber brown": {
-      "$type": "color",
-      "$value": "#533b3b"
-    },
-    "umber brown light": {
-      "$type": "color",
-      "$value": "#bb797a"
-    },
-    "verdigris green": {
-      "$type": "color",
-      "$value": "#71aa89"
-    }
   },
   "fill": {
     "brand": {
@@ -685,7 +611,7 @@
     "AM-02": {
       "dark": {
         "$type": "color",
-        "$value": "#797648"
+        "$value": "#9f995b"
       },
       "highlight": {
         "$type": "color",
@@ -695,23 +621,15 @@
         "$type": "color",
         "$value": "#faf7d3"
       },
-      "medium": {
-        "$type": "color",
-        "$value": "#9f995b"
-      },
       "primary": {
         "$type": "color",
         "$value": "#eae081"
-      },
-      "secondary": {
-        "$type": "color",
-        "$value": "#f2ecae"
       }
     },
     "DM-02": {
       "dark": {
         "$type": "color",
-        "$value": "#6e7951"
+        "$value": "#757c5d"
       },
       "highlight": {
         "$type": "color",
@@ -721,23 +639,33 @@
         "$type": "color",
         "$value": "#ecf2d7"
       },
-      "medium": {
-        "$type": "color",
-        "$value": "#757c5d"
-      },
       "primary": {
         "$type": "color",
         "$value": "#b7c194"
-      },
-      "secondary": {
+      }
+    },
+    "DVS-01": {
+      "dark": {
         "$type": "color",
-        "$value": "#dee3ca"
+        "$value": "#6a4540"
+      },
+      "highlight": {
+        "$type": "color",
+        "$value": "#e7938e"
+      },
+      "light": {
+        "$type": "color",
+        "$value": "#e0cdca"
+      },
+      "primary": {
+        "$type": "color",
+        "$value": "#844b4a"
       }
     },
     "PM-02": {
       "dark": {
         "$type": "color",
-        "$value": "#4e6b5c"
+        "$value": "#698e79"
       },
       "highlight": {
         "$type": "color",
@@ -747,17 +675,9 @@
         "$type": "color",
         "$value": "#ebf5ef"
       },
-      "medium": {
-        "$type": "color",
-        "$value": "#698e79"
-      },
       "primary": {
         "$type": "color",
         "$value": "#b0d1be"
-      },
-      "secondary": {
-        "$type": "color",
-        "$value": "#d2e6da"
       }
     }
   },

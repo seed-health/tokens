@@ -68,24 +68,6 @@ export const GlobalTokenStyles = createGlobalStyle`
   --color-primary-snow-white-70: rgba(252, 252, 247, 0.7);
   --color-primary-soft-green: #3d5b34;
   --color-primary-white: #ffffff;
-  --extended-palette-arterial-red: #731418;
-  --extended-palette-arterial-red-light: #eedac2;
-  --extended-palette-asparagus-green: #d0d9b9;
-  --extended-palette-duck-green: #466b22;
-  --extended-palette-emerald-green: #97b578;
-  --extended-palette-grass-green: #86996d;
-  --extended-palette-indigo-blue: #4d628d;
-  --extended-palette-indigo-blue-light: #cdd6d1;
-  --extended-palette-oil-green: #ad9f61;
-  --extended-palette-olive-green: #61735e;
-  --extended-palette-pistachio-green: #829249;
-  --extended-palette-reddish-orange: #be6140;
-  --extended-palette-reddish-orange-light: #f7ddaa;
-  --extended-palette-scarlet-red: #ef4800;
-  --extended-palette-siskin-green: #d7e090;
-  --extended-palette-umber-brown: #533b3b;
-  --extended-palette-umber-brown-light: #bb797a;
-  --extended-palette-verdigris-green: #71aa89;
   --font-family-brand: "Seed Sans";
   --font-family-brand-mono: "Seed Sans Mono";
   --font-size-250: 0.625rem;
@@ -113,24 +95,22 @@ export const GlobalTokenStyles = createGlobalStyle`
   --opacity-90: 0.9;
   --opacity-100: 1;
   --opacity-00: 0;
-  --products-am-02-dark: #797648;
+  --products-am-02-dark: #9f995b;
   --products-am-02-highlight: #fff593;
   --products-am-02-light: #faf7d3;
-  --products-am-02-medium: #9f995b;
   --products-am-02-primary: #eae081;
-  --products-am-02-secondary: #f2ecae;
-  --products-dm-02-dark: #6e7951;
+  --products-dm-02-dark: #757c5d;
   --products-dm-02-highlight: #dcf194;
   --products-dm-02-light: #ecf2d7;
-  --products-dm-02-medium: #757c5d;
   --products-dm-02-primary: #b7c194;
-  --products-dm-02-secondary: #dee3ca;
-  --products-pm-02-dark: #4e6b5c;
+  --products-dvs-01-dark: #6a4540;
+  --products-dvs-01-highlight: #e7938e;
+  --products-dvs-01-light: #e0cdca;
+  --products-dvs-01-primary: #844b4a;
+  --products-pm-02-dark: #698e79;
   --products-pm-02-highlight: #c9f3db;
   --products-pm-02-light: #ebf5ef;
-  --products-pm-02-medium: #698e79;
   --products-pm-02-primary: #b0d1be;
-  --products-pm-02-secondary: #d2e6da;
   --size-100: 0.25rem;
   --size-200: 0.5rem;
   --size-300: 0.75rem;
@@ -240,23 +220,15 @@ export const GlobalTokenStyles = createGlobalStyle`
    * Figma Styles - CSS Classes
    * Source: build/css/styles.css
    */
-.text-desktop-display-large {
+.text-body-lg-bold {
   font-family: "Seed Sans";
-  font-size: 64px;
-  font-weight: 350;
-  letter-spacing: -1.28px;
-  line-height: 110%;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.18px;
+  line-height: 140%;
 }
 
-.text-desktop-display-small {
-  font-family: "Seed Sans";
-  font-size: 48px;
-  font-weight: 350;
-  letter-spacing: -0.96px;
-  line-height: 100%;
-}
-
-.text-fixed-body-large {
+.text-body-lg-reg {
   font-family: "Seed Sans";
   font-size: 18px;
   font-weight: 350;
@@ -264,7 +236,15 @@ export const GlobalTokenStyles = createGlobalStyle`
   line-height: 140%;
 }
 
-.text-fixed-body-medium {
+.text-body-med-bold {
+  font-family: "Seed Sans";
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.16px;
+  line-height: 140%;
+}
+
+.text-body-med-reg {
   font-family: "Seed Sans";
   font-size: 16px;
   font-weight: 350;
@@ -272,7 +252,15 @@ export const GlobalTokenStyles = createGlobalStyle`
   line-height: 140%;
 }
 
-.text-fixed-body-small {
+.text-body-sm-bold {
+  font-family: "Seed Sans";
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.14px;
+  line-height: 140%;
+}
+
+.text-body-sm-reg {
   font-family: "Seed Sans";
   font-size: 14px;
   font-weight: 350;
@@ -280,7 +268,15 @@ export const GlobalTokenStyles = createGlobalStyle`
   line-height: 140%;
 }
 
-.text-fixed-body-x-large {
+.text-body-xl-bold {
+  font-family: "Seed Sans";
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+  line-height: 140%;
+}
+
+.text-body-xl-reg {
   font-family: "Seed Sans";
   font-size: 20px;
   font-weight: 350;
@@ -288,7 +284,15 @@ export const GlobalTokenStyles = createGlobalStyle`
   line-height: 140%;
 }
 
-.text-fixed-body-x-small {
+.text-body-xs-bold {
+  font-family: "Seed Sans";
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: -0.06px;
+  line-height: 140%;
+}
+
+.text-body-xs-reg {
   font-family: "Seed Sans";
   font-size: 12px;
   font-weight: 350;
@@ -296,7 +300,7 @@ export const GlobalTokenStyles = createGlobalStyle`
   line-height: 140%;
 }
 
-.text-fixed-body-xx-small {
+.text-body-xxs-reg {
   font-family: "Seed Sans";
   font-size: 10px;
   font-weight: 350;
@@ -304,84 +308,52 @@ export const GlobalTokenStyles = createGlobalStyle`
   line-height: 140%;
 }
 
-.text-fixed-eyebrow {
+.text-display-lg-reg {
+  font-family: "Seed Sans";
+  font-size: 64px;
+  font-weight: 350;
+  letter-spacing: -1.28px;
+  line-height: 110%;
+}
+
+.text-display-lg-mobile-reg {
+  font-family: "Seed Sans";
+  font-size: 48px;
+  font-weight: 350;
+  letter-spacing: -0.96px;
+  line-height: 110%;
+}
+
+.text-display-med-reg {
+  font-family: "Seed Sans";
+  font-size: 48px;
+  font-weight: 350;
+  letter-spacing: -0.96px;
+  line-height: 100%;
+}
+
+.text-display-sm-reg {
+  font-family: "Seed Sans";
+  font-size: 40px;
+  font-weight: 350;
+  letter-spacing: -0.8px;
+  line-height: 110%;
+}
+
+.text-display-sm-mobile-reg {
+  font-family: "Seed Sans";
+  font-size: 40px;
+  font-weight: 350;
+  letter-spacing: -0.8px;
+  line-height: 110%;
+}
+
+.text-eyebrow-xs-bold {
   font-family: "Seed Sans";
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.24px;
   line-height: 110%;
-}
-
-.text-fixed-label-large {
-  font-family: "Seed Sans";
-  font-size: 18px;
-  font-weight: 500;
-  letter-spacing: -0.18px;
-  line-height: 140%;
-}
-
-.text-fixed-label-medium {
-  font-family: "Seed Sans";
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: -0.16px;
-  line-height: 140%;
-}
-
-.text-fixed-label-small {
-  font-family: "Seed Sans";
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: -0.14px;
-  line-height: 140%;
-}
-
-.text-fixed-label-x-large {
-  font-family: "Seed Sans";
-  font-size: 20px;
-  font-weight: 500;
-  letter-spacing: -0.2px;
-  line-height: 140%;
-}
-
-.text-fixed-label-x-small {
-  font-family: "Seed Sans";
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: -0.06px;
-  line-height: 140%;
-}
-
-.text-fixed-mono-large {
-  font-family: "Seed Sans Mono";
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: 0px;
-  line-height: 110%;
-}
-
-.text-fixed-mono-small {
-  font-family: "Seed Sans Mono";
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0px;
-  line-height: 110%;
-}
-
-.text-fixed-title-large {
-  font-family: "Seed Sans";
-  font-size: 32px;
-  font-weight: 350;
-  letter-spacing: -0.64px;
-  line-height: 110%;
-}
-
-.text-fixed-title-small {
-  font-family: "Seed Sans";
-  font-size: 24px;
-  font-weight: 350;
-  letter-spacing: -0.36px;
-  line-height: 120.00000762939453%;
 }
 
 .effect-frosted-glass-light {
@@ -394,24 +366,40 @@ export const GlobalTokenStyles = createGlobalStyle`
   -webkit-backdrop-filter: blur(75px);
 }
 
-.text-mobile-display-large {
-  font-family: "Seed Sans";
-  font-size: 48px;
-  font-weight: 350;
-  letter-spacing: -0.96px;
+.text-mono-lg-reg {
+  font-family: "Seed Sans Mono";
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0px;
   line-height: 110%;
 }
 
-.text-mobile-display-small {
-  font-family: "Seed Sans";
-  font-size: 40px;
-  font-weight: 350;
-  letter-spacing: -0.8px;
+.text-mono-sm-reg {
+  font-family: "Seed Sans Mono";
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0px;
   line-height: 110%;
 }
 
 .shadow-subtle-shadow {
   box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.07999999821186066);
+}
+
+.text-title-lg-reg {
+  font-family: "Seed Sans";
+  font-size: 32px;
+  font-weight: 350;
+  letter-spacing: -0.64px;
+  line-height: 110%;
+}
+
+.text-title-sm-reg {
+  font-family: "Seed Sans";
+  font-size: 24px;
+  font-weight: 350;
+  letter-spacing: -0.36px;
+  line-height: 120.00000762939453%;
 }
 
 
