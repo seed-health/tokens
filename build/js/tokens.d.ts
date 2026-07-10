@@ -138,8 +138,8 @@ export const EyebrowXsBold: {
   letterSpacing: string;
   lineHeight: string;
 };
-export const FrostedGlassLight: "blur(38px)";
-export const FrostedGlassStrong: "blur(75px)";
+export const FrostedGlassLight: "blur(19px)";
+export const FrostedGlassStrong: "blur(37.5px)";
 /** fixed */
 export const MonoLgReg: {
   fontFamily: string;
@@ -283,9 +283,6 @@ export const FontSize800: "32px";
 export const FontSize1000: "40px";
 export const FontSize1200: "48px";
 export const FontSize1600: "64px";
-export const FontWeight300: "light";
-export const FontWeight400: "regular";
-export const FontWeight500: "medium";
 export const GuidancePrimary: "#d3fa99";
 export const GuidanceSecondary: "#e9f0ca";
 export const GutterLarge: "24px";

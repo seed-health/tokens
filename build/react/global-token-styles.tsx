@@ -81,9 +81,6 @@ export const GlobalTokenStyles = createGlobalStyle`
   --font-size-1000: 2.5rem;
   --font-size-1200: 3rem;
   --font-size-1600: 4rem;
-  --font-weight-300: "light";
-  --font-weight-400: "regular";
-  --font-weight-500: "medium";
   --opacity-10: 0.1;
   --opacity-20: 0.2;
   --opacity-30: 0.3;
@@ -357,13 +354,13 @@ export const GlobalTokenStyles = createGlobalStyle`
 }
 
 .effect-frosted-glass-light {
-  backdrop-filter: blur(38px);
-  -webkit-backdrop-filter: blur(38px);
+  backdrop-filter: blur(19px);
+  -webkit-backdrop-filter: blur(19px);
 }
 
 .effect-frosted-glass-strong {
-  backdrop-filter: blur(75px);
-  -webkit-backdrop-filter: blur(75px);
+  backdrop-filter: blur(37.5px);
+  -webkit-backdrop-filter: blur(37.5px);
 }
 
 .text-mono-lg-reg {

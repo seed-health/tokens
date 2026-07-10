@@ -21,7 +21,7 @@ StyleDictionary.registerFormat({
 
       if (token.$type === 'typography') {
         const className = `.text-${sanitizedPath.join('-')}`;
-        const value = token.original.$value; // Use original value before transforms
+        const value = token.$value;
 
         css += `${className} {\n`;
         if (value.fontFamily) css += `  font-family: "${value.fontFamily}";\n`;
@@ -33,18 +33,14 @@ StyleDictionary.registerFormat({
       } else if (token.$type === 'blur') {
         const className = `.effect-${sanitizedPath.join('-')}`;
         css += `${className} {\n`;
-        css += `  backdrop-filter: ${token.original.$value};\n`;
-        css += `  -webkit-backdrop-filter: ${token.original.$value};\n`;
+        css += `  backdrop-filter: ${token.$value};\n`;
+        css += `  -webkit-backdrop-filter: ${token.$value};\n`;
         css += '}\n\n';
       } else if (token.$type === 'shadow') {
+        // Requires the shadow/css/shorthand transform in this platform's transforms
         const className = `.shadow-${sanitizedPath.join('-')}`;
-        const value = token.original.$value;
-        // Convert shadow object to CSS box-shadow string
-        const boxShadow = value != null && typeof value === 'object' && ('offsetX' in value)
-          ? `${value.offsetX} ${value.offsetY} ${value.blur}${value.spread ? ' ' + value.spread : ''} ${value.color}`
-          : value;
         css += `${className} {\n`;
-        css += `  box-shadow: ${boxShadow};\n`;
+        css += `  box-shadow: ${token.$value};\n`;
         css += '}\n\n';
       }
     });
@@ -72,7 +68,7 @@ StyleDictionary.registerFormat({
 
       if (token.$type === 'typography') {
         const mixinName = `text-${sanitizedPath.join('-')}`;
-        const value = token.original.$value;
+        const value = token.$value;
 
         scss += `@mixin ${mixinName} {\n`;
         if (value.fontFamily) scss += `  font-family: "${value.fontFamily}";\n`;
@@ -84,18 +80,14 @@ StyleDictionary.registerFormat({
       } else if (token.$type === 'blur') {
         const mixinName = `effect-${sanitizedPath.join('-')}`;
         scss += `@mixin ${mixinName} {\n`;
-        scss += `  backdrop-filter: ${token.original.$value};\n`;
-        scss += `  -webkit-backdrop-filter: ${token.original.$value};\n`;
+        scss += `  backdrop-filter: ${token.$value};\n`;
+        scss += `  -webkit-backdrop-filter: ${token.$value};\n`;
         scss += '}\n\n';
       } else if (token.$type === 'shadow') {
+        // Requires the shadow/css/shorthand transform in this platform's transforms
         const mixinName = `shadow-${sanitizedPath.join('-')}`;
-        const value = token.original.$value;
-        // Convert shadow object to CSS box-shadow string
-        const boxShadow = value != null && typeof value === 'object' && ('offsetX' in value)
-          ? `${value.offsetX} ${value.offsetY} ${value.blur}${value.spread ? ' ' + value.spread : ''} ${value.color}`
-          : value;
         scss += `@mixin ${mixinName} {\n`;
-        scss += `  box-shadow: ${boxShadow};\n`;
+        scss += `  box-shadow: ${token.$value};\n`;
         scss += '}\n\n';
       }
     });
@@ -112,6 +104,25 @@ StyleDictionary.registerTransform({
   type: 'value',
   filter: (token) => token.$type === 'string',
   transform: (token) => `"${token.$value.replace(/"/g, '\\"')}"`
+});
+
+/**
+ * Convert a raw Figma background-blur radius to its CSS equivalent.
+ * Figma renders background blur at half the radius it stores, so the CSS
+ * value is radius / 2 (e.g. Figma 38 → blur(19px)). $type "blur" is only
+ * emitted for BACKGROUND_BLUR effects (see scripts/fetch-figma-styles.js).
+ */
+StyleDictionary.registerTransform({
+  name: 'blur/figma-to-css',
+  type: 'value',
+  filter: (token) => token.$type === 'blur',
+  transform: (token) => {
+    const match = /^blur\((\d*\.?\d+)px\)$/.exec(token.$value);
+    if (!match) {
+      throw new Error(`Unexpected blur value "${token.$value}" for ${token.path.join('.')}`);
+    }
+    return `blur(${Number(match[1]) / 2}px)`;
+  }
 });
 
 /**
@@ -132,6 +143,15 @@ function isValidToken(token) {
       // Silently skip (these are duplicates of semantic tokens)
       return false;
     }
+  }
+
+  // Exclude string font-weight variables ("light"/"regular"/"medium").
+  // Their numeric weight is font-family-dependent in Figma (e.g. "regular"
+  // resolves to 350 on Seed Sans but 400 on Seed Sans Mono), so no static
+  // value is correct — and a quoted string is invalid CSS for font-weight.
+  // Typography styles carry each style's resolved numeric weight instead.
+  if (token.$type === 'string' && token.path[0] === 'font' && token.path[1] === 'weight') {
+    return false;
   }
 
   return true;
@@ -219,7 +239,7 @@ export default {
     // CSS Custom Properties (for CSS Modules, global styles, CSS-in-JS)
     css: {
       // Using explicit transforms instead of transformGroup to include size/pxToRem
-      transforms: ['attribute/cti', 'name/kebab', 'time/seconds', 'size/pxToRem', 'color/css', 'value/quote-strings'],
+      transforms: ['attribute/cti', 'name/kebab', 'time/seconds', 'size/pxToRem', 'color/css', 'value/quote-strings', 'blur/figma-to-css', 'shadow/css/shorthand'],
       buildPath: 'build/css/',
       files: [
         {
@@ -228,7 +248,7 @@ export default {
           // Only include primitive tokens (color, dimension, string, etc.)
           filter: (token) => {
             if (!isValidToken(token)) return false;
-            return !['typography', 'shadow', 'blur', 'effect', 'grid'].includes(token.$type);
+            return !['typography', 'shadow', 'blur', 'grid'].includes(token.$type);
           },
           options: {
             outputReferences: true,
@@ -241,7 +261,7 @@ export default {
           // Only include style tokens (typography, effects, grids)
           filter: (token) => {
             if (!isValidToken(token)) return false;
-            return ['typography', 'shadow', 'blur', 'effect', 'grid'].includes(token.$type);
+            return ['typography', 'shadow', 'blur', 'grid'].includes(token.$type);
           }
         }
       ]
@@ -250,6 +270,7 @@ export default {
     // JavaScript ES6 Module (for importing in React components)
     js: {
       transformGroup: 'js',
+      transforms: ['blur/figma-to-css'],
       buildPath: 'build/js/',
       files: [
         {
@@ -274,6 +295,7 @@ export default {
     // TypeScript Definitions (for type-safe React/TypeScript projects)
     ts: {
       transformGroup: 'js',
+      transforms: ['blur/figma-to-css'],
       buildPath: 'build/js/',
       files: [
         {
@@ -290,6 +312,7 @@ export default {
     // JSON formats (for programmatic access in React)
     json: {
       transformGroup: 'js',  // Use standard transforms for values
+      transforms: ['blur/figma-to-css'],
       buildPath: 'build/json/',
       files: [
         {
@@ -308,7 +331,7 @@ export default {
     // SCSS Variables (for Sass/SCSS projects)
     scss: {
       // Using explicit transforms instead of transformGroup to include size/pxToRem
-      transforms: ['attribute/cti', 'name/kebab', 'time/seconds', 'size/pxToRem', 'color/css', 'value/quote-strings'],
+      transforms: ['attribute/cti', 'name/kebab', 'time/seconds', 'size/pxToRem', 'color/css', 'value/quote-strings', 'blur/figma-to-css', 'shadow/css/shorthand'],
       buildPath: 'build/scss/',
       files: [
         {
@@ -316,7 +339,7 @@ export default {
           format: 'scss/variables',
           filter: (token) => {
             if (!isValidToken(token)) return false;
-            return !['typography', 'shadow', 'blur', 'effect', 'grid'].includes(token.$type);
+            return !['typography', 'shadow', 'blur', 'grid'].includes(token.$type);
           },
           options: {
             outputReferences: true,
@@ -328,7 +351,7 @@ export default {
           format: 'scss/style-mixins',
           filter: (token) => {
             if (!isValidToken(token)) return false;
-            return ['typography', 'shadow', 'blur', 'effect', 'grid'].includes(token.$type);
+            return ['typography', 'shadow', 'blur', 'grid'].includes(token.$type);
           }
         }
       ]

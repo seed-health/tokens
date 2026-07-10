@@ -140,13 +140,13 @@
 }
 
 .effect-frosted-glass-light {
-  backdrop-filter: blur(38px);
-  -webkit-backdrop-filter: blur(38px);
+  backdrop-filter: blur(19px);
+  -webkit-backdrop-filter: blur(19px);
 }
 
 .effect-frosted-glass-strong {
-  backdrop-filter: blur(75px);
-  -webkit-backdrop-filter: blur(75px);
+  backdrop-filter: blur(37.5px);
+  -webkit-backdrop-filter: blur(37.5px);
 }
 
 .text-mono-lg-reg {

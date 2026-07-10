@@ -3,7 +3,7 @@
 require('dotenv').config();
 const axios = require('axios');
 const path = require('path');
-const { setNestedValue, generateTokenStats, saveTokensToFile } = require('./utils');
+const { setNestedValue, generateTokenStats, describeRequestError, saveTokensToFile } = require('./utils');
 
 // Configuration
 const FIGMA_TOKEN = process.env.FIGMA_TOKEN;
@@ -31,7 +31,7 @@ async function fetchFigmaFile(fileKey) {
     console.log(`   ✅ Fetched: ${fileKey}`);
     return response.data;
   } catch (error) {
-    console.error(`   ❌ Error fetching ${fileKey}:`, error.response?.data || error.message);
+    console.error(`   ❌ Error fetching ${fileKey}:`, describeRequestError(error));
     throw error;
   }
 }
@@ -310,8 +310,8 @@ async function main() {
   console.log('\n✨ Token sync completed successfully!');
 }
 
-// Run the script
+// Log error.message only — the raw error can carry the Figma token header.
 main().catch(error => {
-  console.error('❌ Fatal error:', error);
+  console.error('❌ Fatal error:', error.message);
   process.exit(1);
 });

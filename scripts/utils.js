@@ -237,6 +237,17 @@ function generateTokenStats(tokens, statsConfig) {
 }
 
 /**
+ * Format a request error for logging. Never log the raw error object:
+ * axios errors carry the request config, including the X-Figma-Token header.
+ */
+function describeRequestError(error) {
+  const status = error.response?.status;
+  const data = error.response?.data;
+  const detail = data ? (typeof data === 'string' ? data : JSON.stringify(data)) : error.message;
+  return status ? `HTTP ${status} — ${detail}` : detail;
+}
+
+/**
  * Save tokens to file with deterministic output and optional timestamp preservation
  * @param {string} outputFile - Full path to output file
  * @param {Object} tokens - Tokens object to save
@@ -284,5 +295,6 @@ module.exports = {
   tokensEqual,
   setNestedValue,
   generateTokenStats,
+  describeRequestError,
   saveTokensToFile
 };

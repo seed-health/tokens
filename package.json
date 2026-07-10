@@ -27,7 +27,7 @@
     "sync": "npm run fetch-all && npm run build-tokens",
     "validate": "tz check",
     "validate:build": "npm run build-tokens",
-    "test": "npm run validate && npm run validate:build",
+    "test": "npm run validate && npm run validate:build && node --test",
     "diff": "node scripts/diff-tokens.js",
     "prepublishOnly": "npm run build-tokens"
   },

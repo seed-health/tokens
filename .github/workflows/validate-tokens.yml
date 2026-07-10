@@ -7,6 +7,7 @@ on:
     paths:
       - 'tokens/**'
       - 'scripts/**'
+      - 'test/**'
       - 'style-dictionary.config.mjs'
       - 'terrazzo.config.mjs'
       - 'package.json'
@@ -54,6 +55,9 @@ jobs:
         run: |
           npm run build-tokens
         continue-on-error: true
+
+      - name: Run token tests
+        run: node --test
 
       - name: Check for changes in build output
         id: check-changes

@@ -3,7 +3,7 @@
 require('dotenv').config();
 const axios = require('axios');
 const path = require('path');
-const { setNestedValue, generateTokenStats, saveTokensToFile } = require('./utils');
+const { setNestedValue, generateTokenStats, describeRequestError, saveTokensToFile } = require('./utils');
 
 // Configuration
 const FIGMA_TOKEN = process.env.FIGMA_TOKEN;
@@ -27,7 +27,7 @@ async function fetchFigmaStyles(fileKey) {
     console.log(`   ✅ Fetched styles metadata: ${fileKey}`);
     return response.data.meta.styles;
   } catch (error) {
-    console.error(`   ❌ Error fetching styles from ${fileKey}:`, error.response?.data || error.message);
+    console.error(`   ❌ Error fetching styles from ${fileKey}:`, describeRequestError(error));
     throw error;
   }
 }
@@ -49,7 +49,7 @@ async function fetchStyleNodes(fileKey, nodeIds) {
     console.log(`   ✅ Fetched node details for ${nodeIds.length} styles`);
     return response.data.nodes;
   } catch (error) {
-    console.error(`   ❌ Error fetching nodes:`, error.response?.data || error.message);
+    console.error(`   ❌ Error fetching nodes:`, describeRequestError(error));
     throw error;
   }
 }
@@ -105,55 +105,72 @@ function transformTextStyle(node, styleName, description) {
 }
 
 /**
- * Transform effect style to DTCG shadow token
+ * Transform a Figma drop shadow effect to a DTCG shadow value
+ */
+function toShadowValue(effect) {
+  const { r, g, b, a } = effect.color;
+  return {
+    offsetX: `${effect.offset.x}px`,
+    offsetY: `${effect.offset.y}px`,
+    blur: `${effect.radius}px`,
+    spread: `${effect.spread ?? 0}px`,
+    color: `rgba(${Math.round(r * 255)}, ${Math.round(g * 255)}, ${Math.round(b * 255)}, ${a})`
+  };
+}
+
+/**
+ * Describe an effect for error messages, including the variant that made it
+ * unsupported (e.g. BACKGROUND_BLUR(PROGRESSIVE))
+ */
+function describeEffect(effect) {
+  if (effect.type === 'BACKGROUND_BLUR' && effect.blurType && effect.blurType !== 'NORMAL') {
+    return `${effect.type}(${effect.blurType})`;
+  }
+  if (effect.type === 'DROP_SHADOW' && effect.blendMode && effect.blendMode !== 'NORMAL') {
+    return `${effect.type}(${effect.blendMode})`;
+  }
+  return effect.type;
+}
+
+/**
+ * Transform effect style to DTCG blur or shadow token
+ *
+ * $type "blur" is only emitted for a single BACKGROUND_BLUR effect and keeps
+ * the raw Figma radius; Figma renders background blur at half its stored
+ * radius, so the CSS conversion (÷2) happens in the Style Dictionary
+ * transform at build time.
+ *
+ * Only shapes with an exact CSS equivalent are accepted: one uniform
+ * background blur, or normal-blend drop shadows. Anything else (progressive
+ * blurs, blend modes, inner shadows, compound effects) fails the sync
+ * rather than emitting a token that silently drops or flattens effects.
  */
 function transformEffectStyle(node, styleName, description) {
-  const effects = node.document.effects || [];
+  const effects = (node.document.effects || []).filter(e => e.visible !== false);
 
-  // Handle background blur separately
-  const blur = effects.find(e => e.type === 'BACKGROUND_BLUR');
-  if (blur) {
-    const token = {
-      $value: `blur(${blur.radius}px)`,
+  const blurs = effects.filter(e =>
+    e.type === 'BACKGROUND_BLUR' && (e.blurType ?? 'NORMAL') === 'NORMAL');
+  const shadows = effects.filter(e =>
+    e.type === 'DROP_SHADOW' && (e.blendMode ?? 'NORMAL') === 'NORMAL');
+
+  let token;
+  if (blurs.length === 1 && effects.length === 1) {
+    token = {
+      $value: `blur(${blurs[0].radius}px)`,
       $type: 'blur'
     };
-    if (description) {
-      token.$description = description;
-    }
-    return token;
-  }
-
-  // Handle drop shadows
-  const shadows = effects
-    .filter(e => e.type === 'DROP_SHADOW' && e.visible)
-    .map(e => {
-      const color = e.color;
-      const rgba = `rgba(${Math.round(color.r * 255)}, ${Math.round(color.g * 255)}, ${Math.round(color.b * 255)}, ${color.a})`;
-      return {
-        offsetX: `${e.offset.x}px`,
-        offsetY: `${e.offset.y}px`,
-        blur: `${e.radius}px`,
-        spread: '0px',
-        color: rgba
-      };
-    });
-
-  if (shadows.length > 0) {
-    const token = {
-      $value: shadows.length === 1 ? shadows[0] : shadows,
+  } else if (shadows.length > 0 && shadows.length === effects.length) {
+    token = {
+      $value: shadows.length === 1 ? toShadowValue(shadows[0]) : shadows.map(toShadowValue),
       $type: 'shadow'
     };
-    if (description) {
-      token.$description = description;
-    }
-    return token;
+  } else {
+    const shape = effects.length === 0
+      ? 'no visible effects'
+      : effects.map(describeEffect).join(' + ');
+    throw new Error(`Unsupported effect style "${styleName}": ${shape}`);
   }
 
-  // Fallback for other effect types
-  const token = {
-    $value: effects,
-    $type: 'effect'
-  };
   if (description) {
     token.$description = description;
   }
@@ -218,7 +235,11 @@ function transformStylesToDTCG(styles, nodes, fileKeys = []) {
         token = transformTextStyle(node, style.name, style.description);
         break;
       case 'EFFECT':
-        token = transformEffectStyle(node, style.name, style.description);
+        try {
+          token = transformEffectStyle(node, style.name, style.description);
+        } catch (error) {
+          throw new Error(`${error.message} (file ${style.fileKey}, node ${style.node_id})`);
+        }
         break;
       case 'GRID':
         token = transformGridStyle(node, style.name, style.description);
@@ -304,7 +325,7 @@ async function main() {
     formatStats: () => {
       const stats = generateTokenStats(tokens, {
         typography: 'typography',
-        effects: (token) => ['shadow', 'blur', 'effect'].includes(token.$type),
+        effects: (token) => ['shadow', 'blur'].includes(token.$type),
         grids: 'grid'
       });
 
@@ -319,8 +340,13 @@ async function main() {
   console.log('\n✨ Styles sync completed successfully!');
 }
 
-// Run the script
-main().catch(error => {
-  console.error('❌ Fatal error:', error);
-  process.exit(1);
-});
+// Run the script when invoked directly (not when required by tests).
+// Log error.message only — the raw error can carry the Figma token header.
+if (require.main === module) {
+  main().catch(error => {
+    console.error('❌ Fatal error:', error.message);
+    process.exit(1);
+  });
+}
+
+module.exports = { transformTextStyle, transformEffectStyle, transformStylesToDTCG };
