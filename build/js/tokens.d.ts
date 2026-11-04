@@ -157,21 +157,39 @@ export const MonoSmReg: {
   lineHeight: string;
 };
 /** for screens upto 767px */
-export const ScreenGridsFluidGrid: {
-  alignment: string;
-  count: number;
-  gutterSize: string;
-  pattern: string;
-  sectionSize: string;
-}[];
+export const ScreenGridsFluidGrid: [
+  {
+    alignment: string;
+    count: number;
+    gutterSize: string;
+    pattern: string;
+    sectionSize: string;
+  },
+  {
+    alignment: string;
+    count: number;
+    gutterSize: string;
+    pattern: string;
+    sectionSize: string;
+  },
+];
 /** for screens 1440px + */
-export const ScreenGridsStaticGrid: {
-  alignment: string;
-  count: number;
-  gutterSize: string;
-  pattern: string;
-  sectionSize: string;
-}[];
+export const ScreenGridsStaticGrid: [
+  {
+    alignment: string;
+    count: number;
+    gutterSize: string;
+    pattern: string;
+    sectionSize: string;
+  },
+  {
+    alignment: string;
+    count: number;
+    gutterSize: string;
+    pattern: string;
+    sectionSize: string;
+  },
+];
 /** elevation */
 export const SubtleShadow: {
   offsetX: string;
