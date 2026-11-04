@@ -55,13 +55,10 @@
       "optional": true
     }
   },
-  "dependencies": {
-    "promise-retry": "^2.0.1",
-    "style-dictionary": "^4.0.1"
-  },
   "devDependencies": {
     "@terrazzo/cli": "^0.10.3",
     "axios": "^1.6.0",
-    "dotenv": "^16.3.1"
+    "dotenv": "^16.3.1",
+    "style-dictionary": "~5.4.4"
   }
 }
