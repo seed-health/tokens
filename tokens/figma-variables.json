@@ -2,7 +2,7 @@
   "$metadata": {
     "figmaFileKeys": "TWb3Fxsi76DlpJIFBD5CEG",
     "format": "W3C DTCG",
-    "generated": "2026-05-14T17:58:56.722Z",
+    "generated": "2026-11-20T11:02:24.543Z",
     "source": "Figma Variables API",
     "version": "1.0.0"
   },
@@ -647,19 +647,19 @@
     "DVS-01": {
       "dark": {
         "$type": "color",
-        "$value": "#6a4540"
+        "$value": "#8a5e54"
       },
       "highlight": {
         "$type": "color",
-        "$value": "#e7938e"
+        "$value": "#ff8e8a"
       },
       "light": {
         "$type": "color",
-        "$value": "#e0cdca"
+        "$value": "#deb8ab"
       },
       "primary": {
         "$type": "color",
-        "$value": "#844b4a"
+        "$value": "#632626"
       }
     },
     "PM-02": {
